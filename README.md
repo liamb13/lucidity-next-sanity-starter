@@ -1,2 +1,2 @@
-# lucidity-next-sanity-starter
-Next.js + Sanity Starter Template with Tailwind CSS
+# Lucidity
+The Enterprise-Ready Next.js + SanityCMS Starter Template
