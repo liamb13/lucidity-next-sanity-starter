@@ -1,0 +1,30 @@
+{
+  "name": "lucidity-next-sanity-starter",
+  "version": "0.0.1",
+  "private": true,
+  "keywords": [
+    "monorepo",
+    "nextjs",
+    "playwright",
+    "storybook",
+    "sanitycms",
+    "workspace",
+    "packages",
+    "enterprise"
+  ],
+  "description": "The Enterprise-Ready Next.js 14 + SanityCMS Starter Template",
+  "author": {
+    "name": "Jamie Warburton",
+    "url": "https://github.com/jamiewarb"
+  },
+  "license": "LICENSE",
+  "homepage": "https://github.com/hex-digital/lucidity-next-sanity-starter",
+  "repository": "hex-digital/lucidity-next-sanity-starter",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=18.17.0",
+    "pnpm": ">=9.4.0"
+  }
+}
