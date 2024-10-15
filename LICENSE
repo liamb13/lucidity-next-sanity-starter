@@ -1,44 +1,21 @@
-# LICENSE AGREEMENT
+MIT License
 
-Copyright (c) 2024—current Jamie Warburton
+Copyright (c) 2024-current Jamie Warburton
 
-## Shortform
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-If you've paid for a license to use this software, you may:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-✅ Use it to create websites for both personal and commercial purposes.
-✅ Modify the software to suit your needs.
-✅ Continue to use the version of the software you have at time of license termination.
-
-You may not:
-
-⛔️ Distribute, sell, or sublicense the software.
-⛔️ Use any of the code to replicate this product or create a competing product.
-
-## 1. Grant of License
-Subject to your compliance with the terms of this License and payment of applicable fees, Jamie Warburton (the "Licensor") grants you a limited, non-exclusive, non-transferable, non-sublicensable license to access, use, and modify the software ("Software"), for personal or commercial purposes, in line with this license. No attribution is required, but it is appreciated. You may not transfer or assign this License, or any rights or obligations under this License, without prior written consent from the Licensor.
-
-## 2. Restrictions
-You may not:
-- Sell, lease, distribute, or sublicense the Software, or any part of the Software, to any third party.
-- Share access to the Software with anyone who has not paid for a license.
-- Use the Software or any modifications to replicate the functionality of the Software or to create a competing product.
-
-## 3. Term and Termination
-This License shall remain in effect until terminated. Your rights under this License will terminate automatically without notice if you fail to comply with any of the terms and conditions. Upon termination, you may continue to use the version of the software that you have already downloaded, but you will no longer have access to updates or support.
-
-## 4. Payment Terms
-Access to the Software is provided upon payment of applicable fees as outlined on the Licensor's website or sales agreement. Payments are non-refundable. Failure to make timely payments will result in the suspension of access to the Software and may result in the permanent revocation of your license to use the Software.
-
-## 5. Ownership and Intellectual Property
-The Software and all intellectual property rights therein are the exclusive property of the Licensor. This License does not grant you any ownership rights in the Software.
-
-## 6. Limitation of Liability
-The software is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event shall the Licensor, authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the Software or the use or other dealings in the Software. In no event shall the Licensor be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, or goodwill arising out of your use of the Software, even if the Licensor has been advised of the possibility of such damages. The Licensor’s total liability for any claims under this agreement shall not exceed the amount paid by the licensee for the Software.
-
-## 7. No Warranty
-The Software is provided "as is" without warranty of any kind. The Licensor expressly disclaims all warranties, whether express, implied, or statutory, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, title, and non-infringement. The use of the Software is at the licensee’s own risk.
-
-## 8. Governing Law and Jurisdiction
-This License will be governed by and construed in accordance with the laws of The United Kingdom. Any disputes arising under this License will be subject to the exclusive jurisdiction of the courts located in The United Kingdom.
-
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
