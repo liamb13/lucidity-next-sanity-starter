@@ -17,14 +17,28 @@
     "name": "Jamie Warburton",
     "url": "https://github.com/jamiewarb"
   },
-  "license": "LICENSE",
+  "license": "MIT",
   "homepage": "https://github.com/hex-digital/lucidity-next-sanity-starter",
   "repository": "hex-digital/lucidity-next-sanity-starter",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deps:check": "syncpack list-mismatches",
+    "deps:fix": "syncpack fix-mismatches",
+    "deps:format": "syncpack format",
+    "g:test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
   },
   "engines": {
     "node": ">=18.17.0",
     "pnpm": ">=9.4.0"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/cli": "^2.27.9",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@hexdigital/config-commitlint": "^1.0.1",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "syncpack": "^13.0.0"
   }
 }
