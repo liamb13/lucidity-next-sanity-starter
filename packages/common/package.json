@@ -1,0 +1,22 @@
+{
+  "name": "@pkg/common",
+  "version": "0.0.1",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    "./*": "./src/*",
+    "./package.json": "./package.json"
+  },
+  "author": {
+    "name": "Jamie Warburton",
+    "url": "https://github.com/jamiewarb"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/jamiewarb/lucidity-next-sanity-starter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jamiewarb/lucidity-next-sanity-starter",
+    "directory": "packages/common"
+  }
+}

@@ -35,6 +35,15 @@ importers:
 
   apps/sanity:
     dependencies:
+      '@pkg/common':
+        specifier: workspace:*
+        version: link:../../packages/common
+      '@pkg/modular-content-blocks':
+        specifier: workspace:*
+        version: link:../../packages/modular-content-blocks
+      '@pkg/sanity-toolkit':
+        specifier: workspace:*
+        version: link:../../packages/sanity-toolkit
       '@sanity/vision':
         specifier: ^3.60.0
         version: 3.61.0(@babel/runtime@7.25.7)(@codemirror/lint@6.8.2)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.2.3)(codemirror@6.0.1(@lezer/common@1.2.3))(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
@@ -103,6 +112,16 @@ importers:
       typescript:
         specifier: ^5
         version: 5.6.3
+
+  packages/common: {}
+
+  packages/modular-content-blocks: {}
+
+  packages/sanity-toolkit:
+    dependencies:
+      sanity:
+        specifier: ^3.60.0
+        version: 3.61.0(@types/node@22.7.5)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
 
 packages:
 

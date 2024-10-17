@@ -1,0 +1,27 @@
+{
+  "name": "@pkg/sanity-toolkit",
+  "version": "0.0.1",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    "./seo/sanity": "./src/seo/sanity.ts",
+    "./seo/web": "./src/seo/web.ts",
+    "./studio/*": "./src/studio/*",
+    "./package.json": "./package.json"
+  },
+  "author": {
+    "name": "Jamie Warburton",
+    "url": "https://github.com/jamiewarb"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/jamiewarb/lucidity-next-sanity-starter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jamiewarb/lucidity-next-sanity-starter",
+    "directory": "packages/sanity-toolkit"
+  },
+  "peerDependencies": {
+    "sanity": "^3.60.0"
+  }
+}
