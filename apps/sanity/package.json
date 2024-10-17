@@ -1,5 +1,6 @@
 {
   "name": "hex-digital",
+  "type": "module",
   "private": true,
   "version": "1.0.0",
   "main": "package.json",
@@ -15,6 +16,9 @@
     "sanity"
   ],
   "dependencies": {
+    "@pkg/common": "workspace:*",
+    "@pkg/modular-content-blocks": "workspace:*",
+    "@pkg/sanity-toolkit": "workspace:*",
     "@sanity/vision": "^3.60.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
