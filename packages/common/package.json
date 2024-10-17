@@ -5,7 +5,7 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    "./*": "./src/*",
+    "./*": "./*.ts",
     "./package.json": "./package.json"
   },
   "author": {
@@ -18,5 +18,8 @@
     "type": "git",
     "url": "https://github.com/jamiewarb/lucidity-next-sanity-starter",
     "directory": "packages/common"
+  },
+  "scripts": {
+    "typecheck": "tsc --project ./tsconfig.json --noEmit"
   }
 }

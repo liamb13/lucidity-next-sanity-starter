@@ -5,9 +5,9 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    "./seo/sanity": "./src/seo/sanity.ts",
-    "./seo/web": "./src/seo/web.ts",
-    "./studio/*": "./src/studio/*",
+    "./seo/sanity": "./seo/sanity.ts",
+    "./seo/web": "./seo/web.ts",
+    "./studio/*": "./studio/*.ts",
     "./package.json": "./package.json"
   },
   "author": {
@@ -20,6 +20,9 @@
     "type": "git",
     "url": "https://github.com/jamiewarb/lucidity-next-sanity-starter",
     "directory": "packages/sanity-toolkit"
+  },
+  "scripts": {
+    "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "peerDependencies": {
     "sanity": "^3.60.0"
