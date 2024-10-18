@@ -4,12 +4,6 @@
   "private": true,
   "sideEffects": false,
   "type": "module",
-  "exports": {
-    "./seo/sanity": "./seo/sanity.ts",
-    "./seo/web": "./seo/web.ts",
-    "./studio/*": "./studio/*.ts",
-    "./package.json": "./package.json"
-  },
   "author": {
     "name": "Jamie Warburton",
     "url": "https://github.com/jamiewarb"
@@ -25,6 +19,13 @@
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "peerDependencies": {
+    "@sanity/ui": "^2.8.9",
+    "@types/react": "^18",
+    "react": "^18",
+    "react-icons": "^5.3.0",
     "sanity": "^3.60.0"
+  },
+  "dependencies": {
+    "@portabletext/toolkit": "^2.0.15"
   }
 }

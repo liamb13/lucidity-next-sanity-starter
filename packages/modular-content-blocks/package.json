@@ -5,7 +5,7 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    "./*": "./src/*",
+    "./*": "./*.ts",
     "./package.json": "./package.json"
   },
   "author": {
