@@ -1,5 +1,5 @@
 {
-  "name": "@pkg/common",
+  "name": "@pkg/utilities",
   "version": "0.0.1",
   "private": true,
   "sideEffects": false,
@@ -13,9 +13,13 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/jamiewarb/lucidity-next-sanity-starter",
-    "directory": "packages/common"
+    "directory": "packages/utilities"
   },
   "scripts": {
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "nanoid": "^5.0.7",
+    "speakingurl": "^14.0.1"
   }
 }
