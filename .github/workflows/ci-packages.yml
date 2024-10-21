@@ -103,6 +103,6 @@ jobs:
         run: pnpm g:build --filter="./packages/*"
 
       - name: Build storybook 🧐
-        run: yarn turbo build-storybook --filter="./packages/*"
+        run: pnpm g:build-storybook --filter="./packages/*"
         env:
           STORYBOOK_DISABLE_TELEMETRY: 1
