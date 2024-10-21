@@ -6,11 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint && pnpm prettier",
+    "lint:fix": "next lint --fix && pnpm prettier:fix",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write .",
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "dependencies": {
     "next": "14.2.15",
+    "prettier": "^3.0.2",
     "react": "^18",
     "react-dom": "^18"
   },
