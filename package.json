@@ -25,6 +25,7 @@
     "deps:fix": "syncpack fix-mismatches",
     "deps:format": "syncpack format",
     "g:build": "turbo run lint --color",
+    "g:build-storybook": "turbo run build-storybook --color",
     "g:lint": "TIMING=1 turbo run lint --color",
     "g:lint:fix": "turbo run lint:fix --color",
     "g:prettier": "turbo run prettier --color",
