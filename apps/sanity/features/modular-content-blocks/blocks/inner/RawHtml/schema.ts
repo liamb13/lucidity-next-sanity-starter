@@ -34,9 +34,7 @@ export const schema = defineInnerBlock({
     select: {
       content: 'content',
     },
-    prepare({
-      content,
-    }: Preview) {
+    prepare({ content }: Preview) {
       return {
         title: content?.code ? content.code : '[Empty]',
         subtitle: blockName,
