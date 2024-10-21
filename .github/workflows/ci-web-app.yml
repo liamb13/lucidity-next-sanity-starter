@@ -1,3 +1,4 @@
+name: CI Web App
 
 on:
   push:
@@ -61,10 +62,9 @@ jobs:
       - name: Checkout 🛎
         uses: actions/checkout@v4
 
+      # Uses the pnpm version specified in root package.json `packageManager`
       - name: Setup pnpm v9 🦾
         uses: pnpm/action-setup@v4
-        with:
-          version: 9
 
       - name: Setup node v${{ matrix.node }} env 🏗
         uses: actions/setup-node@v4
