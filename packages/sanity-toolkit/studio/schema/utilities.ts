@@ -44,7 +44,6 @@ export function withProps<Fields, Props extends Record<string, unknown>>(
   }));
 }
 
-
 /**
  * Insert a new field or fields into an array of fields after a specified field name.
  * Most commonly used when importing an array of fields from a helper function.

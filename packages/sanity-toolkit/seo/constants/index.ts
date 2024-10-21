@@ -16,4 +16,3 @@ export enum WITH_SITE_TITLE {
   PREPEND = 'prepend',
   OFF = 'off',
 }
-

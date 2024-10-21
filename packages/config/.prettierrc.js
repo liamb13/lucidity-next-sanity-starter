@@ -1,7 +1,5 @@
 // @ts-check
-const {
-  getPrettierConfig,
-} = require("./tooling/helpers");
+const { getPrettierConfig } = require('./tooling/helpers');
 
 /**
  * @type {import('prettier').Config}

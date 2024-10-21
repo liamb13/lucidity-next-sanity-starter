@@ -12,7 +12,6 @@ const blockIcon = FaCode;
 export const schema = defineInnerBlock({
   title: blockName,
   name: OBJECT.MODULAR_INNER_BLOCK_RAW_HTML,
-  type: 'object',
   icon: blockIcon,
   fields: [
     ...withFieldset(BLOCK_FIELDSETS.META, [defineAnchorIdField({ type: 'content' })]),
@@ -25,19 +24,19 @@ export const schema = defineInnerBlock({
         language: 'html',
         languageAlternatives: [{ title: 'HTML', value: 'html' }],
       },
-      validation: (rule) => rule.required().warning('RawHtml inner block is empty—you should add content or remove it'),
+      validation: (rule) =>
+        rule
+          .required()
+          .warning('RawHtml inner block is empty—you should add content or remove it'),
     }),
   ],
   preview: {
     select: {
       content: 'content',
     },
-    prepare({ content }: {
-      content?: {
-        _type: 'code';
-        code?: string;
-      }
-    }) {
+    prepare({
+      content,
+    }: Preview) {
       return {
         title: content?.code ? content.code : '[Empty]',
         subtitle: blockName,
@@ -46,3 +45,10 @@ export const schema = defineInnerBlock({
     },
   },
 });
+
+interface Preview {
+  content?: {
+    _type: 'code';
+    code?: string;
+  };
+}

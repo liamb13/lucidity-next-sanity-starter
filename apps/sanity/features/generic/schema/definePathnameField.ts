@@ -1,9 +1,4 @@
-import {
-  defineField,
-  FieldDefinition,
-  SlugOptions,
-  SlugValidationContext
-} from 'sanity';
+import { defineField, FieldDefinition, SlugOptions, SlugValidationContext } from 'sanity';
 import { type PathnameParams } from '../types';
 
 export function definePathnameField(schema: PathnameParams = {}) {
@@ -16,9 +11,8 @@ export function definePathnameField(schema: PathnameParams = {}) {
   });
 }
 
-
 function definePathname(
-  schema: { name?: string; title?: string; options?: SlugOptions } = {}
+  schema: { name?: string; title?: string; options?: SlugOptions } = {},
 ): FieldDefinition<'slug'> {
   return defineField({
     ...schema,
@@ -32,10 +26,7 @@ function definePathname(
   });
 }
 
-async function isUnique(
-  slug: string,
-  context: SlugValidationContext
-): Promise<boolean> {
+async function isUnique(slug: string, context: SlugValidationContext): Promise<boolean> {
   const { document, getClient } = context;
   const client = getClient({ apiVersion: '2023-06-21' });
   const id = document?._id.replace(/^drafts\./, '');

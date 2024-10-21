@@ -1,12 +1,20 @@
 import { defineField, defineType } from 'sanity';
 import { PiFilesLight } from 'react-icons/pi';
 import { DOCUMENT, OBJECT } from '@pkg/common/constants/schemaTypes';
-import { defineVisibilityField, visibilityPreview } from '@pkg/sanity-toolkit/seo/schema/defineVisibilityField';
+import {
+  defineVisibilityField,
+  visibilityPreview,
+} from '@pkg/sanity-toolkit/seo/schema/defineVisibilityField';
 import { defineInternalTitleField } from '@pkg/sanity-toolkit/studio/schema/fields/defineInternalTitleField';
 import { PAGE_VISIBILITY, SEO_FIELDSET } from '@pkg/sanity-toolkit/seo/constants';
 import { withFieldset, withGroup } from '@pkg/sanity-toolkit/studio/schema/utilities';
 import { seoFieldset } from '@pkg/sanity-toolkit/seo/schema/seoFieldset';
-import { FIELD_GROUPS, GROUP_CONTENT, GROUP_META, GROUP_SEO } from '@pkg/sanity-toolkit/studio/constants/fieldGroups';
+import {
+  FIELD_GROUPS,
+  GROUP_CONTENT,
+  GROUP_META,
+  GROUP_SEO,
+} from '@pkg/sanity-toolkit/studio/constants/fieldGroups';
 import { orderByPathname, orderByTitle } from '@pkg/sanity-toolkit/studio/schema/orderings';
 import { definePathnameField } from '@/features/generic/schema/definePathnameField';
 import { defineSeoFields } from '@/features/seo/schema/defineSeoFields';
@@ -43,16 +51,9 @@ export const page = defineType({
       }),
     ]),
 
-    ...withGroup(FIELD_GROUPS.SEO, [
-      ...withFieldset(SEO_FIELDSET, [
-        ...defineSeoFields(),
-      ]),
-    ]),
+    ...withGroup(FIELD_GROUPS.SEO, [...withFieldset(SEO_FIELDSET, [...defineSeoFields()])]),
   ],
-  orderings: [
-    orderByPathname(),
-    orderByTitle(),
-  ],
+  orderings: [orderByPathname(), orderByTitle()],
   preview: {
     select: {
       title: 'title',

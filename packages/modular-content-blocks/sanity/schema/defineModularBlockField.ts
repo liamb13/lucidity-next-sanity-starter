@@ -6,9 +6,7 @@ import type { BlockSchemaDefinition } from '../../types/BlockSchemaDefinition';
 
 // @todo Add the components for the Item Components
 
-export function defineOuterBlock(
-  schemaTypeDefinition: BlockSchemaDefinition,
-) {
+export function defineOuterBlock(schemaTypeDefinition: BlockSchemaDefinition) {
   return {
     ...schemaTypeDefinition,
     type: 'object',
@@ -20,9 +18,7 @@ export function defineOuterBlock(
   } satisfies BlockSchemaDefinition;
 }
 
-export function defineInnerBlock(
-  schemaTypeDefinition: BlockSchemaDefinition,
-) {
+export function defineInnerBlock(schemaTypeDefinition: BlockSchemaDefinition) {
   return {
     ...schemaTypeDefinition,
     type: 'object',

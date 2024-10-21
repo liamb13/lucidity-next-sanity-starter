@@ -12,7 +12,7 @@ import {
   SECTION_MEDIA_SIZE,
   SECTION_ALIGNMENT_OPTION,
   SECTION_IMAGE_PLACEMENT,
-  SECTION_MEDIA_TYPE
+  SECTION_MEDIA_TYPE,
 } from '@pkg/common/constants/blocks/outer/section';
 
 interface Prepare {

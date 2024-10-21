@@ -37,10 +37,7 @@ export function getModularBlocks(opts: GetBlocksOptions = {}) {
   return filterBlocks(modularContentBlockTypes, opts);
 }
 
-function filterBlocks(
-  blockList: Array<ModularBlockArrayMember>,
-  opts: GetBlocksOptions = {},
-) {
+function filterBlocks(blockList: Array<ModularBlockArrayMember>, opts: GetBlocksOptions = {}) {
   const include = opts.include ?? [];
   const exclude = opts.exclude ?? [];
 

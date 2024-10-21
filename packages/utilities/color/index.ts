@@ -14,7 +14,7 @@ export function legibleTextColor(colorInput: string): 'black' | 'white' {
   } else {
     // Extract from other formats (assuming RGB or RGBA string)
     const values = colorInput.match(/\d+/g);
-    if (values) {
+    if (values && values[0] && values[1] && values[2]) {
       r = parseInt(values[0]);
       g = parseInt(values[1]);
       b = parseInt(values[2]);

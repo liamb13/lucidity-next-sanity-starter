@@ -12,7 +12,7 @@ type SuperTextSchemaOptions = CharCountOptions;
  */
 export interface SuperTextSchemaDefinition extends Omit<TextDefinition, 'validation'> {
   options?: TextDefinition['options'] & SuperTextSchemaOptions;
-  validation?: SchemaValidationValue; /** This fixes error "ValidationBuilder<TextRule, string> | undefined is not assignable to type SchemaValidationValue" */
+  validation?: SchemaValidationValue /** This fixes error "ValidationBuilder<TextRule, string> | undefined is not assignable to type SchemaValidationValue" */;
 }
 
 /**

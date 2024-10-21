@@ -20,7 +20,7 @@ const defaultSettings: Options = {
   titleMaxLengthRecommend: 70,
   descriptionMinLengthRecommend: 15,
   descriptionMaxLengthRecommend: 160,
-}
+};
 
 export function defineSeoFields(options: Options = {}) {
   const opts = {
@@ -39,12 +39,24 @@ export function defineSeoFields(options: Options = {}) {
         maxLength: opts.titleMaxLengthRecommend,
       },
       validation: (rule) => [
-        ...(opts.titleMinLengthRecommend ? [rule
-          .min(opts.titleMinLengthRecommend)
-          .warning(`Title should be at least ${opts.titleMinLengthRecommend} characters long for maximum effect.`)] : []),
-        ...(opts.titleMaxLengthRecommend ? [rule
-          .max(opts.titleMaxLengthRecommend)
-          .warning(`Title should be less than ${opts.titleMaxLengthRecommend} characters long for maximum effect.`)] : []),
+        ...(opts.titleMinLengthRecommend
+          ? [
+              rule
+                .min(opts.titleMinLengthRecommend)
+                .warning(
+                  `Title should be at least ${opts.titleMinLengthRecommend} characters long for maximum effect.`,
+                ),
+            ]
+          : []),
+        ...(opts.titleMaxLengthRecommend
+          ? [
+              rule
+                .max(opts.titleMaxLengthRecommend)
+                .warning(
+                  `Title should be less than ${opts.titleMaxLengthRecommend} characters long for maximum effect.`,
+                ),
+            ]
+          : []),
       ],
     }),
     defineSuperTextField({
@@ -58,16 +70,24 @@ export function defineSeoFields(options: Options = {}) {
         maxLength: opts.descriptionMaxLengthRecommend,
       },
       validation: (rule) => [
-        ...(opts.descriptionMinLengthRecommend ? [rule
-          .min(opts.descriptionMinLengthRecommend)
-          .warning(
-            `Description should be at least ${opts.descriptionMinLengthRecommend} characters long for maximum effect.`,
-          )] : []),
-        ...(opts.descriptionMaxLengthRecommend ? [rule
-          .max(opts.descriptionMaxLengthRecommend)
-          .warning(
-            `Description should be less than ${opts.descriptionMaxLengthRecommend} characters long for maximum effect.`,
-          )] : []),
+        ...(opts.descriptionMinLengthRecommend
+          ? [
+              rule
+                .min(opts.descriptionMinLengthRecommend)
+                .warning(
+                  `Description should be at least ${opts.descriptionMinLengthRecommend} characters long for maximum effect.`,
+                ),
+            ]
+          : []),
+        ...(opts.descriptionMaxLengthRecommend
+          ? [
+              rule
+                .max(opts.descriptionMaxLengthRecommend)
+                .warning(
+                  `Description should be less than ${opts.descriptionMaxLengthRecommend} characters long for maximum effect.`,
+                ),
+            ]
+          : []),
       ],
     }),
     defineField({

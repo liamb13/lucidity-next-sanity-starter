@@ -20,7 +20,11 @@ export function SuperPTEInput(props: Readonly<SuperPTEInputProps>) {
     <Stack space={3}>
       <div
         className="super-pte-container"
-        style={{ '--pte-container-height': schemaType.options?.initialHeight ?? 'unset' } as CSSProperties}
+        style={
+          {
+            '--pte-container-height': schemaType.options?.initialHeight ?? 'unset',
+          } as CSSProperties
+        }
         id={'PTE-height-container'}
       >
         {props.renderDefault({

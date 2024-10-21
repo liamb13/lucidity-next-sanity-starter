@@ -1,4 +1,4 @@
-import { DocumentActionComponent, useDocumentOperation } from 'sanity';
+import { type DocumentActionComponent, useDocumentOperation } from 'sanity';
 
 /**
  * Set a field with the current date when a document is published.

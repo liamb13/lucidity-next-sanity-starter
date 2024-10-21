@@ -16,4 +16,8 @@ export const GROUP_CONTENT = {
   icon: BsBlockquoteLeft,
 } as const;
 
-export const GROUP_SEO = { title: 'SEO', name: FIELD_GROUPS.SEO, icon: IoSearchOutline } as const;
+export const GROUP_SEO = {
+  title: 'SEO',
+  name: FIELD_GROUPS.SEO,
+  icon: IoSearchOutline,
+} as const;

@@ -1,7 +1,4 @@
-export function articleDate(
-  publishedDate: string | Date,
-  updatedDate?: null | string | Date,
-) {
+export function articleDate(publishedDate: string | Date, updatedDate?: null | string | Date) {
   const humanPublished = humanReadable(publishedDate);
 
   if (updatedDate) {
