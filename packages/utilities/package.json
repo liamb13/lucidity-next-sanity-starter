@@ -26,5 +26,9 @@
     "nanoid": "^5.0.7",
     "prettier": "^3.0.2",
     "speakingurl": "^14.0.1"
+  },
+  "devDependencies": {
+    "@types/speakingurl": "^13.0.6",
+    "vitest": "^2.1.3"
   }
 }

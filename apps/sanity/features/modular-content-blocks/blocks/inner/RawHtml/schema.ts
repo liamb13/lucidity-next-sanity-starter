@@ -12,7 +12,6 @@ const blockIcon = FaCode;
 export const schema = defineInnerBlock({
   title: blockName,
   name: OBJECT.MODULAR_INNER_BLOCK_RAW_HTML,
-  type: 'object',
   icon: blockIcon,
   fields: [
     ...withFieldset(BLOCK_FIELDSETS.META, [defineAnchorIdField({ type: 'content' })]),
