@@ -2,13 +2,13 @@
 // import { OuterBlockItemComponent } from '../../components/OuterBlockItemComponent';
 // import { InnerBlockItemComponent } from '../../components/InnerBlockItemComponent';
 import { innerBlockFieldsets, outerBlockFieldsets } from './blockFieldsets';
+import type { BlockSchemaDefinition } from '../../types/BlockSchemaDefinition';
 
-// @todo Create this definition, and add the components in too
-type BlockSchemaDefinition = any;
+// @todo Add the components for the Item Components
 
 export function defineOuterBlock(
   schemaTypeDefinition: BlockSchemaDefinition,
-): BlockSchemaDefinition {
+) {
   return {
     ...schemaTypeDefinition,
     type: 'object',
@@ -17,12 +17,12 @@ export function defineOuterBlock(
       ...schemaTypeDefinition.components,
       // item: schemaTypeDefinition.components?.item ?? OuterBlockItemComponent,
     },
-  };
+  } satisfies BlockSchemaDefinition;
 }
 
 export function defineInnerBlock(
   schemaTypeDefinition: BlockSchemaDefinition,
-): BlockSchemaDefinition {
+) {
   return {
     ...schemaTypeDefinition,
     type: 'object',
@@ -31,5 +31,5 @@ export function defineInnerBlock(
       ...schemaTypeDefinition.components,
       // item: schemaTypeDefinition.components?.item ?? InnerBlockItemComponent,
     },
-  };
+  } satisfies BlockSchemaDefinition;
 }
