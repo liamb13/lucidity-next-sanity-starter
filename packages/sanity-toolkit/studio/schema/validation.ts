@@ -56,9 +56,7 @@ export function onlyWhenParentIs(
     }
 
     if (!validator) {
-      throw new Error(
-        'Cannot validate in `onlyWhenParentIs` as no validator function passed',
-      );
+      throw new Error('Cannot validate in `onlyWhenParentIs` as no validator function passed');
     }
 
     return validator(value, context);
@@ -110,12 +108,7 @@ export function validPostTimestamps(
 
     const otherField = document?.[otherFieldName];
 
-    if (
-      !value ||
-      !otherField ||
-      typeof value !== 'string' ||
-      typeof otherField !== 'string'
-    ) {
+    if (!value || !otherField || typeof value !== 'string' || typeof otherField !== 'string') {
       return true;
     }
 
@@ -230,8 +223,7 @@ export function matchesRegex(regex: RegExp, message?: string) {
 export function isSlug(message?: string) {
   return matchesRegex(
     stringIsSlug,
-    message ??
-      'Must contain only lowercase letters [a-z], numbers [0-9], and dashes ("-")',
+    message ?? 'Must contain only lowercase letters [a-z], numbers [0-9], and dashes ("-")',
   );
 }
 

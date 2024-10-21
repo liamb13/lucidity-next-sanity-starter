@@ -104,5 +104,7 @@ export const getVideoEmbedUrl = ({ videoUrl, variant }: GetVideoEmbedUrlOptions)
     return getVimeoEmbedUrl({ vimeoVideoId, variant, vimeoHashId });
   }
 
-  throw new Error(`Invalid video URL - must be either a Youtube or Vimeo link. Received: ${videoUrl}`);
+  throw new Error(
+    `Invalid video URL - must be either a Youtube or Vimeo link. Received: ${videoUrl}`,
+  );
 };

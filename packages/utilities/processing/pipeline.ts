@@ -24,8 +24,7 @@
 
 // @todo Typing can be improved here
 /* eslint-disable */
-export const pipeline = (value: any, ...functions: Array<any>) =>
-  pipe(...functions)(value);
+export const pipeline = (value: any, ...functions: Array<any>) => pipe(...functions)(value);
 const combine = (result: any, nextFun: any) => nextFun(result);
 const pipe =
   (...funs: Array<any>) =>

@@ -10,7 +10,5 @@
 export function copyrightYear(inputYear: string, delimiter = '—'): string {
   const currentYear = new Date().getFullYear().toString();
 
-  return inputYear === currentYear
-    ? currentYear
-    : `${inputYear}${delimiter}${currentYear}`;
+  return inputYear === currentYear ? currentYear : `${inputYear}${delimiter}${currentYear}`;
 }

@@ -13,7 +13,9 @@ export function orderByPathname(options: OrderingOptions = {}): SortOrdering {
     title: options.title ?? 'URL',
     name: options.name ?? 'url',
     i18n: options.i18n,
-    by: [{ field: options.field ?? 'pathname.current', direction: options.direction ?? 'asc' }],
+    by: [
+      { field: options.field ?? 'pathname.current', direction: options.direction ?? 'asc' },
+    ],
   };
 }
 

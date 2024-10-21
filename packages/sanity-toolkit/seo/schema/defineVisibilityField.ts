@@ -20,5 +20,5 @@ export function defineVisibilityField() {
 }
 
 export function visibilityPreview(visibility: string = 'public') {
-  return visibility.charAt(0).toUpperCase() + visibility.slice(1)
+  return visibility.charAt(0).toUpperCase() + visibility.slice(1);
 }

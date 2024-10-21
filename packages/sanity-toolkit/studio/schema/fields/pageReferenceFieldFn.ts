@@ -8,9 +8,7 @@ import { defineField } from 'sanity';
  * the resulting function.
  */
 export function pageReferenceFieldFn(internalLinkTypes: Array<string>) {
-  const definePageReferenceField = ({
-    name = 'reference',
-  }: { name?: string } = {}) =>
+  const definePageReferenceField = ({ name = 'reference' }: { name?: string } = {}) =>
     defineField({
       name,
       title: 'Page',
