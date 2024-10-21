@@ -1,0 +1,21 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "lint": {
+      "env": ["TIMING"]
+    },
+    "lint:fix": {},
+    "prettier": {},
+    "prettier:fix": {},
+    "typecheck": {},
+    "dev": {
+      "persistent": true,
+      "cache": false
+    }
+  }
+}

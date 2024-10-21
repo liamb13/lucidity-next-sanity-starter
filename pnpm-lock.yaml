@@ -23,15 +23,24 @@ importers:
       '@hexdigital/config-commitlint':
         specifier: ^1.0.1
         version: 1.0.1
+      '@pkg/config':
+        specifier: workspace:*
+        version: link:packages/config
       husky:
         specifier: ^9.1.6
         version: 9.1.6
       lint-staged:
         specifier: ^15.2.10
         version: 15.2.10
+      prettier:
+        specifier: ^3.3.3
+        version: 3.3.3
       syncpack:
         specifier: ^13.0.0
         version: 13.0.0(typescript@5.6.3)
+      turbo:
+        specifier: ^2.2.2
+        version: 2.2.2
       typescript:
         specifier: ^5.6.3
         version: 5.6.3
@@ -88,7 +97,7 @@ importers:
         specifier: ^8.6.0
         version: 8.57.1
       prettier:
-        specifier: ^3.0.2
+        specifier: ^3.3.3
         version: 3.3.3
       typescript:
         specifier: ^5.1.6
@@ -99,6 +108,9 @@ importers:
       next:
         specifier: 14.2.15
         version: 14.2.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      prettier:
+        specifier: ^3.0.2
+        version: 3.3.3
       react:
         specifier: ^18
         version: 18.3.1
@@ -131,7 +143,20 @@ importers:
         specifier: ^5.6.3
         version: 5.6.3
 
-  packages/common: {}
+  packages/common:
+    dependencies:
+      prettier:
+        specifier: ^3.0.2
+        version: 3.3.3
+
+  packages/config:
+    devDependencies:
+      prettier:
+        specifier: 3.3.3
+        version: 3.3.3
+      typescript:
+        specifier: ^5.6.3
+        version: 5.6.3
 
   packages/modular-content-blocks:
     dependencies:
@@ -141,6 +166,9 @@ importers:
       '@types/react':
         specifier: ^18
         version: 18.3.11
+      prettier:
+        specifier: ^3.0.2
+        version: 3.3.3
       react:
         specifier: ^18
         version: 18.3.1
@@ -162,6 +190,9 @@ importers:
       '@types/react':
         specifier: ^18
         version: 18.3.11
+      prettier:
+        specifier: ^3.0.2
+        version: 3.3.3
       react:
         specifier: ^18
         version: 18.3.1
@@ -177,6 +208,9 @@ importers:
       nanoid:
         specifier: ^5.0.7
         version: 5.0.7
+      prettier:
+        specifier: ^3.0.2
+        version: 3.3.3
       speakingurl:
         specifier: ^14.0.1
         version: 14.0.1
@@ -5424,6 +5458,40 @@ packages:
 
   tunnel-agent@0.6.0:
     resolution: {integrity: sha512-McnNiV1l8RYeY8tBgEpuodCC1mLUdbSN+CYBL7kJsJNInOP8UjDDEwdk6Mw60vdLLrr5NHKZhMAOSrR2NZuQ+w==}
+
+  turbo-darwin-64@2.2.2:
+    resolution: {integrity: sha512-J+Vn13M3QxKKoWF1D5IzXk6OuDPWuJhrUbKwSAA5TII9WcHw07ySR8ALgjm3qQRxmKrKJvffvMt+crg4dx/9Ng==}
+    cpu: [x64]
+    os: [darwin]
+
+  turbo-darwin-arm64@2.2.2:
+    resolution: {integrity: sha512-nNF9J2U+QH4lKq8h0wsh6cNlrJTwdVbXkQvhxj1mvzOYfTYru/u5kZaVUyj9U2kbPJmHKDB3ivFuOvtDLxfzjA==}
+    cpu: [arm64]
+    os: [darwin]
+
+  turbo-linux-64@2.2.2:
+    resolution: {integrity: sha512-M+5BBpCIvX34n0nEeKRmZweuWOvPNBOpEHUZvEvB1F6Avq5J/aJqRIoa0WswRTgxsZ4iaomdQxyUZQZhEpAAUQ==}
+    cpu: [x64]
+    os: [linux]
+
+  turbo-linux-arm64@2.2.2:
+    resolution: {integrity: sha512-yAgl+aJQym5m8aIo14w9+g7C70Kgd3C6Y7upgjYNQwfi1OojnKxyDbMtB5JhVEb+7A1ovjWrUCyG+zqeUdgcQw==}
+    cpu: [arm64]
+    os: [linux]
+
+  turbo-windows-64@2.2.2:
+    resolution: {integrity: sha512-dUU7XCKLVY6OPVduu5U8j7UtlcaVbMu6ELc8/nztIyMMOwtREWU/wXhardPLXKZpe+xA8Pv96vDVWDLSvpF4IQ==}
+    cpu: [x64]
+    os: [win32]
+
+  turbo-windows-arm64@2.2.2:
+    resolution: {integrity: sha512-zpA2/NlNdsthqBQncdmIL8gSZtFmQJ/bDSXph/ecA0YJaORmr0EKBXtTOqEDJp1ztY6uG/GRI5LxwYc639Xxew==}
+    cpu: [arm64]
+    os: [win32]
+
+  turbo@2.2.2:
+    resolution: {integrity: sha512-0vm9WpykJtg7+NwO22+VK1jn8KdkXpHqXa8TX6WWefaCe3BQiBT94T0Ay44z3df/Re6l66pMWNzzZCGk+JZe+A==}
+    hasBin: true
 
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
@@ -12083,6 +12151,33 @@ snapshots:
   tunnel-agent@0.6.0:
     dependencies:
       safe-buffer: 5.2.1
+
+  turbo-darwin-64@2.2.2:
+    optional: true
+
+  turbo-darwin-arm64@2.2.2:
+    optional: true
+
+  turbo-linux-64@2.2.2:
+    optional: true
+
+  turbo-linux-arm64@2.2.2:
+    optional: true
+
+  turbo-windows-64@2.2.2:
+    optional: true
+
+  turbo-windows-arm64@2.2.2:
+    optional: true
+
+  turbo@2.2.2:
+    optionalDependencies:
+      turbo-darwin-64: 2.2.2
+      turbo-darwin-arm64: 2.2.2
+      turbo-linux-64: 2.2.2
+      turbo-linux-arm64: 2.2.2
+      turbo-windows-64: 2.2.2
+      turbo-windows-arm64: 2.2.2
 
   type-check@0.4.0:
     dependencies:

@@ -10,7 +10,12 @@
     "start": "sanity start",
     "build": "sanity build",
     "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy"
+    "deploy-graphql": "sanity graphql deploy",
+    "lint": "pnpm prettier",
+    "lint:fix": "pnpm prettier:fix",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "keywords": [
     "sanity"
@@ -34,13 +39,7 @@
     "@sanity/eslint-config-studio": "^4.0.0",
     "@types/react": "^18.0.25",
     "eslint": "^8.6.0",
-    "prettier": "^3.0.2",
+    "prettier": "^3.3.3",
     "typescript": "^5.1.6"
-  },
-  "prettier": {
-    "semi": false,
-    "printWidth": 100,
-    "bracketSpacing": false,
-    "singleQuote": true
   }
 }

@@ -1,9 +1,10 @@
 {
-  "name": "@pkg/utilities",
+  "name": "@pkg/config",
   "version": "0.0.1",
   "private": true,
   "sideEffects": false,
-  "type": "module",
+  "type": "commonjs",
+  "main": "./src/index.js",
   "author": {
     "name": "Jamie Warburton",
     "url": "https://github.com/jamiewarb"
@@ -13,7 +14,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/jamiewarb/lucidity-next-sanity-starter",
-    "directory": "packages/utilities"
+    "directory": "packages/config"
   },
   "scripts": {
     "lint": "pnpm prettier",
@@ -22,9 +23,16 @@
     "prettier:fix": "prettier --write .",
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
-  "dependencies": {
-    "nanoid": "^5.0.7",
-    "prettier": "^3.0.2",
-    "speakingurl": "^14.0.1"
+  "peerDependencies": {
+    "prettier": ">=3.2.0 <5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "prettier": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "prettier": "3.3.3",
+    "typescript": "^5.6.3"
   }
 }
