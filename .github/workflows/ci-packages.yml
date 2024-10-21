@@ -1,4 +1,4 @@
-name: CI Web App
+name: CI Packages
 
 on:
   push:
@@ -6,7 +6,6 @@ on:
 
     # Only consider those paths to trigger the action
     paths:
-      - 'apps/web/**'
       - 'packages/**'
       - 'package.json'
       - '*.lock'
@@ -22,7 +21,6 @@ on:
     types: [opened, synchronize, reopened]
     # Only consider those paths to trigger the action
     paths:
-      - 'apps/web/**'
       - 'packages/**'
       - 'package.json'
       - '*.lock'
@@ -75,14 +73,10 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           server-token: ${{ env.TURBO_TOKEN }}
 
-      - name: Setup Next application 🥾
-        run: cp .github/apps.web.env apps/web/.env
-
-      - name: Restore Web App related caches ♻️
+      - name: Restore packages related caches ♻️
         uses: actions/cache@v4
         with:
           path: |
-            ${{ github.workspace }}/apps/web/.next/cache
             ${{ github.workspace }}/.cache
             ${{ github.workspace }}/**/tsconfig.tsbuildinfo
           # Generate a new cache whenever packages or source files change.
@@ -95,28 +89,20 @@ jobs:
         run: pnpm install
 
       - name: Run type checking 📚
-        run: pnpm g:typecheck
+        run: pnpm g:typecheck --filter="./packages/*"
 
       - name: Run linters 👀
-        run: pnpm g:lint
+        run: pnpm g:lint --filter="./packages/*"
         env:
           TIMING: 1
 
       #- name: 🧪 Unit tests
-      #  run: pnpm g:test-unit
+      #  run: pnpm g:test-unit --filter="./packages/*"
 
       - name: 🏗 Build web-app
-        run: pnpm g:build
+        run: pnpm g:build --filter="./packages/*"
+
+      - name: Build storybook 🧐
+        run: yarn turbo build-storybook --filter="./packages/*"
         env:
-          NEXT_BUILD_ENV_ESLINT: false
-          NEXT_BUILD_ENV_TYPECHECK: false
-          NEXT_BUILD_ENV_SOURCEMAPS: false
-          NEXT_BUILD_ENV_SENTRY_ENABLED: true
-          NEXT_BUILD_ENV_SENTRY_UPLOAD_DRY_RUN: true
-          NEXT_TELEMETRY_DISABLED: true
-
-      #- name: 📐 Check browser bundle size limits
-      #  run: yarn --filter "apps/web" check-size
-
-      #- name: 🛟 Check ecmascript checks for build files
-      #  run: yarn --filter "apps/web" check-dist
+          STORYBOOK_DISABLE_TELEMETRY: 1
