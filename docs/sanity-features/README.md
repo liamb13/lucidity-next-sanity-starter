@@ -14,7 +14,7 @@ TBC
 
 ## Modular Content Blocks
 
-- Activiation
+- Activation
 - Configuration
 
 ## Skeleton Key
@@ -24,11 +24,13 @@ TBC
 - How to use
 - List of Components
 - Configuration
-  - Base (Char Count) 
-  - Super PTE (char count)
-  - Text (char count)
-  - String (char count)
+  - Base (Char Count)
+  - Super PTE
+  - Super Text
+  - Super String
 
 ## SEO Preview
 
 ## Backlinks Preview
+
+## Clear Site Cache Widget

@@ -4,10 +4,6 @@
   "private": true,
   "sideEffects": false,
   "type": "module",
-  "exports": {
-    "./*": "./*.ts",
-    "./package.json": "./package.json"
-  },
   "author": {
     "name": "Jamie Warburton",
     "url": "https://github.com/jamiewarb"

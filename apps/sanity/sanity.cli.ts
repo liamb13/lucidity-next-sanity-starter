@@ -9,7 +9,6 @@ export default defineCliConfig({
 
   vite: config => {
     if (!config.resolve) config.resolve = {};
-    if (!config.resolve.alias) config.resolve.alias = {};
 
     config.resolve.alias = {
       ...config.resolve.alias ?? {},
