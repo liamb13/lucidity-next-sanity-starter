@@ -42,10 +42,6 @@ jobs:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, '[ci skip]')"
 
-    defaults:
-      run:
-        working-directory: apps/web
-
     strategy:
       matrix:
         node-version: [20.x]
@@ -80,7 +76,7 @@ jobs:
           server-token: ${{ env.TURBO_TOKEN }}
 
       - name: Setup Next application 🥾
-        run: cp ../../.github/apps.web.env .env
+        run: cp .github/apps.web.env apps/web/.env
 
       - name: Restore nextjs-app related caches ♻️
         uses: actions/cache@v4
@@ -110,7 +106,7 @@ jobs:
       #  run: pnpm g:test-unit
 
       - name: 🏗 Build web-app
-        run: pnpm build
+        run: pnpm g:build
         env:
           NEXT_BUILD_ENV_ESLINT: false
           NEXT_BUILD_ENV_TYPECHECK: false
@@ -120,7 +116,7 @@ jobs:
           NEXT_TELEMETRY_DISABLED: true
 
       #- name: 📐 Check browser bundle size limits
-      #  run: yarn check-size
+      #  run: yarn --filter "apps/web" check-size
 
       #- name: 🛟 Check ecmascript checks for build files
-      #  run: yarn check-dist
+      #  run: yarn --filter "apps/web" check-dist
