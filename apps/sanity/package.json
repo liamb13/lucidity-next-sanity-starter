@@ -1,8 +1,8 @@
 {
   "name": "apps/sanity",
-  "type": "module",
+  "version": "0.0.1",
   "private": true,
-  "version": "1.0.0",
+  "type": "module",
   "main": "package.json",
   "type": "module",
   "author": {
