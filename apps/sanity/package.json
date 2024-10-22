@@ -1,10 +1,21 @@
 {
   "name": "apps/sanity",
-  "type": "module",
+  "version": "0.0.1",
   "private": true,
-  "version": "1.0.0",
+  "type": "module",
   "main": "package.json",
-  "license": "UNLICENSED",
+  "type": "module",
+  "author": {
+    "name": "Jamie Warburton",
+    "url": "https://github.com/jamiewarb"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/hex-digital/lucidity-next-sanity-starter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hex-digital/lucidity-next-sanity-starter",
+    "directory": "apps/sanity"
+  },
   "scripts": {
     "dev": "sanity dev",
     "start": "sanity start",
