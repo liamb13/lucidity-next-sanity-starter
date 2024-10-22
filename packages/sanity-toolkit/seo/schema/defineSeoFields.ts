@@ -38,7 +38,10 @@ export function defineSeoFields(options: Options = {}) {
         minLength: opts.titleMinLengthRecommend,
         maxLength: opts.titleMaxLengthRecommend,
       },
-      validation: createValidationRules(opts.titleMinLengthRecommend, opts.titleMaxLengthRecommend),
+      validation: createValidationRules(
+        opts.titleMinLengthRecommend,
+        opts.titleMaxLengthRecommend,
+      ),
     }),
     defineSuperTextField({
       title: metaDescriptionTitle,
@@ -52,7 +55,7 @@ export function defineSeoFields(options: Options = {}) {
       },
       validation: createValidationRules(
         opts.descriptionMinLengthRecommend,
-        opts.descriptionMaxLengthRecommend
+        opts.descriptionMaxLengthRecommend,
       ),
     }),
     defineField({
@@ -69,17 +72,17 @@ function createValidationRules<RuleType extends Rule>(minLength?: number, maxLen
   return (rule: RuleType) => [
     ...(minLength
       ? [
-        rule
-          .min(minLength)
-          .warning(`Should be at least ${minLength} characters long for maximum effect.`),
-      ]
+          rule
+            .min(minLength)
+            .warning(`Should be at least ${minLength} characters long for maximum effect.`),
+        ]
       : []),
     ...(maxLength
       ? [
-        rule
-          .max(maxLength)
-          .warning(`Should be less than ${maxLength} characters long for maximum effect.`),
-      ]
+          rule
+            .max(maxLength)
+            .warning(`Should be less than ${maxLength} characters long for maximum effect.`),
+        ]
       : []),
   ];
 }

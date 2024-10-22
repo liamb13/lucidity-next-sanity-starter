@@ -13,13 +13,18 @@ function createSortOrdering(
   defaultName: SortOrdering['name'],
   defaultField: SortOrderingItem['field'],
   defaultDirection: SortOrderingItem['direction'],
-  options: OrderingOptions = {}
+  options: OrderingOptions = {},
 ): SortOrdering {
   return {
     title: options.title ?? defaultTitle,
     name: options.name ?? defaultName,
     i18n: options.i18n,
-    by: [{ field: options.field ?? defaultField, direction: options.direction ?? defaultDirection }],
+    by: [
+      {
+        field: options.field ?? defaultField,
+        direction: options.direction ?? defaultDirection,
+      },
+    ],
   };
 }
 
@@ -40,7 +45,13 @@ export function orderByCreationDate(options: OrderingOptions = {}): SortOrdering
 }
 
 export function orderByLastModifiedDate(options: OrderingOptions = {}): SortOrdering {
-  return createSortOrdering('Last Modified Date', 'lastModifiedDate', '_updatedAt', 'desc', options);
+  return createSortOrdering(
+    'Last Modified Date',
+    'lastModifiedDate',
+    '_updatedAt',
+    'desc',
+    options,
+  );
 }
 
 export function orderByAuthorName(options: OrderingOptions = {}): SortOrdering {
