@@ -1,4 +1,4 @@
-import { defineField } from 'sanity';
+import { defineField, type Rule } from 'sanity';
 import { defineSuperStringField } from '../../studio/studioComponents/superFields/string/defineSuperStringField';
 import { defineSuperTextField } from '../../studio/studioComponents/superFields/text/defineSuperTextField';
 import { SEO_FIELD } from '../constants';
@@ -38,26 +38,7 @@ export function defineSeoFields(options: Options = {}) {
         minLength: opts.titleMinLengthRecommend,
         maxLength: opts.titleMaxLengthRecommend,
       },
-      validation: (rule) => [
-        ...(opts.titleMinLengthRecommend
-          ? [
-              rule
-                .min(opts.titleMinLengthRecommend)
-                .warning(
-                  `Title should be at least ${opts.titleMinLengthRecommend} characters long for maximum effect.`,
-                ),
-            ]
-          : []),
-        ...(opts.titleMaxLengthRecommend
-          ? [
-              rule
-                .max(opts.titleMaxLengthRecommend)
-                .warning(
-                  `Title should be less than ${opts.titleMaxLengthRecommend} characters long for maximum effect.`,
-                ),
-            ]
-          : []),
-      ],
+      validation: createValidationRules(opts.titleMinLengthRecommend, opts.titleMaxLengthRecommend),
     }),
     defineSuperTextField({
       title: metaDescriptionTitle,
@@ -69,26 +50,10 @@ export function defineSeoFields(options: Options = {}) {
         minLength: opts.descriptionMinLengthRecommend,
         maxLength: opts.descriptionMaxLengthRecommend,
       },
-      validation: (rule) => [
-        ...(opts.descriptionMinLengthRecommend
-          ? [
-              rule
-                .min(opts.descriptionMinLengthRecommend)
-                .warning(
-                  `Description should be at least ${opts.descriptionMinLengthRecommend} characters long for maximum effect.`,
-                ),
-            ]
-          : []),
-        ...(opts.descriptionMaxLengthRecommend
-          ? [
-              rule
-                .max(opts.descriptionMaxLengthRecommend)
-                .warning(
-                  `Description should be less than ${opts.descriptionMaxLengthRecommend} characters long for maximum effect.`,
-                ),
-            ]
-          : []),
-      ],
+      validation: createValidationRules(
+        opts.descriptionMinLengthRecommend,
+        opts.descriptionMaxLengthRecommend
+      ),
     }),
     defineField({
       title: socialImageTitle,
@@ -97,5 +62,24 @@ export function defineSeoFields(options: Options = {}) {
       description:
         'Choose a beautiful and inviting, high-res image (1080p or even 4k). This will show when sharing on social media or in WhatsApp. Recommended size: 1200x630 (PNG, JPG or WebP)',
     }),
+  ];
+}
+
+function createValidationRules<RuleType extends Rule>(minLength?: number, maxLength?: number) {
+  return (rule: RuleType) => [
+    ...(minLength
+      ? [
+        rule
+          .min(minLength)
+          .warning(`Should be at least ${minLength} characters long for maximum effect.`),
+      ]
+      : []),
+    ...(maxLength
+      ? [
+        rule
+          .max(maxLength)
+          .warning(`Should be less than ${maxLength} characters long for maximum effect.`),
+      ]
+      : []),
   ];
 }

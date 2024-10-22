@@ -23,6 +23,7 @@
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "peerDependencies": {
+    "@sanity/types": "^3.61.0",
     "@sanity/ui": "^2.8.9",
     "@types/react": "^18",
     "react": "^18",
