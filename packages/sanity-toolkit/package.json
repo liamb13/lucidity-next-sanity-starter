@@ -23,15 +23,18 @@
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "peerDependencies": {
+    "@sanity/icons": "^3.4.0",
     "@sanity/types": "^3.61.0",
     "@sanity/ui": "^2.8.9",
     "@types/react": "^18",
     "react": "^18",
     "react-icons": "^5.3.0",
-    "sanity": "^3.60.0"
+    "sanity": "^3.60.0",
+    "styled-components": "^6.1.13"
   },
   "dependencies": {
     "@portabletext/toolkit": "^2.0.15",
+    "nanoid": "^5.0.7",
     "prettier": "^3.0.2"
   },
   "devDependencies": {
