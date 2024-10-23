@@ -9,19 +9,6 @@ interface Props {
 }
 
 export function useVisualArrayPickerInserter({ props }: Readonly<Props>) {
-  /** itemsToAdd can be a function, an array of objects or a single object, so this function helps us handle all cases appropriately */
-  const addItems: OnItemAddFn = useCallback(
-    ({ itemsToAdd }) => {
-      if (typeof itemsToAdd === 'function') {
-        itemsToAdd({ index: -1, inputProps: props, addItems: addItemsToArray });
-        return;
-      }
-
-      addItemsToArray(itemsToAdd, -1);
-    },
-    [],
-  );
-
   /**
    * This function adds the actual items. We may add one or more items at a time
    *
@@ -69,6 +56,19 @@ export function useVisualArrayPickerInserter({ props }: Readonly<Props>) {
       });
     },
     [props],
+  );
+
+  /** itemsToAdd can be a function, an array of objects or a single object, so this function helps us handle all cases appropriately */
+  const addItems: OnItemAddFn = useCallback(
+    ({ itemsToAdd }) => {
+      if (typeof itemsToAdd === 'function') {
+        itemsToAdd({ index: -1, inputProps: props, addItems: addItemsToArray });
+        return;
+      }
+
+      addItemsToArray(itemsToAdd, -1);
+    },
+    [addItemsToArray, props],
   );
 
   return {

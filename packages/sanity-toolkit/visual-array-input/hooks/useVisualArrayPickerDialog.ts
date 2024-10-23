@@ -26,7 +26,7 @@ export function useVisualArrayPickerDialog() {
     isOpen: isOpen,
     setIsOpen: setIsOpen,
     searchQuery,
-    setSearchQuery,
+    setSearchQuery: (query: string) => { console.log('set search query', query); setSearchQuery(query); },
     gridView,
     setGridView,
     dialogRef,

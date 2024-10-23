@@ -9,18 +9,8 @@ export const itemGroups: ConfigItemGroups = [
     icon: CiBoxList,
     items: [
       {
-        name: 'function',
-        title: 'Test Function call',
-        icon: CiBoxList,
-        tags: ['test'],
-        assetUrl: undefined,
-        itemsToAdd: {
-          type: 'modularContentBlocks.outer.section',
-        },
-      },
-      {
-        name: 'function',
-        title: 'Test Function call',
+        name: 'section',
+        title: 'Section',
         icon: CiBoxList,
         tags: ['test'],
         variants: [
@@ -40,8 +30,8 @@ export const itemGroups: ConfigItemGroups = [
         ],
       },
       {
-        name: 'array',
-        title: 'Test Array',
+        name: 'contents',
+        title: 'Contents',
         icon: CiBoxList,
         tags: ['test'],
         variants: [
@@ -59,8 +49,8 @@ export const itemGroups: ConfigItemGroups = [
         ],
       },
       {
-        name: 'item1',
-        title: 'Item 1',
+        name: 'sectionThing',
+        title: 'Section Thing',
         icon: CiBoxList,
         tags: ['test'],
         variants: [
