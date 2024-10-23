@@ -7,10 +7,17 @@ interface ItemToAdd {
 }
 
 /** The type of function that is called to add the items */
-export type AddItemCallbackFn = (items: UserOnItemAddArray | UserOnItemAddObject, index: number) => void;
+export type AddItemCallbackFn = (
+  items: UserOnItemAddArray | UserOnItemAddObject,
+  index: number,
+) => void;
 
 /** A function to call when item is added */
-export type UserOnItemAddFn = ({ index, inputProps, addItems }: {
+export type UserOnItemAddFn = ({
+  index,
+  inputProps,
+  addItems,
+}: {
   index: number;
   inputProps: ArrayOfObjectsInputProps;
   /** A hook back into the original add items call for Array or Object. Use this if you need to generate your items programatically before adding, after it's been selected */
@@ -34,7 +41,7 @@ export interface Item {
   icon?: ElementType;
   tags?: Array<string>;
   variants: Array<{
-    variantName: string; /* If only 1 variant, repeat item name as variant name. It won't be used/displayed. If 2, must be set */
+    variantName: string /* If only 1 variant, repeat item name as variant name. It won't be used/displayed. If 2, must be set */;
     variantTitle: string;
     variantAssetUrl?: string; // The image or video to display in the item picker. Can be a file or a URL
     itemsToAdd: OnItemAdd;

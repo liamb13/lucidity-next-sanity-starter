@@ -49,7 +49,12 @@ export function useVisualArrayPickerInserter({ props }: Readonly<Props>) {
         } else if (index === 0) {
           props.onItemPrepend(newItem);
         } else {
-          props.onInsert({ items: [newItem], position: 'after', referenceItem: mutableIndex - 1, open: isSingleItem });
+          props.onInsert({
+            items: [newItem],
+            position: 'after',
+            referenceItem: mutableIndex - 1,
+            open: isSingleItem,
+          });
 
           mutableIndex = mutableIndex + 1;
         }

@@ -3,7 +3,7 @@ import { Card, Dialog, Flex, Heading } from '@sanity/ui';
 
 interface Props {
   setIsOpen: (value: boolean) => void;
-  dialogRef: MutableRefObject<HTMLDivElement | null>
+  dialogRef: MutableRefObject<HTMLDivElement | null>;
 }
 
 export function ArrayItemDialogShell({

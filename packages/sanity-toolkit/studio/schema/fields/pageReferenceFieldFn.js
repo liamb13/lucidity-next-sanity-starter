@@ -7,11 +7,12 @@ import { defineField } from 'sanity';
  * the resulting function.
  */
 export function pageReferenceFieldFn(internalLinkTypes) {
-    const definePageReferenceField = ({ name = 'reference' } = {}) => defineField({
-        name,
-        title: 'Page',
-        type: 'reference',
-        to: internalLinkTypes.map((docType) => ({ type: docType })),
+  const definePageReferenceField = ({ name = 'reference' } = {}) =>
+    defineField({
+      name,
+      title: 'Page',
+      type: 'reference',
+      to: internalLinkTypes.map((docType) => ({ type: docType })),
     });
-    return definePageReferenceField;
+  return definePageReferenceField;
 }

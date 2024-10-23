@@ -5,4 +5,5 @@ export const stringIsSlug = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 /**
  * Validates that string starts with # or ? and is a valid anchor or query parameter (or both), e.g. "#anchor?campaign=track&value=score".
  */
-export const urlAnchorOrParameters = /^(#([a-zA-Z0-9_-]+)?(\?([a-zA-Z0-9_-]+(=[a-zA-Z0-9_-]+)?)(?:&[a-zA-Z0-9_-]+=[a-zA-Z0-9_-]+)*)?|(\?([a-zA-Z0-9_-]+(=[a-zA-Z0-9_-]+)?)(?:&[a-zA-Z0-9_-]+=[a-zA-Z0-9_-]+)*))$/;
+export const urlAnchorOrParameters =
+  /^(#([a-zA-Z0-9_-]+)?(\?([a-zA-Z0-9_-]+(=[a-zA-Z0-9_-]+)?)(?:&[a-zA-Z0-9_-]+=[a-zA-Z0-9_-]+)*)?|(\?([a-zA-Z0-9_-]+(=[a-zA-Z0-9_-]+)?)(?:&[a-zA-Z0-9_-]+=[a-zA-Z0-9_-]+)*))$/;

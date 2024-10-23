@@ -15,16 +15,15 @@
  */
 export var DOCUMENT;
 (function (DOCUMENT) {
-    DOCUMENT["PAGE"] = "page";
-    DOCUMENT["MEDIA_TAG"] = "media.tag";
+  DOCUMENT['PAGE'] = 'page';
+  DOCUMENT['MEDIA_TAG'] = 'media.tag';
 })(DOCUMENT || (DOCUMENT = {}));
 export var OBJECT;
 (function (OBJECT) {
-    OBJECT["MODULAR_OUTER_BLOCKS"] = "modularContentBlocks.outer";
-    OBJECT["MODULAR_INNER_BLOCKS"] = "modularContentBlocks.inner";
-    OBJECT["MODULAR_OUTER_BLOCK_SECTION"] = "modularContentBlocks.outer.section";
-    OBJECT["MODULAR_INNER_BLOCK_RAW_HTML"] = "modularContentBlocks.inner.rawHtml";
+  OBJECT['MODULAR_OUTER_BLOCKS'] = 'modularContentBlocks.outer';
+  OBJECT['MODULAR_INNER_BLOCKS'] = 'modularContentBlocks.inner';
+  OBJECT['MODULAR_OUTER_BLOCK_SECTION'] = 'modularContentBlocks.outer.section';
+  OBJECT['MODULAR_INNER_BLOCK_RAW_HTML'] = 'modularContentBlocks.inner.rawHtml';
 })(OBJECT || (OBJECT = {}));
 export var SINGLETON;
-(function (SINGLETON) {
-})(SINGLETON || (SINGLETON = {}));
+(function (SINGLETON) {})(SINGLETON || (SINGLETON = {}));

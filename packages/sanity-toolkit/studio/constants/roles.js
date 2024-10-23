@@ -3,6 +3,6 @@
  */
 export var ROLE;
 (function (ROLE) {
-    ROLE["ADMINISTRATOR"] = "administrator";
-    ROLE["DEVELOPER"] = "developer";
+  ROLE['ADMINISTRATOR'] = 'administrator';
+  ROLE['DEVELOPER'] = 'developer';
 })(ROLE || (ROLE = {}));

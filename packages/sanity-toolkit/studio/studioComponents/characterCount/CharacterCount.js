@@ -1,4 +1,4 @@
-import { jsx as _jsx } from "react/jsx-runtime";
+import { jsx as _jsx } from 'react/jsx-runtime';
 import './CharacterCount.css';
 /**
  * Adds a Character Counter to an input component.
@@ -7,24 +7,24 @@ import './CharacterCount.css';
  * If a `maxLength` is passed, the counter will show both the current count and the max count.
  * The UI will show a warning state if the charCount is below `minLength` or above `maxLength`.
  */
-export default function CharacterCount({ charCount = 0, options, }) {
-    if (!options || options.showCount === false) {
-        return;
+export default function CharacterCount({ charCount = 0, options }) {
+  if (!options || options.showCount === false) {
+    return;
+  }
+  const { minLength, maxLength, showCount } = options;
+  let output = undefined;
+  if (showCount ?? minLength ?? maxLength) {
+    output = `${charCount}`;
+    if (maxLength) {
+      output = `${output} / ${maxLength}`;
     }
-    const { minLength, maxLength, showCount } = options;
-    let output = undefined;
-    if (showCount ?? minLength ?? maxLength) {
-        output = `${charCount}`;
-        if (maxLength) {
-            output = `${output} / ${maxLength}`;
-        }
-    }
-    const classes = [];
-    if (minLength ?? maxLength) {
-        classes.push('char-count-text-input');
-    }
-    if (!!(minLength && charCount < minLength) || !!(maxLength && charCount > maxLength)) {
-        classes.push('char-count-text-input--warning');
-    }
-    return _jsx("span", { className: classes.join(' '), children: output ?? '' });
+  }
+  const classes = [];
+  if (minLength ?? maxLength) {
+    classes.push('char-count-text-input');
+  }
+  if (!!(minLength && charCount < minLength) || !!(maxLength && charCount > maxLength)) {
+    classes.push('char-count-text-input--warning');
+  }
+  return _jsx('span', { className: classes.join(' '), children: output ?? '' });
 }

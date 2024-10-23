@@ -13,7 +13,9 @@ export function useVisualArrayPickerDialog() {
         setSearchQuery('');
       }
       _setIsOpen(state);
-    }, [_setIsOpen, setSearchQuery]);
+    },
+    [_setIsOpen, setSearchQuery],
+  );
 
   useClickOutsideEvent(
     () => {
@@ -22,12 +24,9 @@ export function useVisualArrayPickerDialog() {
     () => [dialogRef.current],
   );
 
-  const openVisualArrayInput = useCallback(
-    () => {
-      setIsOpen(true);
-    },
-    [setIsOpen],
-  );
+  const openVisualArrayInput = useCallback(() => {
+    setIsOpen(true);
+  }, [setIsOpen]);
 
   return {
     openVisualArrayInput,

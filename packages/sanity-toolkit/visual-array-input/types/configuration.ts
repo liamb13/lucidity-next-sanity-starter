@@ -13,6 +13,6 @@ export type ConfigItem = ConfigItemWithVariants | ConfigItemWithoutVariants;
 
 export type ConfigItemGroup = Omit<ItemGroup, 'items'> & {
   items: Array<ConfigItem>;
-}
+};
 
 export type ConfigItemGroups = Array<ConfigItemGroup>;

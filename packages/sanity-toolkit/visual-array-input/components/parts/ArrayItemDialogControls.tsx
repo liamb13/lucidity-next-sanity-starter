@@ -20,14 +20,7 @@ export function ArrayItemDialogControls({
 }: Readonly<PropsWithChildren<Props>>) {
   return (
     <Stack space={2}>
-      <Flex
-        align="center"
-        marginTop={4}
-        marginBottom={2}
-        paddingY={1}
-        marginRight={2}
-        gap={4}
-      >
+      <Flex align="center" marginTop={4} marginBottom={2} paddingY={1} marginRight={2} gap={4}>
         <Card radius={4} tone="transparent" style={{ flexBasis: '100%' }}>
           <TextInput
             aria-label="Search by name"
@@ -46,18 +39,20 @@ export function ArrayItemDialogControls({
           />
         </Card>
         {/* @todo turn list view back on once styled */}
-        {false && <Tooltip
-          content={
-            <Text size={2}>{gridView ? 'List View' : 'Grid View'}</Text>
-          }
-          placement="top"
-        >
-          <ViewButton onClick={() => {
-            setGridView(!gridView);
-          }}>
-            {gridView ? <CiBoxList /> : <IoGridOutline />}
-          </ViewButton>
-        </Tooltip> }
+        {false && (
+          <Tooltip
+            content={<Text size={2}>{gridView ? 'List View' : 'Grid View'}</Text>}
+            placement="top"
+          >
+            <ViewButton
+              onClick={() => {
+                setGridView(!gridView);
+              }}
+            >
+              {gridView ? <CiBoxList /> : <IoGridOutline />}
+            </ViewButton>
+          </Tooltip>
+        )}
       </Flex>
     </Stack>
   );

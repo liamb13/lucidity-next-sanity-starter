@@ -7,18 +7,20 @@ export const generateItemKey = customAlphabet('0123456789abcdefghijklmnopqrstuvw
  * Tokenize a string for things like search
  */
 export function tokenize(string) {
-    return string.split(/[\s.-]/g).flatMap((segment) => {
-        const acceptedCharacters = [
-            'a-z', // lower-case letters
-            '0-9', // numbers
-        ];
-        return (segment
-            .toString()
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '')
-            .toLowerCase()
-            .replace(new RegExp(`[^${acceptedCharacters.join('')}]`, 'g'), '')
-            .replace(/\s+/g, '-')
-            .trim() || []);
-    });
+  return string.split(/[\s.-]/g).flatMap((segment) => {
+    const acceptedCharacters = [
+      'a-z', // lower-case letters
+      '0-9', // numbers
+    ];
+    return (
+      segment
+        .toString()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .replace(new RegExp(`[^${acceptedCharacters.join('')}]`, 'g'), '')
+        .replace(/\s+/g, '-')
+        .trim() || []
+    );
+  });
 }

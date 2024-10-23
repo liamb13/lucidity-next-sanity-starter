@@ -5,21 +5,20 @@ import { useEffect, useState } from 'react';
  * document has already been published.
  */
 export function changePublishText(originalPublishAction) {
-    const PublishAndUpdateDate = (props) => {
-        const originalResult = originalPublishAction(props);
-        const [isPublished, setIsPublished] = useState(false);
-        useEffect(() => {
-            if (props.draft && !props.published) {
-                setIsPublished(false);
-            }
-            else {
-                setIsPublished(true);
-            }
-        }, [props.draft, props.published]);
-        return {
-            ...originalResult,
-            label: isPublished ? 'Update' : (originalResult?.label ?? 'Publish'),
-        };
+  const PublishAndUpdateDate = (props) => {
+    const originalResult = originalPublishAction(props);
+    const [isPublished, setIsPublished] = useState(false);
+    useEffect(() => {
+      if (props.draft && !props.published) {
+        setIsPublished(false);
+      } else {
+        setIsPublished(true);
+      }
+    }, [props.draft, props.published]);
+    return {
+      ...originalResult,
+      label: isPublished ? 'Update' : (originalResult?.label ?? 'Publish'),
     };
-    return PublishAndUpdateDate;
+  };
+  return PublishAndUpdateDate;
 }

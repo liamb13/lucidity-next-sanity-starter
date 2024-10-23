@@ -4,6 +4,6 @@
  */
 export var INTENT;
 (function (INTENT) {
-    INTENT["CREATE"] = "create";
-    INTENT["EDIT"] = "edit";
+  INTENT['CREATE'] = 'create';
+  INTENT['EDIT'] = 'edit';
 })(INTENT || (INTENT = {}));

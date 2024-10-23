@@ -11,9 +11,11 @@ import { ArrayItemDialogShell } from './parts/ArrayItemDialogShell';
 import { ArrayItemDialogControls } from './parts/ArrayItemDialogControls';
 
 export function VisualArrayInput(configItemGroups: ConfigItemGroups) {
-
   return function VisualArrayInputComponent(props: ArrayOfObjectsInputProps) {
-    const itemGroups = useMemo(() => formatConfigItemGroups(configItemGroups), [configItemGroups]);
+    const itemGroups = useMemo(
+      () => formatConfigItemGroups(configItemGroups),
+      [configItemGroups],
+    );
 
     const {
       openVisualArrayInput,
@@ -44,7 +46,12 @@ export function VisualArrayInput(configItemGroups: ConfigItemGroups) {
         })}
         {isOpen && (
           <ArrayItemDialogShell setIsOpen={setIsOpen} dialogRef={dialogRef}>
-            <ArrayItemDialogControls searchQuery={searchQuery} setSearchQuery={setSearchQuery}  gridView={gridView} setGridView={setGridView}/>
+            <ArrayItemDialogControls
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+              gridView={gridView}
+              setGridView={setGridView}
+            />
             <ArrayItemPicker
               itemGroups={itemGroups}
               searchQuery={searchQuery}

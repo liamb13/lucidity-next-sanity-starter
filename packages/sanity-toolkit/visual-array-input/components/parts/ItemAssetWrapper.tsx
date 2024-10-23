@@ -20,26 +20,25 @@ const StyledItemAssetWrapper = styled.div`
   }
 `;
 
-export function ItemAssetWrapper({ assetUrl, icon }: Readonly<{ assetUrl?: string; icon?: ElementType }>) {
+export function ItemAssetWrapper({
+  assetUrl,
+  icon,
+}: Readonly<{ assetUrl?: string; icon?: ElementType }>) {
   let FinalIcon = icon ?? CiBoxList;
 
-  return <StyledItemAssetWrapper>
-    {assetUrl && (
-      /\.mp4$|\.mov$|\.avi$|\.wmv$|\.flv$|\.mkv$/.test(assetUrl) ? (
-        <video
-          muted={true}
-          loop={true}
-          autoPlay={true}
-          src={assetUrl}
-        />
-      ) : (
-        <img src={assetUrl} alt="" />
-      )
-    )}
-    {!assetUrl && (
-      <Flex align="center" justify="center" style={{ height: '100%' }}>
-        <FinalIcon />
-      </Flex>
-    )}
-  </StyledItemAssetWrapper>;
+  return (
+    <StyledItemAssetWrapper>
+      {assetUrl &&
+        (/\.mp4$|\.mov$|\.avi$|\.wmv$|\.flv$|\.mkv$/.test(assetUrl) ? (
+          <video muted={true} loop={true} autoPlay={true} src={assetUrl} />
+        ) : (
+          <img src={assetUrl} alt="" />
+        ))}
+      {!assetUrl && (
+        <Flex align="center" justify="center" style={{ height: '100%' }}>
+          <FinalIcon />
+        </Flex>
+      )}
+    </StyledItemAssetWrapper>
+  );
 }

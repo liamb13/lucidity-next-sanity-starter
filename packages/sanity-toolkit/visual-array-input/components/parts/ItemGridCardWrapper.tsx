@@ -23,7 +23,11 @@ const StyledItemGridCardWrapper = styled(Card)<{ $currentScheme?: 'light' | 'dar
   }
 `;
 
-export function ItemGridCardWrapper({ children, onClick, ...props }: Readonly<PropsWithChildren<{ onClick: () => unknown }>>) {
+export function ItemGridCardWrapper({
+  children,
+  onClick,
+  ...props
+}: Readonly<PropsWithChildren<{ onClick: () => unknown }>>) {
   const scheme = useColorSchemeValue();
 
   return (

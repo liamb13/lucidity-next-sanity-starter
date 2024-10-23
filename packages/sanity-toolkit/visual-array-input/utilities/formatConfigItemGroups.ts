@@ -1,11 +1,16 @@
-import type { ConfigItemGroups, ConfigItemWithoutVariants, ConfigItemWithVariants, ItemGroups } from '../types';
+import type {
+  ConfigItemGroups,
+  ConfigItemWithoutVariants,
+  ConfigItemWithVariants,
+  ItemGroups,
+} from '../types';
 
 export function formatConfigItemGroups(configItemGroups: ConfigItemGroups) {
-  return configItemGroups.map(group => ({
+  return configItemGroups.map((group) => ({
     ...group,
     items: group.items
       /* Ensure all items have a variants array, as config doesn't require variants if there's only one */
-      .map(item => {
+      .map((item) => {
         if (hasVariants(item)) {
           return item;
         }
@@ -23,11 +28,11 @@ export function formatConfigItemGroups(configItemGroups: ConfigItemGroups) {
         };
       })
       /* Ensure that all items and variants have a title, as these are optional */
-      .map(item => {
+      .map((item) => {
         return {
           ...item,
           title: item.title ?? item.name,
-          variants: item.variants.map(variant => ({
+          variants: item.variants.map((variant) => ({
             ...variant,
             variantTitle: variant.variantTitle ?? variant.variantName,
           })),
@@ -36,6 +41,8 @@ export function formatConfigItemGroups(configItemGroups: ConfigItemGroups) {
   })) satisfies ItemGroups;
 }
 
-function hasVariants(item: ConfigItemWithoutVariants | ConfigItemWithVariants): item is ConfigItemWithVariants {
+function hasVariants(
+  item: ConfigItemWithoutVariants | ConfigItemWithVariants,
+): item is ConfigItemWithVariants {
   return (item as ConfigItemWithVariants).variants !== undefined;
 }

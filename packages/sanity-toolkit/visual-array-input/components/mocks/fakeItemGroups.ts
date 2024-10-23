@@ -20,13 +20,16 @@ export const itemGroups: ConfigItemGroups = [
             variantAssetUrl: undefined,
             itemsToAdd: ({ index, inputProps, addItems }) => {
               console.log('add item', index, inputProps);
-              return addItems([
-                {
-                  type: 'modularContentBlocks.outer.section',
-                },
-              ], index);
+              return addItems(
+                [
+                  {
+                    type: 'modularContentBlocks.outer.section',
+                  },
+                ],
+                index,
+              );
             },
-          }
+          },
         ],
       },
       {
@@ -45,7 +48,7 @@ export const itemGroups: ConfigItemGroups = [
                 type: 'modularContentBlocks.outer.section',
               },
             ],
-          }
+          },
         ],
       },
       {
@@ -85,13 +88,16 @@ export const itemGroups: ConfigItemGroups = [
             variantAssetUrl: undefined,
             itemsToAdd: ({ index, inputProps, addItems }) => {
               console.log('add item', index, inputProps);
-              return addItems([
-                {
-                  type: 'modularContentBlocks.outer.section',
-                },
-              ], index);
+              return addItems(
+                [
+                  {
+                    type: 'modularContentBlocks.outer.section',
+                  },
+                ],
+                index,
+              );
             },
-          }
+          },
         ],
       },
       {
@@ -110,7 +116,7 @@ export const itemGroups: ConfigItemGroups = [
                 type: 'modularContentBlocks.outer.section',
               },
             ],
-          }
+          },
         ],
       },
       {

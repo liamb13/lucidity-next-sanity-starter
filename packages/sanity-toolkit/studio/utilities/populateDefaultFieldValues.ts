@@ -12,9 +12,7 @@ export function populateDefaultFieldValues(
 ) {
   let defaultInitialValues = {};
 
-  const schema = fieldProps.schemaType.of.find(
-    (schema) => schema.name === schemaName,
-  );
+  const schema = fieldProps.schemaType.of.find((schema) => schema.name === schemaName);
 
   if (schema && schema.jsonType === 'object') {
     defaultInitialValues = schema.fields.reduce((acc, blockField) => {
@@ -35,7 +33,6 @@ export function populateDefaultFieldValues(
       };
     }, {});
   }
-
 
   return defaultInitialValues;
 }

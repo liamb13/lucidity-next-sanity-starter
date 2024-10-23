@@ -44,27 +44,21 @@ export function ArrayItemPicker({
   return (
     <Wrapper>
       <Stack space={4} paddingY={3}>
-        {gridView && (
+        {gridView &&
           filteredItemGroups
             .filter((itemGroup) => itemGroup.items.length)
             .map((itemGroup) => (
               <Stack key={itemGroup.name} space={3}>
-
                 <ItemGroupHeading itemGroup={itemGroup} />
                 <Stack space={2} paddingY={3}>
                   <Grid>
                     {itemGroup.items.map((item) => (
-                      <ItemGridCard
-                        key={item.title}
-                        item={item}
-                        onItemAdd={onItemAdd}
-                      />
+                      <ItemGridCard key={item.title} item={item} onItemAdd={onItemAdd} />
                     ))}
                   </Grid>
                 </Stack>
               </Stack>
-            ))
-        )}
+            ))}
 
         {!gridView && (
           <Stack space={4}>
@@ -72,15 +66,10 @@ export function ArrayItemPicker({
               .filter((itemGroup) => itemGroup.items.length)
               .map((itemGroup) => (
                 <Stack key={itemGroup.name} space={3}>
-
                   <ItemGroupHeading itemGroup={itemGroup} showDescription={false} />
                   <Stack space={2} paddingY={3}>
                     {itemGroup.items.map((item) => (
-                      <ItemListView
-                        key={item.title}
-                        item={item}
-                        onItemAdd={onItemAdd}
-                      />
+                      <ItemListView key={item.title} item={item} onItemAdd={onItemAdd} />
                     ))}
                   </Stack>
                 </Stack>
