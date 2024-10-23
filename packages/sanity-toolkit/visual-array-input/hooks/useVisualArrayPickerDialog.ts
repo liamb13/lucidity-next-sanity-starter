@@ -2,10 +2,18 @@ import { useState, useRef, useCallback } from 'react';
 import { useClickOutsideEvent } from '@sanity/ui';
 
 export function useVisualArrayPickerDialog() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, _setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [gridView, setGridView] = useState(true);
   const dialogRef = useRef(null);
+
+  const setIsOpen = useCallback(
+    (state: boolean) => {
+      if (!state) {
+        setSearchQuery('');
+      }
+      _setIsOpen(state);
+    }, [_setIsOpen, setSearchQuery]);
 
   useClickOutsideEvent(
     () => {
@@ -23,10 +31,10 @@ export function useVisualArrayPickerDialog() {
 
   return {
     openVisualArrayInput,
-    isOpen: isOpen,
-    setIsOpen: setIsOpen,
+    isOpen,
+    setIsOpen,
     searchQuery,
-    setSearchQuery: (query: string) => { console.log('set search query', query); setSearchQuery(query); },
+    setSearchQuery,
     gridView,
     setGridView,
     dialogRef,
