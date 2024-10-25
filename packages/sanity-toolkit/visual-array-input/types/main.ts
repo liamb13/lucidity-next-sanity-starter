@@ -36,13 +36,11 @@ export type UserOnItemAddObject = ItemToAdd;
 export type OnItemAdd = UserOnItemAddFn | UserOnItemAddArray | UserOnItemAddObject;
 
 export interface Item {
-  name: string;
   title: string;
   icon?: ElementType;
   tags?: Array<string>;
   variants: Array<{
-    variantName: string /* If only 1 variant, repeat item name as variant name. It won't be used/displayed. If 2, must be set */;
-    variantTitle: string;
+    variantTitle: string; // If only 1 variant, repeat item title as variant title. It won't be used/displayed. If 2, must be set
     variantAssetUrl?: string; // The image or video to display in the item picker. Can be a file or a URL
     itemsToAdd: OnItemAdd;
   }>;
