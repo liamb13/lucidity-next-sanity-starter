@@ -1,16 +1,14 @@
-import { useClient } from 'sanity';
+import { type ArrayOfObjectsInputProps, type SanityClient, useClient } from 'sanity';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { PERSPECTIVE } from '../../studio/constants/perspectives';
 import { formatConfigItemGroups } from '../utilities/formatConfigItemGroups';
-import type {
-  ConfigItemGroupCallable,
-  ConfigItemGroups,
-  ConfigItemGroupStatic,
-} from '../types';
+import type { ConfigItem, ConfigItemGroupCallable, ConfigItemGroups } from '../types';
+import { resolveWizardItems } from '../utilities/resolveWizardItems';
 
 // @todo show loading state and use error state
 export function useItemGroups(
   configItemGroups: ConfigItemGroups,
+  props: ArrayOfObjectsInputProps,
   {
     apiVersion = '2024-03-12',
   }: {
@@ -29,66 +27,98 @@ export function useItemGroups(
     [clientWithoutConfig],
   );
 
-  const getAsyncGroupItems = useCallback(
+  const resolveCallableGroupItems = useCallback(
     async (configItemGroups: ConfigItemGroups) => {
       try {
         setLoading(true);
 
-        // Separate async groups from static ones
-        const asyncGroups = configItemGroups.filter(
-          (group): group is ConfigItemGroupCallable => typeof group.items === 'function',
-        );
-        const staticGroups = configItemGroups.filter(
-          (group): group is ConfigItemGroupStatic => typeof group.items !== 'function',
-        );
-
-        const promises = asyncGroups.map(async (itemGroup) => {
-          try {
-            const result = await itemGroup.items({ client });
-            return { name: itemGroup.name, result };
-          } catch (error) {
-            return { name: itemGroup.name, error }; // Handle error per promise
-          }
+        const resolvedItemGroups = await resolveCallableItemGroups(configItemGroups, {
+          client,
         });
 
-        const resolvedItems = await Promise.allSettled(promises);
-
-        const updatedGroups = asyncGroups.map((itemGroup) => {
-          const resolvedGroup = resolvedItems.find(
-            (item): item is PromiseFulfilledResult<{ name: string; result: Array<any> }> =>
-              item.status === 'fulfilled' && item.value.name === itemGroup.name,
-          );
-
-          return {
-            ...itemGroup,
-            items: resolvedGroup ? resolvedGroup.value.result : [],
-          };
-        });
-
-        setWorkingItemGroups([...staticGroups, ...updatedGroups]);
+        setWorkingItemGroups(resolvedItemGroups);
       } catch (error) {
         console.error(error);
       } finally {
         setLoading(false);
       }
     },
-    [configItemGroups],
+    [configItemGroups, client],
   );
 
   useEffect(() => {
-    void getAsyncGroupItems(configItemGroups);
-  }, [getAsyncGroupItems, configItemGroups]);
+    void resolveCallableGroupItems(configItemGroups);
+  }, [resolveCallableGroupItems, configItemGroups]);
 
-  const itemGroups = useMemo(
-    () => formatConfigItemGroups(workingItemGroups),
-    [workingItemGroups],
-  );
+  const itemGroups = useMemo(() => {
+    const groups = formatConfigItemGroups(resolveWizardItems(workingItemGroups, props));
+    console.log('itemGroups changed', groups);
+    return groups;
+  }, [workingItemGroups]);
 
   return {
     itemGroups,
   };
 }
 
-function doSomething() {
-  return [];
+/**
+ * Item Groups items can be a mix of static arrays, function callbacks, or special strings for certain generation functionality.
+ * This function resolves the callable item groups.
+ * The callable item groups return an array of items, or a promise that resolves to an array of items.
+ * These are awaited so that we end up with a resolved array of items for each group that has a callable function.
+ */
+async function resolveCallableItemGroups(
+  configItemGroups: ConfigItemGroups,
+  { client }: { client: SanityClient },
+) {
+  const callableItemGroups = configItemGroups.filter(
+    (group): group is ConfigItemGroupCallable => typeof group.items === 'function',
+  );
+
+  /** Used to later track when all promises have settled */
+  let callResults: Array<Array<ConfigItem> | Promise<void | Array<ConfigItem>>> = [];
+
+  /** Map of objects with a promise and the corresponding itemGroup name that it belongs to */
+  const trackedPromises = callableItemGroups.map((itemGroup) => {
+    const promiseResults: { name: string; result: null | Array<ConfigItem> } = {
+      name: itemGroup.name,
+      result: null,
+    };
+
+    callResults.push(
+      Promise.resolve(itemGroup.items({ client })) // Converts value so it's always a Promise
+        .then((result) => (promiseResults.result = result)) // Stores the resolved result for later use
+        // @todo better error handling
+        .catch((err) => console.error(err)),
+    );
+
+    return promiseResults;
+  });
+
+  await Promise.allSettled(callResults);
+
+  const resolvedItemGroups = configItemGroups.map((itemGroup) => {
+    const resolvedGroup = trackedPromises.find((item) => item.name === itemGroup.name);
+
+    // Not a callable item group, so just return original itemGroup
+    if (!resolvedGroup) {
+      return itemGroup;
+    }
+
+    // Problem resolving function or promse, so return an empty array
+    if (!resolvedGroup?.result) {
+      return {
+        ...itemGroup,
+        items: [],
+      };
+    }
+
+    // Promise or function resolved, use the result as the group's items
+    return {
+      ...itemGroup,
+      items: resolvedGroup.result,
+    };
+  });
+
+  return resolvedItemGroups;
 }

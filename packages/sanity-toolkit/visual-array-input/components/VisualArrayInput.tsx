@@ -1,5 +1,5 @@
-import { type ArrayOfObjectsInputProps, useClient } from 'sanity';
-import { useCallback, useMemo } from 'react';
+import { type ArrayOfObjectsInputProps } from 'sanity';
+import { useCallback } from 'react';
 import { VisualArrayInputProvider } from '../providers/VisualArrayInputProvider';
 import type { ConfigItemGroups, OnItemAddFn } from '../types';
 import { useVisualArrayPickerDialog } from '../hooks/useVisualArrayPickerDialog';
@@ -15,7 +15,7 @@ export function VisualArrayInput(
   { apiVersion = '2024-03-12' }: { apiVersion?: string },
 ) {
   return function VisualArrayInputComponent(props: ArrayOfObjectsInputProps) {
-    const { itemGroups } = useItemGroups(configItemGroups, { apiVersion });
+    const { itemGroups } = useItemGroups(configItemGroups, props, { apiVersion });
 
     const {
       openVisualArrayInput,

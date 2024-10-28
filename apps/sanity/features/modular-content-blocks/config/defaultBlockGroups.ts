@@ -2,17 +2,16 @@ import type {
   ConfigItem,
   ConfigItemGroups,
 } from '@pkg/sanity-toolkit/visual-array-input/types';
-import { CiBoxList } from 'react-icons/ci';
 import { TbGridPattern } from 'react-icons/tb';
-import { WIZARD_GROUPS } from '@/features/modular-content-blocks/constants/wizardGroups';
 import { PiLego } from 'react-icons/pi';
-import { SiHiveBlockchain } from 'react-icons/si';
-import { GrClone } from 'react-icons/gr';
 import { Image, SanityClient } from 'sanity';
-import { OBJECT } from '@pkg/common/constants/schemaTypes';
+import { DOCUMENT, OBJECT } from '@pkg/common/constants/schemaTypes';
 import { defineQuery } from 'groq';
 import { FaRecycle } from 'react-icons/fa';
 import imageUrlBuilder from '@sanity/image-url';
+import { WIZARD_GROUPS } from '@/features/modular-content-blocks/constants';
+import { CiBoxList } from 'react-icons/ci';
+import { WIZARD_ITEMS } from '@pkg/sanity-toolkit/visual-array-input/constants';
 
 export interface ReusableBlockDocument {
   _id: string;
@@ -32,7 +31,7 @@ export interface ModularBlock {
 }
 
 const coreSectionPatternsQuery = defineQuery(`
-  { 'coreSectionPatterns': *[_type == "page"] }
+  { 'coreSectionPatterns': *[_type == "${DOCUMENT.CONFIG_CORE_SECTION}"] }
 `);
 
 export const itemGroups: ConfigItemGroups = [
@@ -56,7 +55,15 @@ export const itemGroups: ConfigItemGroups = [
     description:
       'The modular content blocks used to build pages. Use these to build sections on this page or add more content to existing sections.',
     icon: PiLego,
-    items: [
+    default: true,
+    items: WIZARD_ITEMS.FROM_SCHEMA,
+  },
+  {
+    name: 'staticTest',
+    title: 'Static Test',
+    description: 'Test of static data. Delete if visible',
+    icon: PiLego,
+    items: () => [
       {
         title: 'Section',
         icon: CiBoxList,
@@ -113,22 +120,6 @@ export const itemGroups: ConfigItemGroups = [
       },
     ],
   },
-  {
-    name: WIZARD_GROUPS.REUSABLE,
-    title: 'Reusable Blocks',
-    description:
-      'Reusable blocks can be created once and then quickly inserted into any page, e.g. to quickly scaffold landing pages',
-    icon: GrClone,
-    items: [],
-  },
-  {
-    name: WIZARD_GROUPS.NICHE,
-    title: 'Niche Blocks',
-    description:
-      'Niche blocks are created for specific purposes, and should almost never be needed otherwise',
-    icon: SiHiveBlockchain,
-    items: [],
-  },
 ];
 
 function reusableBlocksToConfigItems(
@@ -138,7 +129,6 @@ function reusableBlocksToConfigItems(
   const builder = imageUrlBuilder(client);
 
   return reusableBlocks.map((blockDoc) => ({
-    name: blockDoc.title ?? 'Unnamed Block', // @todo remove name entirely from all items and variants—not needed
     title: blockDoc.title ?? 'Unnamed Block',
     icon: FaRecycle,
     assetUrl: blockDoc.image && builder.image(blockDoc.image).width(600).url(),

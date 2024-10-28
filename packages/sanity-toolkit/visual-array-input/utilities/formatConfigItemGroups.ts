@@ -1,4 +1,6 @@
 import type {
+  ConfigItemGroupCallable,
+  ConfigItemGroupNotCallable,
   ConfigItemGroups,
   ConfigItemWithoutVariants,
   ConfigItemWithVariants,
@@ -11,14 +13,13 @@ import type {
  *  - It supports having no variants on an item, and putting the assetUrl and initialValue on the item itself
  *  - It supports defining just a name for an item or for a variant, and not needing a title
  */
-export function formatConfigItemGroups(configItemGroups: ConfigItemGroups) {
+export function formatConfigItemGroups(
+  configItemGroups: Array<ConfigItemGroupNotCallable | ConfigItemGroupCallable>,
+) {
   return configItemGroups.map((group) => {
-    let items = group.items;
-
-    // This is an async entry, which should be being resolved in a useEffect externally
-    if (typeof group.items === 'function') {
-      items = [];
-    }
+    // If group.items is not an array, it's because it's currently being asynchronously transformed
+    // from a function or promise within the useEffect. Therefore just accept an empty array for now.
+    let items = Array.isArray(group.items) ? group.items : [];
 
     return {
       ...group,
@@ -33,23 +34,11 @@ export function formatConfigItemGroups(configItemGroups: ConfigItemGroups) {
             ...item,
             variants: [
               {
-                variantName: item.name,
                 variantTitle: item.title,
                 variantAssetUrl: item.assetUrl,
                 itemsToAdd: item.itemsToAdd,
               },
             ],
-          };
-        })
-        /* Ensure that all items and variants have a title, as these are optional */
-        .map((item) => {
-          return {
-            ...item,
-            title: item.title ?? item.name,
-            variants: item.variants.map((variant) => ({
-              ...variant,
-              variantTitle: variant.variantTitle ?? variant.variantName,
-            })),
           };
         }),
     };
