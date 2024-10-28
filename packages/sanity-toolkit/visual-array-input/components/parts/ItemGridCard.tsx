@@ -14,7 +14,7 @@ export function ItemGridCard({ item, onItemAdd }: Readonly<Props>) {
 
   if (!itemVariant) return;
 
-  const itemTitle = item.title ?? item.name;
+  const itemTitle = item.title;
 
   return (
     <ItemGridCardWrapper

@@ -42,7 +42,7 @@ export function ItemListView({ item, onItemAdd }: Readonly<Props>) {
 
   if (!itemVariant) return;
 
-  const itemTitle = item.title ?? item.name;
+  const itemTitle = item.title;
 
   // @todo do the styling for ListView
 
