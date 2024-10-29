@@ -32,8 +32,8 @@
     "g:lint:fix": "turbo run lint:fix --color",
     "g:prettier": "turbo run prettier --color",
     "g:prettier:fix": "turbo run prettier:fix --color",
-    "g:lint-staged-files": "lint-staged --allow-empty",
-    "g:test": "echo \"Error: no test specified\" && exit 1",
+    "g:test": "turbo run test",
+    "g:test:unit": "turbo run test:unit",
     "g:turbo": "turbo",
     "g:typecheck": "turbo run typecheck",
     "prepare": "husky"

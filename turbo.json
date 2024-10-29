@@ -13,6 +13,8 @@
     "lint:fix": {},
     "prettier": {},
     "prettier:fix": {},
+    "test": {},
+    "test:unit": {},
     "typecheck": {},
     "dev": {
       "persistent": true,
