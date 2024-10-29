@@ -102,8 +102,8 @@ jobs:
         env:
           TIMING: 1
 
-      #- name: 🧪 Unit tests
-      #  run: pnpm g:test-unit
+      - name: 🧪 Unit tests
+        run: pnpm g:test:unit
 
       - name: 🏗 Build web-app
         run: pnpm g:build

@@ -4,7 +4,6 @@
   "private": true,
   "type": "module",
   "main": "package.json",
-  "type": "module",
   "author": {
     "name": "Jamie Warburton",
     "url": "https://github.com/jamiewarb"
@@ -51,8 +50,11 @@
     "@sanity/eslint-config-studio": "4.0.0",
     "@sanity/types": "3.61.0",
     "@types/react": "18.3.11",
+    "@vitest/coverage-v8": "^2.1.4",
+    "@vitest/ui": "^2.1.4",
     "eslint": "8.57.1",
     "prettier": "3.3.3",
-    "typescript": "5.6.3"
+    "typescript": "5.6.3",
+    "vitest": "^2.1.4"
   }
 }

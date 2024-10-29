@@ -9,11 +9,12 @@
     "jsx": "react-jsx",
     "noEmit": false,
     "incremental": true,
-    "types": ["vitest/globals"]
+    "types": ["vitest/globals", "@testing-library/jest-dom"]
   },
   "exclude": ["**/node_modules", "**/.*/*"],
   "include": [
     ".eslintrc.*",
+    "./config/tests/setupVitest.ts",
     "**/*.ts",
     "**/*.tsx",
     "**/*.mts",
