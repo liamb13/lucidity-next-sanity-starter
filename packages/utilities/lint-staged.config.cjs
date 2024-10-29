@@ -24,7 +24,7 @@ const rules = {
   //     files: filenames,
   //   });
   // },
-  '**/*.{json,md,mdx,css,html,yml,yaml,scss}': (filenames) => {
+  '**/*.{js,jsx,ts,tsx,mjs,cjs,json,md,mdx,css,html,yml,yaml,scss}': (filenames) => {
     return [`prettier --write ${filenames.join(' ')}`];
   },
 };
