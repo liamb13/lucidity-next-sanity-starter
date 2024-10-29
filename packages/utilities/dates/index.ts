@@ -1,36 +1,20 @@
-export function articleDate(publishedDate: string | Date, updatedDate?: null | string | Date) {
-  const humanPublished = humanReadable(publishedDate);
-
-  if (updatedDate) {
-    const humanUpdated = humanReadable(updatedDate);
-
-    return humanPublished !== humanUpdated
-      ? `${humanReadable(publishedDate)} — Updated at ${humanReadable(updatedDate)}`
-      : humanReadable(publishedDate);
+export function articleDate(published: Date, updated?: Date) {
+  const publishedDate = humanReadable(published);
+  if (!updated || updated.getTime() === published.getTime()) {
+    return publishedDate;
   }
-
-  return humanPublished;
+  return `${publishedDate} — Updated at ${humanReadable(updated)}`;
 }
 
-export function humanReadable(
-  date: string | Date,
-  options?: Parameters<typeof Intl.DateTimeFormat>[1],
-) {
-  const dateObject = new Date(date);
+export function humanReadable(date: Date | string, options?: Intl.DateTimeFormatOptions) {
+  const dateObject = typeof date === 'string' ? new Date(date) : date;
+  const defaultOptions: Intl.DateTimeFormatOptions = {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  };
 
-  return new Intl.DateTimeFormat(
-    'en-GB',
-    options ?? {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    },
-  ).format(dateObject);
+  const finalOptions = options ? { ...defaultOptions, ...options } : defaultOptions;
+
+  return dateObject.toLocaleDateString('en-GB', finalOptions);
 }
-
-// const publishedAt = props.content?.publishedAt ? useLocalisedDate(props.content.publishedAt) : undefined;
-// const updatedAt = props.content?.updatedAt ? useLocalisedDate(props.content.updatedAt) : undefined;
-//
-// const postedAndUpdatedText = updatedAt && publishedAt !== updatedAt
-//   ? t('blogPostedUpdated', { postedDate: publishedAt, updatedDate: updatedAt })
-//   : t('blogPosted', { postedDate: publishedAt });

@@ -19,8 +19,7 @@ export function legibleTextColor(colorInput: string): 'black' | 'white' {
       g = parseInt(values[1]);
       b = parseInt(values[2]);
     } else {
-      console.error('legibleTextColor error - invalid color input: ', colorInput);
-      return 'black';
+      throw new Error(`legibleTextColor error - invalid color input: ${colorInput}`);
     }
   }
 
