@@ -10,8 +10,9 @@ import { defineQuery } from 'groq';
 import { FaRecycle } from 'react-icons/fa';
 import imageUrlBuilder from '@sanity/image-url';
 import { WIZARD_GROUPS } from '@/features/modular-content-blocks/constants';
-import { CiBoxList } from 'react-icons/ci';
 import { WIZARD_ITEMS } from '@pkg/sanity-toolkit/visual-array-input/constants';
+import { SiHiveBlockchain } from 'react-icons/si';
+import { GrClone } from 'react-icons/gr';
 
 export interface ReusableBlockDocument {
   _id: string;
@@ -30,9 +31,17 @@ export interface ModularBlock {
   [key: string]: unknown;
 }
 
-const coreSectionPatternsQuery = defineQuery(`
-  { 'coreSectionPatterns': *[_type == "${DOCUMENT.CONFIG_CORE_SECTION}"] }
-`);
+const coreSectionPatternsQuery = defineQuery(`*[_type == "${DOCUMENT.CONFIG_CORE_SECTION}"]`);
+
+const reusableBlocksQuery = defineQuery(`*[_type == "${DOCUMENT.REUSABLE_BLOCKS}"]`);
+
+async function reusableBlocksItems<
+  ResponseType extends Array<ReusableBlockDocument> = Array<ReusableBlockDocument>,
+>(client: SanityClient, query: string) {
+  const blocks = await client.fetch<ResponseType>(query);
+
+  return reusableBlocksToConfigItems(blocks, client);
+}
 
 export const itemGroups: ConfigItemGroups = [
   {
@@ -41,13 +50,7 @@ export const itemGroups: ConfigItemGroups = [
     description:
       'Section Patterns are pre-made groups of Outer and Inner blocks that are commonly used across the site. They allow for fast page creation, without adding all the Inner blocks yourself.',
     icon: TbGridPattern,
-    items: async ({ client }: { client: SanityClient }) => {
-      const { coreSectionPatterns } = await client.fetch<{
-        coreSectionPatterns: Array<ReusableBlockDocument>;
-      }>(coreSectionPatternsQuery);
-
-      return reusableBlocksToConfigItems(coreSectionPatterns, client);
-    },
+    items: async ({ client }) => reusableBlocksItems(client, coreSectionPatternsQuery),
   },
   {
     name: WIZARD_GROUPS.DEFAULT,
@@ -59,66 +62,20 @@ export const itemGroups: ConfigItemGroups = [
     items: WIZARD_ITEMS.FROM_SCHEMA,
   },
   {
-    name: 'staticTest',
-    title: 'Static Test',
-    description: 'Test of static data. Delete if visible',
-    icon: PiLego,
-    items: () => [
-      {
-        title: 'Section',
-        icon: CiBoxList,
-        tags: ['test'],
-        variants: [
-          {
-            variantTitle: 'Variant 1',
-            variantAssetUrl: undefined,
-            itemsToAdd: ({ index, inputProps, addItems }) => {
-              console.log('add item', index, inputProps);
-              return addItems(
-                [
-                  {
-                    type: 'modularContentBlocks.outer.section',
-                  },
-                ],
-                index,
-              );
-            },
-          },
-        ],
-      },
-      {
-        title: 'Contents',
-        icon: CiBoxList,
-        tags: ['test'],
-        variants: [
-          {
-            variantTitle: 'Variant 1',
-            variantAssetUrl: undefined,
-            // Return a function to call it, return an object or an array to have them added
-            itemsToAdd: [
-              {
-                type: 'modularContentBlocks.outer.section',
-              },
-            ],
-          },
-        ],
-      },
-      {
-        title: 'Section Thing',
-        icon: CiBoxList,
-        tags: ['test'],
-        variants: [
-          {
-            variantTitle: 'Variant 1',
-            variantAssetUrl: undefined,
-            // Return a function to call it, return an object or an array to have them added
-            itemsToAdd: {
-              type: 'modularContentBlocks.outer.section',
-            },
-          },
-        ],
-      },
-    ],
+    name: WIZARD_GROUPS.REUSABLE,
+    title: 'Reusable Blocks',
+    description:
+      'Reusable blocks can be created once and then quickly inserted into any page, e.g. to quickly scaffold landing pages',
+    icon: GrClone,
+    items: async ({ client }) => reusableBlocksItems(client, reusableBlocksQuery),
+  },
+  {
+    name: WIZARD_GROUPS.NICHE,
+    title: 'Niche Blocks',
+    description:
+      'Niche blocks are created for specific purposes, and should almost never be needed otherwise',
+    icon: SiHiveBlockchain,
+    items: WIZARD_ITEMS.FROM_SCHEMA,
   },
 ];
 

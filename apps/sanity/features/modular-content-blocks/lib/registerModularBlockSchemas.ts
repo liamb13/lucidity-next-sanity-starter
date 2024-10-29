@@ -1,14 +1,12 @@
 import { defineType } from 'sanity';
 import { OBJECT } from '@pkg/common/constants/schemaTypes';
-import { ONLY } from '../constants';
-import { getModularBlocks } from './getModularContentBlocks';
-import { blocksObjectSchema } from './blockSchemas';
 import { VisualArrayInput } from '@pkg/sanity-toolkit/visual-array-input/components/VisualArrayInput';
+import { ONLY } from '@pkg/modular-content-blocks/constants';
+import { blocksObjectSchema } from './blockSchemas';
 import { itemGroups } from '@/features/modular-content-blocks/config/defaultBlockGroups';
-// import { ModularBlockArrayInput } from './components/ModularBlockArrayInput';
-// import { BLOCK_CATEGORY } from '../constants';
+import { getModularBlocks } from '@/features/modular-content-blocks/lib/getModularContentBlocks';
 
-// @todo link up the modularBlocksSchemaToInputConfig function and the actual schema so the blocks are generated when adding to the visual array input
+export { ONLY } from '@pkg/modular-content-blocks/constants';
 
 export function registerModularBlockSchemas() {
   const innerBlocksSchema = getModularBlocks({ only: ONLY.INNER });
@@ -45,5 +43,3 @@ export function registerModularBlockSchemas() {
     ...blocksObjectSchema,
   ];
 }
-
-export { ONLY } from '../constants';

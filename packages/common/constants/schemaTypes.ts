@@ -18,6 +18,7 @@ export enum DOCUMENT {
   PAGE = 'page',
 
   CONFIG_CORE_SECTION = 'coreSectionPatterns',
+  REUSABLE_BLOCKS = 'reusableBlocks',
 
   MEDIA_TAG = 'media.tag', // Added by the Sanity Media Plugin
 }
