@@ -2,7 +2,7 @@
 
 <div align="center">
   <a href="https://github.com/hex-digital/lucidity-next-sanity-starter">
-    <img src="docs/lucidity.svg" alt="Lucidity Logo" width="140">
+    <img src="docs/lucidity.svg" alt="Lucidity Logo" width="220">
   </a>
 
   <p align="center">
@@ -17,20 +17,20 @@
 </div>
 
 <div align="center">
-
-[![CI Packages][ci-packages-shield]][ci-packages-url]
-[![Codefactor][codefactor-shield]][codefactor-url]
-[![Maintainability][maintainability-shield]][maintainability-url]
-[![TechDebt][tech-debt-shield]][tech-debt-url]
-[![Top Language][top-lang-shield]][top-lang-url]
-[![License][license-shield]][license-url]
-[![FOSSA Security Status][fossa-security-shield]][fossa-security-url]
-[![FOSSA License Status][fossa-license-shield]][fossa-license-url]
+  
+  [![CI Packages][ci-packages-shield]][ci-packages-url]
+  [![Codefactor][codefactor-shield]][codefactor-url]
+  [![Maintainability][maintainability-shield]][maintainability-url]
+  [![TechDebt][tech-debt-shield]][tech-debt-url]
+  [![Top Language][top-lang-shield]][top-lang-url]
+  [![License][license-shield]][license-url]
+  [![FOSSA Security Status][fossa-security-shield]][fossa-security-url]
+  [![FOSSA License Status][fossa-license-shield]][fossa-license-url]
 
 </div>
 
 <div align="center">
-  <p align="center">
+  <p align="center" style="font-size: smaller">
     <!--<a href="https://github.com/hex-digital/lucidity-next-sanity-starter">View Demo</a>
     ·
     --><a href="https://github.com/hex-digital/lucidity-next-sanity-starter/issues/new?labels=bug">Report Bug</a>
@@ -58,9 +58,20 @@
 
 - [https://www.toogoodtogo.com](https://www.toogoodtogo.com)
 
+Send in a PR with your own addition
+
 ## Credits
 
+The project takes inspiration from two main sources:
+
+- [Bulletproof React repo](https://github.com/alan2207/bulletproof-react)
+- [Belgattitude Monorepo Example](https://github.com/belgattitude/nextjs-monorepo-example)
+
 ## Support
+
+Do you need support with Lucidity, Sanity or Next.js? We offer paid support and consulting services, as well as website builds, apps, and custom development.
+
+Feel free to email me at jamie [at] hexdigital [dot] com, or [get in touch via our website](https://www.hexdigital.com/contact) to discuss your project.
 
 ## License
 
