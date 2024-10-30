@@ -94,7 +94,7 @@ A turn-key application for Next.js 15 and Sanity CMS. The project is designed to
 Either fork this repo or use the GitHub Template:
 
 <a href="https://github.com/new?template_name=lucidity-next-sanity-starter&template_owner=hex-digital">
-  <img alt="Use this template" src="./docs/use-this-template.png" width="258">
+  <img alt="Use this template" src="./docs/use-this-template.png" width="138">
 </a>
 
 Install dependencies using `pnpm install` and run the dev servers for Next.js and Sanity with `pnpm g:dev`.
