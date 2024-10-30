@@ -24,7 +24,8 @@
 [![TechDebt][tech-debt-shield]][tech-debt-url]
 [![Top Language][top-lang-shield]][top-lang-url]
 [![License][license-shield]][license-url]
-[![FOSSA Status][fossa-shield]][fossa-url]
+[![FOSSA Security Status][fossa-security-shield]][fossa-security-url]
+[![FOSSA License Status][fossa-license-shield]][fossa-license-url]
 
 </div>
 
@@ -63,7 +64,7 @@
 
 ## License
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fhex-digital%2Flucidity-next-sanity-starter.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2Fhex-digital%2Flucidity-next-sanity-starter?ref=badge_shield&issueType=license)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fhex-digital%2Flucidity-next-sanity-starter.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fhex-digital%2Flucidity-next-sanity-starter?ref=badge_large)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
@@ -80,5 +81,7 @@
 [top-lang-url]: https://github.com/hex-digital/lucidity-next-sanity-starter/search?l=typescript
 [license-shield]: https://img.shields.io/github/license/hex-digital/lucidity-next-sanity-starter?style=flat-quare&labelColor=000000
 [license-url]: https://github.com/hex-digital/lucidity-next-sanity-starter/blob/main/LICENSE
-[fossa-shield]: https://app.fossa.com/api/projects/git%2Bgithub.com%2Fhex-digital%2Flucidity-next-sanity-starter.svg?type=shield&issueType=security
-[fossa-url]: https://app.fossa.com/projects/git%2Bgithub.com%2Fhex-digital%2Flucidity-next-sanity-starter?ref=badge_shield&issueType=security
+[fossa-security-shield]: https://app.fossa.com/api/projects/git%2Bgithub.com%2Fhex-digital%2Flucidity-next-sanity-starter.svg?type=shield&issueType=security
+[fossa-security-url]: https://app.fossa.com/projects/git%2Bgithub.com%2Fhex-digital%2Flucidity-next-sanity-starter?ref=badge_shield&issueType=security
+[fossa-license-shield]: https://app.fossa.com/projects/git%2Bgithub.com%2Fhex-digital%2Flucidity-next-sanity-starter?ref=badge_shield&issueType=license
+[fossa-license-url]: https://app.fossa.com/api/projects/git%2Bgithub.com%2Fhex-digital%2Flucidity-next-sanity-starter.svg?type=shield&issueType=license
