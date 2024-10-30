@@ -53,6 +53,36 @@
   </p>
 </div>
 
+## Sponsors
+
+If you are enjoying some of my OSS work in your company, I'd really appreciate a [sponsorship](https://github.com/sponsors/jamiewarb), a [coffee](https://ko-fi.com/jamiewarb) or a dropped star.
+That gives me some more time to improve it to the next level.
+
+### Special thanks to
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/liamb13" target="_blank">
+         <img width="65" src="https://avatars.githubusercontent.com/u/69778531?v=4" alt="Liam Barr" />
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.hexdigital.com/?utm_source=lucidity-repo&utm_medium=sponsors&utm_campaign=github" target="_blank">
+         <img width="65" src="https://avatars.githubusercontent.com/u/17425446?v=4" alt="Liam Barr" />
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/liamb13" target="_blank">Liam Barr</a>
+    </td>
+    <td align="center">
+      <a href="https://www.hexdigital.com/?utm_source=lucidity-repo&utm_medium=sponsors&utm_campaign=github" target="_blank">Hex Digital</a>
+    </td>
+  </tr>
+</table>
+
 ## Key Features
 
 A turn-key application for Next.js 15 and Sanity CMS. The project is designed to be a starting point for enterprise-ready applications, with a focus on performance, security, and maintainability.
@@ -113,6 +143,8 @@ The project takes inspiration from two main sources:
 
 - [Bulletproof React repo](https://github.com/alan2207/bulletproof-react)
 - [Belgattitude Monorepo Example](https://github.com/belgattitude/nextjs-monorepo-example)
+
+And thank you to [Saskia](https://github.com/bobinska-dev), [Knut](https://github.com/kmelve) and [Simeon](https://github.com/simeongriggs) for their wealth of Sanity knowledge and endless generosity with their time.
 
 ## Support
 
