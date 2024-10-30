@@ -246,9 +246,6 @@ importers:
       '@vitest/ui':
         specifier: ^2.1.4
         version: 2.1.4(vitest@2.1.4)
-      jsdom:
-        specifier: ^25.0.1
-        version: 25.0.1
       vitest:
         specifier: ^2.1.4
         version: 2.1.4(@types/node@20.16.14)(@vitest/ui@2.1.4)(happy-dom@15.7.4)(jsdom@25.0.1)
@@ -10992,6 +10989,7 @@ snapshots:
       - bufferutil
       - supports-color
       - utf-8-validate
+    optional: true
 
   jsesc@3.0.2: {}
 
@@ -11408,7 +11406,8 @@ snapshots:
     dependencies:
       boolbase: 1.0.0
 
-  nwsapi@2.2.13: {}
+  nwsapi@2.2.13:
+    optional: true
 
   object-assign@4.1.1: {}
 
@@ -12736,11 +12735,13 @@ snapshots:
 
   tinyspy@3.0.2: {}
 
-  tldts-core@6.1.57: {}
+  tldts-core@6.1.57:
+    optional: true
 
   tldts@6.1.57:
     dependencies:
       tldts-core: 6.1.57
+    optional: true
 
   tmp@0.0.33:
     dependencies:
@@ -12768,6 +12769,7 @@ snapshots:
   tough-cookie@5.0.0:
     dependencies:
       tldts: 6.1.57
+    optional: true
 
   tr46@0.0.3: {}
 
