@@ -55,7 +55,49 @@
 
 ## Key Features
 
+A turn-key application for Next.js 15 and Sanity CMS. The project is designed to be a starting point for enterprise-ready applications, with a focus on performance, security, and maintainability.
+
+- Editorial functionality
+  - Pages and Articles
+  - Live Previews and Visual Editing
+  - Sitemap-style Page Navigator
+  - Flexible Modular Content Blocks
+  - Powerful Redirects; automatic redirect creation on URL changes
+  - In-CMS Form Builder and Submission Handling
+- SEO
+  - Global and Per-Page Metadata
+  - Sitemap
+  - RSS/JSON Feed
+  - Robots.txt and Humans.txt
+- Security
+  - CORS
+  - Security Headers
+- Accessibility
+  - Accessible by design, with a focus on WCAG 2.2 AA
+- Performance
+  - Image Optimisation
+  - Next.js 15 Caching Integration and Revalidation
+  - Lighthouse Scores
+- Monitoring + Tracking
+  - Optional integrations with:
+    - Sentry
+    - Google Analytics
+    - Feedbucket
+  - And the easy adoption of more
+- Development
+  - Solid Dev Tooling: linting; type checking; testing; CI/CD;
+  - Sanity Toolkit: utility functions, validation rules, hidden/readOnly functions, schema components
+  - Monorepo with maintainable structure and clean code, inspired by Bulletproof React
+
 ## How to Use
+
+Either fork this repo or use the GitHub Template:
+
+[![Use this template](./docs/use-this-template.png)](https://github.com/new?template_name=lucidity-next-sanity-starter&template_owner=hex-digital)
+
+Install dependencies using `pnpm install` and run the dev servers for Next.js and Sanity with `pnpm g:dev`.
+
+For more detailed instructions, see the [Getting Started](./docs/index.md) guide.
 
 ## Sites powered by Lucidity
 
