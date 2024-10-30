@@ -13,17 +13,23 @@
     </a>
     <br />
     <br />
+  </p>
+</div>
 
-    [![CI Packages][ci-packages-shield]][ci-packages-url]
-    [![Codefactor][codefactor-shield]][codefactor-url]
-    [![Maintainability][maintainability-shield]][maintainability-url]
-    [![TechDebt][tech-debt-shield]][tech-debt-url]
-    [![Top Language][top-lang-shield]][top-lang-url]
-    [![License][license-shield]][license-url]
-    [![FOSSA Status][fossa-shield]][fossa-url]
+<div align="center">
 
-    <br />
+[![CI Packages][ci-packages-shield]][ci-packages-url]
+[![Codefactor][codefactor-shield]][codefactor-url]
+[![Maintainability][maintainability-shield]][maintainability-url]
+[![TechDebt][tech-debt-shield]][tech-debt-url]
+[![Top Language][top-lang-shield]][top-lang-url]
+[![License][license-shield]][license-url]
+[![FOSSA Status][fossa-shield]][fossa-url]
 
+</div>
+
+<div align="center">
+  <p align="center">
     <!--<a href="https://github.com/hex-digital/lucidity-next-sanity-starter">View Demo</a>
     ·
     --><a href="https://github.com/hex-digital/lucidity-next-sanity-starter/issues/new?labels=bug">Report Bug</a>
@@ -31,8 +37,8 @@
     <a href="https://github.com/hex-digital/lucidity-next-sanity-starter/issues/new?labels=enhancement">Request Feature</a>
     <br/>
     <br/>
-
   </p>
+
   <p align="center">
     <a href="#key-features">Key Features</a> •
     <a href="#how-to-use">How To Use</a> •
