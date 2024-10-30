@@ -1,11 +1,11 @@
 <a id="readme-top"></a>
 
-<div style="text-align: center">
+<div align="center">
   <a href="https://github.com/hex-digital/lucidity-next-sanity-starter">
     <img src="docs/lucidity.svg" alt="Lucidity Logo" width="140">
   </a>
 
-  <p style="text-align: center">
+  <p align="center">
     The Enterprise-Ready Next.js 15 + SanityCMS Starter
     <br />
     <a href="https://github.com/hex-digital/lucidity-next-sanity-starter/blob/main/docs">
