@@ -8,14 +8,16 @@ export function filterItemGroups(
 ) {
   const tokens = tokenize(searchQuery);
 
-  if (tokens.length <= 0) {
+  if (tokens.length <= 0 && searchTags.length <= 0) {
     return itemGroups;
   }
 
-  return itemGroups.map((itemGroup) => ({
-    ...itemGroup,
-    items: filterItems(searchQuery, searchTags, itemGroup.items),
-  }));
+  return itemGroups
+    .map((itemGroup) => ({
+      ...itemGroup,
+      items: filterItems(searchQuery, searchTags, itemGroup.items),
+    }))
+    .filter((group) => group.items.length > 0);
 }
 
 export function filterItems(
@@ -23,28 +25,30 @@ export function filterItems(
   searchTags: Array<string>,
   items: Array<Item>,
 ) {
-  const tokens = tokenize(searchQuery);
+  const tokens = tokenize(searchQuery.toLowerCase());
 
-  if (tokens.length <= 0) {
-    return items;
+  let filteredItems = items;
+  if (searchTags.length > 0) {
+    filteredItems = items.filter((item) =>
+      searchTags.every((tag) => (item.tags ?? []).includes(tag)),
+    );
   }
 
-  return items
-    .filter(
-      (item) =>
-        searchTags.length === 0 || searchTags.some((tag) => (item.tags ?? []).includes(tag)),
-    )
-    .filter((item) => {
-      const title = tokenize(item.title ?? '').join(' ');
-      const variantTitles = item.variants.reduce<Array<string>>(
-        (titles, variant) => [...titles, variant.variantTitle],
-        [],
-      );
+  // If no search tokens, return the tag-filtered results
+  if (tokens.length <= 0) {
+    return filteredItems;
+  }
 
-      const finalSearchString = [title, ...variantTitles].join(' ');
+  return filteredItems.filter((item) => {
+    const title = tokenize(item.title?.toLowerCase() ?? '');
+    const variantTitles = item.variants
+      .map((variant) => tokenize(variant.variantTitle.toLowerCase()))
+      .flat();
 
-      const matches = tokens.filter((token) => finalSearchString.includes(token));
+    const allTokens = [...title, ...variantTitles];
 
-      return !!matches.length;
-    });
+    return tokens.every((searchToken) =>
+      allTokens.some((token) => token.includes(searchToken)),
+    );
+  });
 }

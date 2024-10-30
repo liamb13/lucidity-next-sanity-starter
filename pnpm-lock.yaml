@@ -65,12 +65,18 @@ importers:
       '@sanity/icons':
         specifier: 3.4.0
         version: 3.4.0(react@18.3.1)
+      '@sanity/image-url':
+        specifier: ^1.0.2
+        version: 1.0.2
       '@sanity/ui':
         specifier: 2.8.9
         version: 2.8.9(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@sanity/vision':
         specifier: 3.61.0
         version: 3.61.0(@babel/runtime@7.25.7)(@codemirror/lint@6.8.2)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.2.3)(codemirror@6.0.1(@lezer/common@1.2.3))(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      groq:
+        specifier: ^3.62.2
+        version: 3.62.2
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -3690,6 +3696,10 @@ packages:
 
   groq@3.61.0:
     resolution: {integrity: sha512-WwtX7L8gaQ9WtMCR1168fIPF4dRKONg8zmWCyENgf5vALEre/Xez09eWA+U3jy5qa0BGFQNNpEb2R+CSOkpXcw==}
+    engines: {node: '>=18'}
+
+  groq@3.62.2:
+    resolution: {integrity: sha512-sB6DWnN5J3lV7bFm+8F0/olBZ5+hxQLLXF8ge4f5L9jesGrumc143XZwhvCxz2kxl9cwz1lqIkLy1l7sHAtn2Q==}
     engines: {node: '>=18'}
 
   gunzip-maybe@1.4.2:
@@ -10528,6 +10538,8 @@ snapshots:
       - supports-color
 
   groq@3.61.0: {}
+
+  groq@3.62.2: {}
 
   gunzip-maybe@1.4.2:
     dependencies:

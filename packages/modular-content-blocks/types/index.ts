@@ -1,5 +1,4 @@
-import { OBJECT } from '@pkg/common/constants/schemaTypes';
-import { type ONLY } from '../constants';
+import { ONLY } from '../constants';
 
 /**
  * The structure of Array Members for Modular Blocks.
@@ -7,13 +6,13 @@ import { type ONLY } from '../constants';
  * helper function, that are passed to the `of` field of an `array` type field.
  */
 export interface ModularBlockArrayMember {
-  type: OBJECT;
+  type: string;
   title?: string;
   name?: string;
 }
 
 export interface GetBlocksOptions {
-  include?: Array<OBJECT>;
-  exclude?: Array<OBJECT>;
+  include?: Array<string>;
+  exclude?: Array<string>;
   only?: ONLY;
 }

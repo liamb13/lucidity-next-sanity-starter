@@ -1,5 +1,4 @@
-import { Stack, ThemeProvider } from '@sanity/ui';
-import { buildTheme } from '@sanity/ui/theme';
+import { Stack } from '@sanity/ui';
 import styled from 'styled-components';
 import type { ItemGroups, OnItemAddFn } from '../../types';
 import { ItemGroupHeading } from './ItemGroupHeading';
