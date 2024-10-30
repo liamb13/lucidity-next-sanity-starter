@@ -2,7 +2,10 @@
 
 <div align="center">
   <a href="https://github.com/hex-digital/lucidity-next-sanity-starter">
-    <img src="docs/lucidity.svg" alt="Lucidity Logo" width="220">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./docs/lucidity-light.svg">
+      <img alt="Lucidity Logo" src="./docs/lucidity.svg">
+    </picture>
   </a>
 
   <p align="center">
