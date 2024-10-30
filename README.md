@@ -50,18 +50,18 @@
   </p>
 </div>
 
-## [Key Features] (#key-features)
+## [Key Features](#key-features)
 
-## [How to Use] (#how-to-use)
+## [How to Use](#how-to-use)
 
 ## [Sites powered by Lucidity](#demos)
 
 - [https://www.toogoodtogo.com](https://www.toogoodtogo.com)
 
-## [Credits] (#credits)
+## [Credits](#credits)
 
-## [Support] (#support)
+## [Support](#support)
 
-## [License] (#license)
+## [License](#license)
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%hex-digital%2Flucidity-next-sanity-starter.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fhex-digital%2Flucidity-next-sanity-starter?ref=badge_large)
