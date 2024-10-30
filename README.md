@@ -56,8 +56,9 @@
 
 ## Sponsors
 
-If you are enjoying some of my OSS work in your company, I'd really appreciate a [sponsorship](https://github.com/sponsors/jamiewarb), a [coffee](https://ko-fi.com/jamiewarb) or a dropped star.
-That gives me some more time to improve it to the next level.
+If you are enjoying some of my OSS work in your company, I'd really appreciate a [sponsorship](https://github.com/sponsors/jamiewarb), a [coffee](https://ko-fi.com/jamiewarb) or just dropping a star on this repo 🌟.
+
+It really helps me to keep going and to continue to maintain and improve this project.
 
 ### Special thanks to
 
@@ -128,7 +129,9 @@ Either fork this repo or use the GitHub Template:
   <img alt="Use this template" src="./docs/use-this-template.png" width="138">
 </a>
 
-Install dependencies using `pnpm install` and run the dev servers for Next.js and Sanity with `pnpm g:dev`.
+Install dependencies using `pnpm install`.
+
+Run the dev servers for Next.js and Sanity with `pnpm g:dev`.
 
 For more detailed instructions, see the [Getting Started](./docs/index.md) guide.
 
