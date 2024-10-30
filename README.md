@@ -69,7 +69,11 @@ The project takes inspiration from two main sources:
 
 ## Support
 
-Do you need support with Lucidity, Sanity or Next.js? We offer paid support and consulting services, as well as website builds, apps, and custom development.
+Do you need support with Lucidity, Sanity, Next.js or Nuxt?
+
+Hex is a digital experience and product agency that works with start-ups and established businesses.
+
+We're trusted to be the core technical team behind their projects. We have a key focus on mentoring, to ensure the practices we bring in are adopted by the internal team before our collaboration is over.
 
 Feel free to email me at jamie [at] hexdigital [dot] com, or [get in touch via our website](https://www.hexdigital.com/contact) to discuss your project.
 
