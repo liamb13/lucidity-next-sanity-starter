@@ -43,25 +43,25 @@
   <p align="center">
     <a href="#key-features">Key Features</a> •
     <a href="#how-to-use">How To Use</a> •
-    <a href="#demos">Download</a> •
+    <a href="#sites-powered-by-lucidity">Demos</a> •
     <a href="#credits">Credits</a> •
     <a href="#support">Support</a> •
     <a href="#license">License</a>
   </p>
 </div>
 
-## [Key Features](#key-features)
+## Key Features
 
-## [How to Use](#how-to-use)
+## How to Use
 
-## [Sites powered by Lucidity](#demos)
+## Sites powered by Lucidity
 
 - [https://www.toogoodtogo.com](https://www.toogoodtogo.com)
 
-## [Credits](#credits)
+## Credits
 
-## [Support](#support)
+## Support
 
-## [License](#license)
+## License
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%hex-digital%2Flucidity-next-sanity-starter.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fhex-digital%2Flucidity-next-sanity-starter?ref=badge_large)
