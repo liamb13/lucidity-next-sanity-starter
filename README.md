@@ -154,7 +154,7 @@ And thank you to [Saskia](https://github.com/bobinska-dev), [Knut](https://githu
 
 Do you need support with Lucidity, Sanity, Next.js or Nuxt?
 
-Hex is a digital experience and product agency that works with start-ups and established businesses.
+[Hex Digital](https://www.hexdigital.com?utm_source=lucidity-repo&utm_medium=support&utm_campaign=github) is a digital experience and product agency that works with start-ups and established businesses.
 
 We're trusted to be the core technical team behind their projects. We have a key focus on mentoring, to ensure the practices we bring in are adopted by the internal team before our collaboration is over.
 
