@@ -83,5 +83,5 @@
 [license-url]: https://github.com/hex-digital/lucidity-next-sanity-starter/blob/main/LICENSE
 [fossa-security-shield]: https://app.fossa.com/api/projects/git%2Bgithub.com%2Fhex-digital%2Flucidity-next-sanity-starter.svg?type=shield&issueType=security
 [fossa-security-url]: https://app.fossa.com/projects/git%2Bgithub.com%2Fhex-digital%2Flucidity-next-sanity-starter?ref=badge_shield&issueType=security
-[fossa-license-shield]: https://app.fossa.com/projects/git%2Bgithub.com%2Fhex-digital%2Flucidity-next-sanity-starter?ref=badge_shield&issueType=license
-[fossa-license-url]: https://app.fossa.com/api/projects/git%2Bgithub.com%2Fhex-digital%2Flucidity-next-sanity-starter.svg?type=shield&issueType=license
+[fossa-license-shield]: https://app.fossa.com/api/projects/git%2Bgithub.com%2Fhex-digital%2Flucidity-next-sanity-starter.svg?type=shield&issueType=license
+[fossa-license-url]: https://app.fossa.com/projects/git%2Bgithub.com%2Fhex-digital%2Flucidity-next-sanity-starter?ref=badge_shield&issueType=license
