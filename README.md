@@ -25,6 +25,7 @@
   [![Codefactor][codefactor-shield]][codefactor-url]
   [![Maintainability][maintainability-shield]][maintainability-url]
   [![TechDebt][tech-debt-shield]][tech-debt-url]
+  [![Codacy][codacy-shield]][codacy-url]
   [![Top Language][top-lang-shield]][top-lang-url]
   [![License][license-shield]][license-url]
   [![FOSSA Security Status][fossa-security-shield]][fossa-security-url]
@@ -154,7 +155,7 @@ Hex is a digital experience and product agency that works with start-ups and est
 
 We're trusted to be the core technical team behind their projects. We have a key focus on mentoring, to ensure the practices we bring in are adopted by the internal team before our collaboration is over.
 
-Feel free to email me at jamie [at] hexdigital [dot] com, or [get in touch via our website](https://www.hexdigital.com/contact) to discuss your project.
+Feel free to email me at jamie [at] hexdigital [dot] com, or [get in touch via our website](https://www.hexdigital.com/contact?utm_source=lucidity-repo&utm_medium=support&utm_campaign=github) to discuss your project.
 
 ## License
 
@@ -171,6 +172,8 @@ Feel free to email me at jamie [at] hexdigital [dot] com, or [get in touch via o
 [maintainability-url]: https://codeclimate.com/github/hex-digital/lucidity-next-sanity-starter
 [tech-debt-shield]: https://img.shields.io/codeclimate/tech-debt/hex-digital/lucidity-next-sanity-starter?label=TechDebt&logo=code-climate&style=flat-quare&labelColor=000000
 [tech-debt-url]: https://codeclimate.com/github/hex-digital/lucidity-next-sanity-starter
+[codacy-shield]: https://img.shields.io/codacy/grade/dff9c944af284a0fad4e165eb1727467?logo=codacy&style=flat-square&labelColor=000&label=Codacy
+[codacy-url]: https://www.codacy.com/gh/hex-digital/lucidity-next-sanity-starter/dashboard?utm_source=github.com&utm_medium=referral&utm_content=hex-digital/lucidity-next-sanity-starter&utm_campaign=Badge_Grade
 [top-lang-shield]: https://img.shields.io/github/languages/top/hex-digital/lucidity-next-sanity-starter?style=flat-square&labelColor=000&color=blue
 [top-lang-url]: https://github.com/hex-digital/lucidity-next-sanity-starter/search?l=typescript
 [license-shield]: https://img.shields.io/github/license/hex-digital/lucidity-next-sanity-starter?style=flat-quare&labelColor=000000
