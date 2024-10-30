@@ -32,15 +32,36 @@
       <img alt="Licence" src="https://img.shields.io/github/license/hex-digital/lucidity-next-sanity-starter?style=flat-quare&labelColor=000000" />
     </a>
     <br />
-    <br />
     <!--<a href="https://github.com/hex-digital/lucidity-next-sanity-starter">View Demo</a>
     ·
     --><a href="https://github.com/hex-digital/lucidity-next-sanity-starter/issues/new?labels=bug">Report Bug</a>
     ·
     <a href="https://github.com/hex-digital/lucidity-next-sanity-starter/issues/new?labels=enhancement">Request Feature</a>
+    <br/>
+    <br/>
+  </p>
+  <p align="center">
+    <a href="#key-features">Key Features</a> •
+    <a href="#how-to-use">How To Use</a> •
+    <a href="#demos">Download</a> •
+    <a href="#credits">Credits</a> •
+    <a href="#support">Support</a> •
+    <a href="#license">License</a>
   </p>
 </div>
 
-## Sites powered by Lucidity
+## [Key Features] (#key-features)
 
-[https://www.toogoodtogo.com](https://www.toogoodtogo.com)
+## [How to Use] (#how-to-use)
+
+## [Sites powered by Lucidity](#demos)
+
+- [https://www.toogoodtogo.com](https://www.toogoodtogo.com)
+
+## [Credits] (#credits)
+
+## [Support] (#support)
+
+## [License] (#license)
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%hex-digital%2Flucidity-next-sanity-starter.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fhex-digital%2Flucidity-next-sanity-starter?ref=badge_large)
