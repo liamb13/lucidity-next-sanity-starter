@@ -5,7 +5,7 @@ import { formatConfigItemGroups } from '../utilities/formatConfigItemGroups';
 import type { ConfigItem, ConfigItemGroupCallable, ConfigItemGroups } from '../types';
 import { resolveWizardItems } from '../utilities/resolveWizardItems';
 
-// @todo show loading state and use error state
+// @todo show error state
 export function useItemGroups(
   configItemGroups: ConfigItemGroups,
   props: ArrayOfObjectsInputProps,
@@ -65,7 +65,7 @@ export function useItemGroups(
  * The callable item groups return an array of items, or a promise that resolves to an array of items.
  * These are awaited so that we end up with a resolved array of items for each group that has a callable function.
  */
-async function resolveCallableItemGroups(
+export async function resolveCallableItemGroups(
   configItemGroups: ConfigItemGroups,
   { client }: { client: SanityClient },
 ) {
