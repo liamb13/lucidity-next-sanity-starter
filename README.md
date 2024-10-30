@@ -68,7 +68,7 @@
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[ci-packages-shield]: https://img.shields.io/github/checks-status/hex-digital/lucidity-next-sanity-starter/main?label=CI%20Packages&logo=github&style=flat-square
+[ci-packages-shield]: https://github.com/hex-digital/lucidity-next-sanity-starter/actions/workflows/ci-packages.yml/badge.svg?label=CI%20Packages&logo=github&style=flat-square
 [ci-packages-url]: https://github.com/hex-digital/lucidity-next-sanity-starter/actions?query=workflow%3A%22CI+Packages%22
 [codefactor-shield]: https://img.shields.io/codefactor/grade/github/hex-digital/lucidity-next-sanity-starter?label=Codefactor&logo=codefactor&style=flat-quare&labelColor=000000
 [codefactor-url]: https://www.codefactor.io/repository/github/hex-digital/lucidity-next-sanity-starter
