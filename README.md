@@ -173,7 +173,7 @@ Feel free to email me at jamie [at] hexdigital [dot] com, or [get in touch via o
 [tech-debt-shield]: https://img.shields.io/codeclimate/tech-debt/hex-digital/lucidity-next-sanity-starter?label=TechDebt&logo=code-climate&style=flat-quare&labelColor=000000
 [tech-debt-url]: https://codeclimate.com/github/hex-digital/lucidity-next-sanity-starter
 [codacy-shield]: https://img.shields.io/codacy/grade/dff9c944af284a0fad4e165eb1727467?logo=codacy&style=flat-square&labelColor=000&label=Codacy
-[codacy-url]: https://www.codacy.com/gh/hex-digital/lucidity-next-sanity-starter/dashboard?utm_source=github.com&utm_medium=referral&utm_content=hex-digital/lucidity-next-sanity-starter&utm_campaign=Badge_Grade
+[codacy-url]: https://app.codacy.com/gh/hex-digital/lucidity-next-sanity-starter/dashboard?utm_source=github.com&utm_medium=referral&utm_content=hex-digital/lucidity-next-sanity-starter&utm_campaign=Badge_Grade
 [top-lang-shield]: https://img.shields.io/github/languages/top/hex-digital/lucidity-next-sanity-starter?style=flat-square&labelColor=000&color=blue
 [top-lang-url]: https://github.com/hex-digital/lucidity-next-sanity-starter/search?l=typescript
 [license-shield]: https://img.shields.io/github/license/hex-digital/lucidity-next-sanity-starter?style=flat-quare&labelColor=000000
