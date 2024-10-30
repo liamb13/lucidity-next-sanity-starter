@@ -1,13 +1,6 @@
-import type {
-  BlockOptions,
-  ConfigItem,
-  ConfigItemGroup,
-  ConfigItemGroups,
-  ItemGroup,
-} from '../types';
+import type { BlockOptions, ConfigItem, ConfigItemGroup, ConfigItemGroups } from '../types';
 import { WIZARD_ITEMS } from '../constants';
 import type { ArrayOfObjectsInputProps } from 'sanity';
-import { CiBoxList } from 'react-icons/ci';
 
 export function resolveWizardItems(
   configItemGroups: ConfigItemGroups,

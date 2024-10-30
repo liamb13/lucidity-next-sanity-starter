@@ -33,12 +33,9 @@ describe('populateDefaultFieldValues', () => {
           },
         ],
       },
-    };
+    } as ArrayOfObjectsInputProps;
 
-    const result = populateDefaultFieldValues(
-      'testSchema',
-      mockFieldProps as ArrayOfObjectsInputProps,
-    );
+    const result = populateDefaultFieldValues('testSchema', mockFieldProps);
 
     expect(result).toEqual({
       title: 'Default Title',

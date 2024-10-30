@@ -51,9 +51,7 @@ export function useItemGroups(
   }, [resolveCallableGroupItems, configItemGroups]);
 
   const itemGroups = useMemo(() => {
-    const groups = formatConfigItemGroups(resolveWizardItems(workingItemGroups, props));
-    console.log('itemGroups changed', groups);
-    return groups;
+    return formatConfigItemGroups(resolveWizardItems(workingItemGroups, props));
   }, [workingItemGroups]);
 
   return {
@@ -105,7 +103,7 @@ async function resolveCallableItemGroups(
       return itemGroup;
     }
 
-    // Problem resolving function or promse, so return an empty array
+    // Problem resolving function or promise, so return an empty array
     if (!resolvedGroup?.result) {
       return {
         ...itemGroup,

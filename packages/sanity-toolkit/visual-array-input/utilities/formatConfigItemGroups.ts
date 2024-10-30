@@ -1,7 +1,6 @@
 import type {
   ConfigItemGroupCallable,
   ConfigItemGroupNotCallable,
-  ConfigItemGroups,
   ConfigItemWithoutVariants,
   ConfigItemWithVariants,
   ItemGroups,
@@ -30,8 +29,10 @@ export function formatConfigItemGroups(
             return item;
           }
 
+          const { assetUrl, itemsToAdd, ...restOfItem } = item;
+
           return {
-            ...item,
+            ...restOfItem,
             variants: [
               {
                 variantTitle: item.title,
