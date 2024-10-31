@@ -5,13 +5,14 @@ import { schemaTypes } from './schema/types';
 import { codeInput } from '@sanity/code-input';
 import { structure } from '@/structure';
 import { defaultDocumentNode } from '@/structure/defaultDocumentNode';
+import { appConfig } from './config/app';
 
 export default defineConfig({
   name: 'default',
-  title: 'My Sanity App',
+  title: appConfig.title,
 
-  projectId: '882lz72r',
-  dataset: 'lucidity-example',
+  projectId: appConfig.projectId,
+  dataset: appConfig.dataset,
 
   plugins: [
     codeInput(),
