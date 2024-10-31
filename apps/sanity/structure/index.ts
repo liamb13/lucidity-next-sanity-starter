@@ -69,118 +69,126 @@ export const structure: StructureResolver = (S, ctx) => {
         ),
       S.divider(),
 
-      S.listItem()
-        .title('Articles')
-        .icon(GrArticle)
-        .child(
-          S.list()
-            .title('Articles')
-            .items(
-              publishStatusListItems(S, context, {
-                schemaType: DOCUMENT.ARTICLE,
-                title: 'Articles',
-              }),
-            ),
-        ),
+      placeholder(S, 'Articles', GrArticle),
+      // S.listItem()
+      //   .title('Articles')
+      //   .icon(GrArticle)
+      //   .child(
+      //     S.list()
+      //       .title('Articles')
+      //       .items(
+      //         publishStatusListItems(S, context, {
+      //           schemaType: DOCUMENT.ARTICLE,
+      //           title: 'Articles',
+      //         }),
+      //       ),
+      //   ),
       S.divider(),
 
-      S.documentTypeListItem(DOCUMENT.AUTHOR)
-        .title('Authors')
-        .child(
-          S.documentTypeList(DOCUMENT.AUTHOR).defaultOrdering([
-            { field: 'name', direction: 'asc' },
-          ]),
-        ),
-      S.listItem()
-        .title('Taxonomies')
-        .icon(IoMdPricetags)
-        .child(
-          S.list()
-            .title('Taxonomies')
-            .items([
-              S.documentTypeListItem(DOCUMENT.TAXONOMY_CATEGORY)
-                .title('Categories')
-                .child(
-                  S.documentTypeList(DOCUMENT.TAXONOMY_CATEGORY).defaultOrdering([
-                    { field: 'title', direction: 'asc' },
-                  ]),
-                ),
-              S.documentTypeListItem(DOCUMENT.TAXONOMY_TAG)
-                .title('Tags')
-                .child(
-                  S.documentTypeList(DOCUMENT.TAXONOMY_TAG).defaultOrdering([
-                    { field: 'title', direction: 'asc' },
-                  ]),
-                ),
-            ]),
-        ),
+      placeholder(S, 'Authors'),
+      // S.documentTypeListItem(DOCUMENT.AUTHOR)
+      //   .title('Authors')
+      //   .child(
+      //     S.documentTypeList(DOCUMENT.AUTHOR).defaultOrdering([
+      //       { field: 'name', direction: 'asc' },
+      //     ]),
+      //   ),
+      placeholder(S, 'Taxonomies', IoMdPricetags),
+      // S.listItem()
+      //   .title('Taxonomies')
+      //   .icon(IoMdPricetags)
+      //   .child(
+      //     S.list()
+      //       .title('Taxonomies')
+      //       .items([
+      //         S.documentTypeListItem(DOCUMENT.TAXONOMY_CATEGORY)
+      //           .title('Categories')
+      //           .child(
+      //             S.documentTypeList(DOCUMENT.TAXONOMY_CATEGORY).defaultOrdering([
+      //               { field: 'title', direction: 'asc' },
+      //             ]),
+      //           ),
+      //         S.documentTypeListItem(DOCUMENT.TAXONOMY_TAG)
+      //           .title('Tags')
+      //           .child(
+      //             S.documentTypeList(DOCUMENT.TAXONOMY_TAG).defaultOrdering([
+      //               { field: 'title', direction: 'asc' },
+      //             ]),
+      //           ),
+      //       ]),
+      //   ),
       S.divider(),
 
-      S.listItem()
-        .id('modular-content')
-        .title('Modular Content')
-        .icon(PiBookOpenText)
-        .child(
-          S.list()
-            .id('modular-content')
-            .title('Modular Content')
-            .items([
-              S.documentTypeListItem(DOCUMENT.CONFIG_CORE_SECTION).title('Section Patterns'),
-              S.documentTypeListItem(DOCUMENT.CONFIG_REUSABLE_BLOCK).title('Reusable Blocks'),
-            ]),
-        ),
+      placeholder(S, 'Modular Content', PiBookOpenText),
+      // S.listItem()
+      //   .id('modular-content')
+      //   .title('Modular Content')
+      //   .icon(PiBookOpenText)
+      //   .child(
+      //     S.list()
+      //       .id('modular-content')
+      //       .title('Modular Content')
+      //       .items([
+      //         S.documentTypeListItem(DOCUMENT.CONFIG_CORE_SECTION).title('Section Patterns'),
+      //         S.documentTypeListItem(DOCUMENT.CONFIG_REUSABLE_BLOCK).title('Reusable Blocks'),
+      //       ]),
+      //   ),
       S.divider(),
 
-      singletonListItem(S, context, {
-        title: '404 Not Found',
-        schemaType: SINGLETON.CONFIG_404,
-      }),
+      placeholder(S, '404 Not Found', PiBookOpenText),
+      // singletonListItem(S, context, {
+      //   title: '404 Not Found',
+      //   schemaType: SINGLETON.CONFIG_404,
+      // }),
       placeholder(S, 'Announcement Bar', PiMegaphone),
 
-      S.listItem()
-        .title('Navigation Menus')
-        .icon(GiHamburgerMenu)
-        .child(
-          S.list()
-            .title('Navigation Menus')
-            .items([
-              S.documentTypeListItem(DOCUMENT.NAVIGATION_HEADER).title('Headers'),
-              S.documentTypeListItem(DOCUMENT.NAVIGATION_FOOTER).title('Footers'),
-              S.divider(),
-              singletonListItem(S, context, {
-                title: 'Site Config: Active Theme',
-                viewTitle: 'Active Theme',
-                schemaType: SINGLETON.THEME,
-              }),
-            ]),
-        ),
-      S.listItem()
-        .title('Site Config')
-        .icon(CogIcon)
-        .child(
-          S.list()
-            .title('Site Config')
-            .items([
-              singletonListItem(S, context, {
-                title: 'Active Theme',
-                schemaType: SINGLETON.THEME,
-              }),
-              S.divider(),
-              placeholder(S, 'Fallback Images', ImagesIcon),
-              S.documentTypeListItem(DOCUMENT.CONFIG_REDIRECT).title('Redirects'),
-              singletonListItem(S, context, {
-                title: 'SEO + Social Sharing',
-                schemaType: SINGLETON.CONFIG_SEO,
-              }),
-            ]),
-        ),
+      placeholder(S, 'Navigation Menus', GiHamburgerMenu),
+      // S.listItem()
+      //   .title('Navigation Menus')
+      //   .icon(GiHamburgerMenu)
+      //   .child(
+      //     S.list()
+      //       .title('Navigation Menus')
+      //       .items([
+      //         S.documentTypeListItem(DOCUMENT.NAVIGATION_HEADER).title('Headers'),
+      //         S.documentTypeListItem(DOCUMENT.NAVIGATION_FOOTER).title('Footers'),
+      //         S.divider(),
+      //         singletonListItem(S, context, {
+      //           title: 'Site Config: Active Theme',
+      //           viewTitle: 'Active Theme',
+      //           schemaType: SINGLETON.THEME,
+      //         }),
+      //       ]),
+      //   ),
+      placeholder(S, 'Site Config', CogIcon),
+      // S.listItem()
+      //   .title('Site Config')
+      //   .icon(CogIcon)
+      //   .child(
+      //     S.list()
+      //       .title('Site Config')
+      //       .items([
+      //         singletonListItem(S, context, {
+      //           title: 'Active Theme',
+      //           schemaType: SINGLETON.THEME,
+      //         }),
+      //         S.divider(),
+      //         placeholder(S, 'Fallback Images', ImagesIcon),
+      //         S.documentTypeListItem(DOCUMENT.CONFIG_REDIRECT).title('Redirects'),
+      //         singletonListItem(S, context, {
+      //           title: 'SEO + Social Sharing',
+      //           schemaType: SINGLETON.CONFIG_SEO,
+      //         }),
+      //       ]),
+      //   ),
       S.divider(),
-      singletonListItem(S, context, {
-        title: 'Recycling Bin',
-        viewTitle: 'Recycling Bin',
-        schemaType: SINGLETON.RECYCLING_BIN,
-        isPrivate: true,
-      }),
+      placeholder(S, 'Recycling Bin', CogIcon),
+      // singletonListItem(S, context, {
+      //   title: 'Recycling Bin',
+      //   viewTitle: 'Recycling Bin',
+      //   schemaType: SINGLETON.RECYCLING_BIN,
+      //   isPrivate: true,
+      // }),
       S.divider(),
 
       // Automatically add new document types to the root pane
