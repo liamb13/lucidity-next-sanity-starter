@@ -6,3 +6,5 @@ export interface LogItem extends ObjectItem {
   type: string;
   documentTitle: string;
 }
+
+export type PartialLogItem = ObjectItem & Partial<LogItem>;

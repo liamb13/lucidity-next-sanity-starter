@@ -1,14 +1,18 @@
 import { TrashIcon } from '@sanity/icons';
 import { defineArrayMember, defineField, defineType } from 'sanity';
-import { DeletedDocIdInputComponent } from './DeletedDocIdInputComponent';
-import { DeletionLogItemComponent } from './DeletionLogItemComponent';
-import { DeletionLogInputComponent } from './DeletionLogInputComponent';
+import { DeletedDocIdInputComponent } from '../components/DeletedDocIdInputComponent';
+import { DeletionLogItemComponent } from '../components/DeletionLogItemComponent';
+import { DeletionLogInputComponentFn } from '../components/DeletionLogInputComponent';
 
 interface Options {
   liveEdit?: boolean;
+  apiVersion?: string;
 }
 
-export function recyclingBinDocument(schemaName: string, { liveEdit = true }: Options = {}) {
+export function recyclingBinDocument(
+  schemaName: string,
+  { liveEdit = true, apiVersion = '2024-10-24' }: Options = {},
+) {
   return defineType({
     name: schemaName,
     title: 'Recycling Bin: Deleted Document Log',
@@ -37,7 +41,7 @@ export function recyclingBinDocument(schemaName: string, { liveEdit = true }: Op
           sortable: false,
         },
         components: {
-          input: DeletionLogInputComponent,
+          input: DeletionLogInputComponentFn({ apiVersion }),
         },
         description:
           'Log of deleted documents. All items have the revision ID as the _key value and might have already been restored again.',
@@ -48,7 +52,6 @@ export function recyclingBinDocument(schemaName: string, { liveEdit = true }: Op
             title: 'Log',
             readOnly: true,
             components: {
-              // @ts-ignore
               item: DeletionLogItemComponent,
             },
             fields: [

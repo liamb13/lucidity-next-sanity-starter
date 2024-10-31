@@ -2,27 +2,36 @@ import { RestoreIcon } from '@sanity/icons';
 import { Card, Flex, Stack, Text } from '@sanity/ui';
 import type { ComponentType } from 'react';
 import { IntentButton, type ObjectItemProps } from 'sanity';
-import type { LogItem } from './types';
+import type { PartialLogItem } from '../types';
 
-export const DeletionLogItemComponent: ComponentType<ObjectItemProps<LogItem>> = (props) => {
+export const DeletionLogItemComponent: ComponentType<ObjectItemProps<PartialLogItem>> = (
+  props,
+) => {
   const value = props.value;
 
-  const date = new Date(value.deletedAt);
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-  const formattedDate = `${date.getDate()}.${months[date.getMonth()]} ${date.getFullYear()}`;
+  let formattedDate;
+
+  if (!value.deletedAt) {
+    formattedDate = 'No deleted date';
+  } else {
+    const date = new Date(value.deletedAt);
+
+    const months = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
+    formattedDate = `${date.getDate()}.${months[date.getMonth()]} ${date.getFullYear()}`;
+  }
 
   return (
     <Card borderTop={props.index > 0}>
@@ -42,6 +51,7 @@ export const DeletionLogItemComponent: ComponentType<ObjectItemProps<LogItem>> =
             ID: {value.docId}, Revision: {value._key}
           </Text>
         </Stack>
+
         {/* Intent Button */}
         {value.docId && (
           <IntentButton
