@@ -267,6 +267,9 @@ importers:
       '@types/react':
         specifier: ^18
         version: 18.3.11
+      groq:
+        specifier: ^3.62.2
+        version: 3.62.2
       nanoid:
         specifier: ^5.0.7
         version: 5.0.7

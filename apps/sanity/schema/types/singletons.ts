@@ -1,3 +1,7 @@
 import { SchemaTypeDefinition } from 'sanity';
+import { recyclingBinDocument } from '@pkg/sanity-toolkit/recycling-bin/schema';
+import { SINGLETON } from '@pkg/common/constants/schemaTypes';
 
-export const singletons: SchemaTypeDefinition[] = [];
+export const singletons: SchemaTypeDefinition[] = [
+  recyclingBinDocument(SINGLETON.RECYCLING_BIN),
+];
