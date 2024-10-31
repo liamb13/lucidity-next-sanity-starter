@@ -56,7 +56,7 @@
 
 ## Sponsors
 
-If you are enjoying some of my OSS work in your company, I'd really appreciate a [sponsorship](https://github.com/sponsors/jamiewarb), a [coffee](https://ko-fi.com/jamiewarb) or just dropping a star on this repo 🌟.
+If you are using and enjoying some of my open source work in your company, I'd really appreciate a [sponsorship](https://github.com/sponsors/jamiewarb), a [coffee](https://ko-fi.com/jamiewarb) or just dropping a star on this repo 🌟.
 
 It really helps me to keep going and to continue to maintain and improve this project.
 
