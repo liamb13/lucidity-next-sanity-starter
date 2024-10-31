@@ -16,6 +16,8 @@ import {
 } from '@pkg/sanity-toolkit/studio/structure';
 import { skeletonKey } from '@pkg/sanity-toolkit/studio/structure/skeletonKey';
 import { isDeveloperOrAdmin } from '@pkg/sanity-toolkit/studio/utilities/roles';
+import { LuUnlink } from 'react-icons/lu';
+import { FaUserPen } from 'react-icons/fa6';
 
 // Add anything we need available to all structure functions to this type (such as locale)
 export type StructureContext = StructureResolverContext;
@@ -87,7 +89,7 @@ export const structure: StructureResolver = (S, ctx) => {
       //   ),
       S.divider(),
 
-      placeholder(S, 'Authors'),
+      placeholder(S, 'Authors', FaUserPen),
       // S.documentTypeListItem(DOCUMENT.AUTHOR)
       //   .title('Authors')
       //   .child(
@@ -137,7 +139,7 @@ export const structure: StructureResolver = (S, ctx) => {
       //   ),
       S.divider(),
 
-      placeholder(S, '404 Not Found', PiBookOpenText),
+      placeholder(S, '404 Not Found', LuUnlink),
       // singletonListItem(S, context, {
       //   title: '404 Not Found',
       //   schemaType: SINGLETON.CONFIG_404,
