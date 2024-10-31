@@ -184,13 +184,12 @@ export const structure: StructureResolver = (S, ctx) => {
       //       ]),
       //   ),
       S.divider(),
-      placeholder(S, 'Recycling Bin', CogIcon),
-      // singletonListItem(S, context, {
-      //   title: 'Recycling Bin',
-      //   viewTitle: 'Recycling Bin',
-      //   schemaType: SINGLETON.RECYCLING_BIN,
-      //   isPrivate: true,
-      // }),
+      singletonListItem(S, context, {
+        title: 'Recycling Bin',
+        viewTitle: 'Recycling Bin',
+        schemaType: SINGLETON.RECYCLING_BIN,
+        isPrivate: true,
+      }),
       S.divider(),
 
       // Add a Skeleton Key for developers to see all document types easily
