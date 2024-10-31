@@ -5,8 +5,6 @@ import { type ComponentType, useState } from 'react';
 import { type ArrayOfObjectsInputProps, useClient, useFormValue } from 'sanity';
 import type { LogItem } from './types';
 
-/* eslint-disable */
-
 /** ### Array Input Component with Button to clean up the log
  *
  * removes restored documents from the logs array
