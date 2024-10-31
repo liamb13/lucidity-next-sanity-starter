@@ -162,27 +162,26 @@ export const structure: StructureResolver = (S, ctx) => {
       //         }),
       //       ]),
       //   ),
-      placeholder(S, 'Site Config', CogIcon),
-      // S.listItem()
-      //   .title('Site Config')
-      //   .icon(CogIcon)
-      //   .child(
-      //     S.list()
-      //       .title('Site Config')
-      //       .items([
-      //         singletonListItem(S, context, {
-      //           title: 'Active Theme',
-      //           schemaType: SINGLETON.THEME,
-      //         }),
-      //         S.divider(),
-      //         placeholder(S, 'Fallback Images', ImagesIcon),
-      //         S.documentTypeListItem(DOCUMENT.CONFIG_REDIRECT).title('Redirects'),
-      //         singletonListItem(S, context, {
-      //           title: 'SEO + Social Sharing',
-      //           schemaType: SINGLETON.CONFIG_SEO,
-      //         }),
-      //       ]),
-      //   ),
+      S.listItem()
+        .title('Site Config')
+        .icon(CogIcon)
+        .child(
+          S.list()
+            .title('Site Config')
+            .items([
+              // singletonListItem(S, context, {
+              //   title: 'Active Theme',
+              //   schemaType: SINGLETON.THEME,
+              // }),
+              // S.divider(),
+              // placeholder(S, 'Fallback Images', ImagesIcon),
+              S.documentTypeListItem(DOCUMENT.CONFIG_REDIRECT).title('Redirects'),
+              // singletonListItem(S, context, {
+              //   title: 'SEO + Social Sharing',
+              //   schemaType: SINGLETON.CONFIG_SEO,
+              // }),
+            ]),
+        ),
       S.divider(),
       singletonListItem(S, context, {
         title: 'Recycling Bin',

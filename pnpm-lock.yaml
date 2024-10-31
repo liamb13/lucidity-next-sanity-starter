@@ -89,6 +89,9 @@ importers:
       sanity:
         specifier: 3.61.0
         version: 3.61.0(@types/node@20.16.14)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      sanity-plugin-note-field:
+        specifier: ^2.0.2
+        version: 2.0.2(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(sanity@3.61.0(@types/node@20.16.14)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       styled-components:
         specifier: 6.1.13
         version: 6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -5316,6 +5319,13 @@ packages:
     resolution: {integrity: sha512-I1vTrgbZxhJhoR8Gystc8naTvtBH2nSg+hOyrnoMWLk3lpweSCBTBzg6I80NCRi6y9HzclnoNaFPMxkgwFfbQw==}
     engines: {node: '>=14.18'}
 
+  sanity-plugin-note-field@2.0.2:
+    resolution: {integrity: sha512-Dbjm3FwL50PjDrgY7Sxa3DiR2yMWHm88IzmuGoj2EVY8KIZ0YUfwKc9oqT1l4GzI8jRZZ2ySoMxUOcWUq4BqpA==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: ^18
+      sanity: ^3
+
   sanity@3.61.0:
     resolution: {integrity: sha512-1m/W3i0TNjbkPLhIK7YsJ1MepiyFJGI0i9JVINvNyTiZISdN7JnLJu7n78pBd+CI4i95WB8zxAJdOFQ4I7cPyg==}
     engines: {node: '>=18'}
@@ -8897,7 +8907,7 @@ snapshots:
       sirv: 3.0.0
       tinyglobby: 0.2.9
       tinyrainbow: 1.2.0
-      vitest: 2.1.4(@types/node@20.16.14)(@vitest/ui@2.1.4)(happy-dom@15.7.4)(jsdom@23.2.0)
+      vitest: 2.1.4(@types/node@20.16.14)(@vitest/ui@2.1.4)(happy-dom@15.7.4)(jsdom@25.0.1)
 
   '@vitest/utils@2.1.4':
     dependencies:
@@ -12127,6 +12137,19 @@ snapshots:
   sanity-diff-patch@3.0.4:
     dependencies:
       '@sanity/diff-match-patch': 3.1.1
+
+  sanity-plugin-note-field@2.0.2(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(sanity@3.61.0(@types/node@20.16.14)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
+    dependencies:
+      '@sanity/incompatible-plugin': 1.0.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@sanity/ui': 1.9.3(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      lodash: 4.17.21
+      prop-types: 15.8.1
+      react: 18.3.1
+      sanity: 3.61.0(@types/node@20.16.14)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+    transitivePeerDependencies:
+      - react-dom
+      - react-is
+      - styled-components
 
   sanity@3.61.0(@types/node@20.16.14)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
     dependencies:
