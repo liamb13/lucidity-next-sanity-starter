@@ -14,6 +14,8 @@ import {
   publishStatusListItems,
   singletonListItem,
 } from '@pkg/sanity-toolkit/studio/structure';
+import { skeletonKey } from '@pkg/sanity-toolkit/studio/structure/skeletonKey';
+import { isDeveloperOrAdmin } from '@pkg/sanity-toolkit/studio/utilities/roles';
 
 // Add anything we need available to all structure functions to this type (such as locale)
 export type StructureContext = StructureResolverContext;
@@ -190,6 +192,11 @@ export const structure: StructureResolver = (S, ctx) => {
       //   isPrivate: true,
       // }),
       S.divider(),
+
+      // Add a Skeleton Key for developers to see all document types easily
+      ...(context.currentUser && isDeveloperOrAdmin(context.currentUser)
+        ? [skeletonKey(S, context), S.divider()]
+        : []),
 
       // Automatically add new document types to the root pane
       ...S.documentTypeListItems().filter((listItem: ListItemBuilder) => {
