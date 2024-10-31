@@ -1,10 +1,11 @@
 import path from 'path';
 import { defineCliConfig } from 'sanity/cli';
+import { appConfig } from './config/app';
 
 export default defineCliConfig({
   api: {
-    projectId: '882lz72r',
-    dataset: 'lucidity-example',
+    projectId: appConfig.projectId,
+    dataset: appConfig.dataset,
   },
 
   vite: (config) => {
