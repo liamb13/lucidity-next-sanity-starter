@@ -3,7 +3,7 @@ import { Button, Stack } from '@sanity/ui';
 import { type ComponentType, useMemo } from 'react';
 import { type ArrayOfObjectsInputProps, useFormValue } from 'sanity';
 import type { PartialLogItem } from '../types';
-import { useRecyclingBin } from '../utilities';
+import { useRecyclingBin } from '../hooks';
 
 interface Options {
   apiVersion?: string;
