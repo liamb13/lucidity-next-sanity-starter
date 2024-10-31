@@ -9,6 +9,7 @@ TBC
 ## Sanity Recycling Bin
 
 - Activation
+  - Create document (`sanity documents create ../../packages/sanity-toolkit/recycling-bin/newBinSingleton.json`)
   - Add Webhook
 - Configuration
 
