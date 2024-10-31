@@ -18,7 +18,7 @@ export function useRecyclingBin({ apiVersion = '2024-10-24' }: Options) {
     const query = groq`*[_id in $docIds]{ 'docId': _id }`;
 
     try {
-      return client.fetch<Array<{ docId: string }>>(query, {
+      return await client.fetch<Array<{ docId: string }>>(query, {
         docIds: recycledDocumentIDs,
       });
     } catch (err) {
