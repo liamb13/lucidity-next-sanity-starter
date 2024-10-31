@@ -2,6 +2,10 @@
 
 TBC
 
+## Singletons Support
+
+## Sensible CMS Structure
+
 ## Sanity Recycling Bin
 
 - Activation
@@ -34,3 +38,7 @@ TBC
 ## Backlinks Preview
 
 ## Clear Site Cache Widget
+
+## Useful Publish Actions
+
+## Useful Validation, hidden and readOnly functions

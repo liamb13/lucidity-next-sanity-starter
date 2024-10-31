@@ -17,8 +17,20 @@
 export enum DOCUMENT {
   PAGE = 'page',
 
-  CONFIG_CORE_SECTION = 'coreSectionPatterns',
-  REUSABLE_BLOCKS = 'reusableBlocks',
+  ARTICLE = 'article',
+
+  AUTHOR = 'author',
+
+  TAXONOMY_CATEGORY = 'category',
+  TAXONOMY_TAG = 'tag',
+
+  CONFIG_REDIRECT = 'config.redirect',
+  CONFIG_CORE_SECTION = 'config.coreSection',
+  CONFIG_REUSABLE_BLOCK = 'config.reusableBlock',
+
+  ANNOUNCEMENT = 'announcement',
+  NAVIGATION_HEADER = 'navigation.header',
+  NAVIGATION_FOOTER = 'navigation.footer',
 
   MEDIA_TAG = 'media.tag', // Added by the Sanity Media Plugin
 }
@@ -32,4 +44,9 @@ export enum OBJECT {
   MODULAR_INNER_BLOCK_RAW_HTML = 'modularContentBlocks.inner.rawHtml',
 }
 
-export enum SINGLETON {}
+export enum SINGLETON {
+  THEME = 'theme',
+  CONFIG_SEO = 'config.seo',
+  CONFIG_404 = 'config.404',
+  RECYCLING_BIN = 'recycling.bin',
+}

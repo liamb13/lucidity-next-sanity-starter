@@ -33,7 +33,7 @@ export interface ModularBlock {
 
 const coreSectionPatternsQuery = defineQuery(`*[_type == "${DOCUMENT.CONFIG_CORE_SECTION}"]`);
 
-const reusableBlocksQuery = defineQuery(`*[_type == "${DOCUMENT.REUSABLE_BLOCKS}"]`);
+const reusableBlocksQuery = defineQuery(`*[_type == "${DOCUMENT.CONFIG_REUSABLE_BLOCK}"]`);
 
 async function reusableBlocksItems<
   ResponseType extends Array<ReusableBlockDocument> = Array<ReusableBlockDocument>,
