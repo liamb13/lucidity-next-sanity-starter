@@ -3,7 +3,7 @@ import { DOCUMENT, SINGLETON } from '@pkg/common/constants/schemaTypes';
 /**
  * Document Types that should be shown in Internal Link fields, e.g. in Header Nav Menu.
  */
-export const INTERNAL_LINK_TYPES = [DOCUMENT.PAGE, DOCUMENT.ARTICLE];
+export const INTERNAL_LINK_TYPES = [DOCUMENT.PAGE];
 
 /**
  * Document types which:

@@ -8,6 +8,7 @@ import { defaultDocumentNode } from '@/structure/defaultDocumentNode';
 import { appConfig } from './config/app';
 import { setupSingletons } from '@pkg/sanity-toolkit/studio/singletons';
 import { LOCKED_DOCUMENT_TYPES } from '@/config/schema';
+import { noteField } from 'sanity-plugin-note-field';
 
 export default defineConfig({
   name: 'default',
@@ -17,6 +18,7 @@ export default defineConfig({
   dataset: appConfig.dataset,
 
   plugins: [
+    noteField(),
     codeInput(),
     // Set up UI and logic for managing and editing Singleton documents
     setupSingletons(LOCKED_DOCUMENT_TYPES),
