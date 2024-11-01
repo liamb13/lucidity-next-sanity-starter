@@ -101,6 +101,8 @@ A turn-key application for Next.js 15 and Sanity CMS. The project is designed to
   - Sitemap
   - RSS/JSON Feed
   - Robots.txt and Humans.txt
+- Internationalisation
+  - Support for single language and multiple languages out of the box
 - Security
   - CORS
   - Security Headers
