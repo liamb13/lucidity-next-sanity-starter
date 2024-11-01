@@ -31,6 +31,9 @@ export function singletonListItem(
 
   const itemTitle = title ?? documentSchema?.title ?? 'Unnamed';
 
+  const views =
+    typeof defaultViews == 'function' ? defaultViews(documentId, schemaType) : defaultViews;
+
   return S.listItem()
     .id(documentId)
     .title(itemTitle)
@@ -42,6 +45,6 @@ export function singletonListItem(
         .title(viewTitle ?? itemTitle)
         .schemaType(schemaType)
         .documentId(documentId)
-        .views(defaultViews ?? []),
+        .views(views ?? []),
     );
 }

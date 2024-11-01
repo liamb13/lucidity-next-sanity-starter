@@ -31,7 +31,7 @@ export function defineSeoFields(options: Options = {}) {
   return [
     defineSuperStringField({
       title: metaTitleTitle,
-      name: SEO_FIELD.META_TITLE,
+      name: SEO_FIELD.PAGE_TITLE,
       description:
         'Make it as enticing as possible to capture users in Google + social feeds. If it matches the Site Title, only one will be displayed to prevent duplication.',
       options: {

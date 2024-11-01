@@ -6,7 +6,7 @@ export enum PAGE_VISIBILITY {
 export const SEO_FIELDSET = 'seoSocial';
 
 export enum SEO_FIELD {
-  META_TITLE = 'metaTitle',
+  PAGE_TITLE = 'pageTitle',
   META_DESCRIPTION = 'metaDescription',
   SOCIAL_IMAGE = 'socialImage',
 }
