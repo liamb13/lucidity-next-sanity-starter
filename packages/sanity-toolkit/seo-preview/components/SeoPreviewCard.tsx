@@ -6,7 +6,7 @@ interface Props {
   loading: boolean;
   canShowPreview: boolean;
   type: string;
-  Icon: React.ComponentType<{ className: string }>;
+  Icon: React.ComponentType<{ className?: string }>;
   intent?: {
     id: string;
     type: string;
