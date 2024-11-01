@@ -178,10 +178,10 @@ export const structure: StructureResolver = (S, ctx) => {
               // S.divider(),
               // placeholder(S, 'Fallback Images', ImagesIcon),
               S.documentTypeListItem(DOCUMENT.CONFIG_REDIRECT).title('Redirects'),
-              // singletonListItem(S, context, {
-              //   title: 'SEO + Social Sharing',
-              //   schemaType: SINGLETON.CONFIG_SEO,
-              // }),
+              singletonListItem(S, context, {
+                title: 'SEO + Social Sharing',
+                schemaType: SINGLETON.CONFIG_SEO,
+              }),
             ]),
         ),
       S.divider(),
