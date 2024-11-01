@@ -40,7 +40,7 @@ export const configSeo = defineType({
       name: 'siteTitle',
       type: 'string',
       description:
-        'Prominently shown on the browser tab, on search engine results, and social sharing. Often appended or prepended to meta titles, e.g. Meta Title | Site Title',
+        'Prominently shown on the browser tab, on search engine results, and social sharing. Often appended or prepended to page titles, e.g. Page Title | Site Title',
       group: 'general',
     }),
     defineField({
@@ -54,7 +54,7 @@ export const configSeo = defineType({
       validation: (rule) => rule.required().uri({ scheme: ['http', 'https'] }),
     }),
     defineField({
-      title: 'Prepend or Append Site Title to Meta Title?',
+      title: 'Prepend or Append Site Title to Page Title?',
       name: 'withSiteTitle',
       type: 'string',
       description: 'Do not turn this off unless you understand the SEO impact',
@@ -70,10 +70,10 @@ export const configSeo = defineType({
       fieldset: 'titleMeta',
     }),
     defineField({
-      title: 'Choose selector to separate Site Title and Meta Title',
+      title: 'Choose selector to separate Site Title and Page Title',
       name: 'titleSeparator',
       type: 'string',
-      description: 'This will show between the site title and the meta title',
+      description: 'This will show between the site title and the page title',
       hidden: ({ document }) => document?.withSiteTitle === 'off',
       group: 'general',
       options: {
