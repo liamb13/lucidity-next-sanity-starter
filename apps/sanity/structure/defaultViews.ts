@@ -5,7 +5,8 @@ import {
   ViewBuilder,
 } from 'sanity/structure';
 import { LuPencilLine } from 'react-icons/lu';
-import { isDeveloperOrAdmin } from '@pkg/sanity-toolkit/studio/utilities/roles';
+import { seoPreviewPane } from '@/structure/seo-pane';
+import { SEO_PREVIEW_DOCUMENT_TYPES } from '@/config/schema';
 
 export function defaultViews(
   S: StructureBuilder,
@@ -17,9 +18,9 @@ export function defaultViews(
   //   views.push(previewPane(S, context, options.apiVersion));
   // }
 
-  // if (SEO_PREVIEW_DOCUMENT_TYPES.includes(context.schemaType)) {
-  //   views.push(seoPreviewPane(S));
-  // }
+  if (SEO_PREVIEW_DOCUMENT_TYPES.includes(context.schemaType)) {
+    views.push(seoPreviewPane(S));
+  }
 
   // if (INCOMING_REFERENCE_LIST.includes(context.schemaType)) {
   //   views.push(backlinksPane(S));

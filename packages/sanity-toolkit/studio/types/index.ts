@@ -7,5 +7,7 @@ export interface SingletonListItem {
   viewTitle?: string;
   icon?: ComponentType | ReactNode;
   isPrivate?: boolean;
-  defaultViews?: Array<View | ViewBuilder>;
+  defaultViews?:
+    | Array<View | ViewBuilder>
+    | ((documentId: string, schemaType: string) => Array<View | ViewBuilder>);
 }

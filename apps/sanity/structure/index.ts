@@ -18,6 +18,7 @@ import { skeletonKey } from '@pkg/sanity-toolkit/studio/structure/skeletonKey';
 import { isDeveloperOrAdmin } from '@pkg/sanity-toolkit/studio/utilities/roles';
 import { LuUnlink } from 'react-icons/lu';
 import { FaUserPen } from 'react-icons/fa6';
+import { defaultViews } from '@/structure/defaultViews';
 
 // Add anything we need available to all structure functions to this type (such as locale)
 export type StructureContext = StructureResolverContext;
@@ -56,6 +57,9 @@ const DOCUMENT_TYPES_IN_STRUCTURE: Array<string> = [
 export const structure: StructureResolver = (S, ctx) => {
   // Add anything we need available to all structure functions to this variable (such as locale)
   const context: StructureContext = ctx;
+
+  const singletonDefaultViews = (documentId: string, schemaType: string) =>
+    defaultViews(S, { documentId, schemaType, ...context });
 
   // See: https://www.sanity.io/docs/structure-builder-reference
   return S.list()
@@ -181,6 +185,7 @@ export const structure: StructureResolver = (S, ctx) => {
               singletonListItem(S, context, {
                 title: 'SEO + Social Sharing',
                 schemaType: SINGLETON.CONFIG_SEO,
+                defaultViews: singletonDefaultViews,
               }),
             ]),
         ),

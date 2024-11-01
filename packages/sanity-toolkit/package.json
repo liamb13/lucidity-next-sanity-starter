@@ -31,10 +31,12 @@
     "@vitest/coverage-v8": "^2.1.4",
     "@vitest/ui": "^2.1.4",
     "happy-dom": "^15.7.4",
+    "typescript-plugin-css-modules": "^5.1.0",
     "vitest": "^2.1.4"
   },
   "peerDependencies": {
     "@sanity/icons": "^3.4.0",
+    "@sanity/image-url": "^1.0.2",
     "@sanity/types": "^3.61.0",
     "@sanity/ui": "^2.8.9",
     "@types/react": "^18",
