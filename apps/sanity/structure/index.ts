@@ -156,12 +156,12 @@ export const structure: StructureResolver = (S, ctx) => {
             .title('Announcement Bar')
             .items([
               S.documentTypeListItem(DOCUMENT.ANNOUNCEMENT).title('Announcements'),
-              // S.divider(),
-              // singletonListItem(S, context, {
-              // title: 'Site Config: Active Theme',
-              // viewTitle: 'Active Theme',
-              // schemaType: SINGLETON.THEME,
-              // }),
+              S.divider(),
+              singletonListItem(S, context, {
+                title: 'Site Config: Active Theme',
+                viewTitle: 'Active Theme',
+                schemaType: SINGLETON.THEME,
+              }),
             ]),
         ),
 
