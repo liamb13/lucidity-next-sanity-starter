@@ -60,7 +60,7 @@ export const announcements = defineType({
     },
     prepare({ title, startDate, endDate }: Prepare) {
       const isActive = isAnnouncementActive(startDate, endDate);
-      const status = isActive ? '🟢 Active' : '⚫ Inactive';
+      const status = isActive ? '🟢' : '⚫';
       const dateRange = formatDateRange(startDate, endDate);
 
       return {
