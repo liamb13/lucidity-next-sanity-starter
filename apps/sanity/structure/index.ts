@@ -143,11 +143,10 @@ export const structure: StructureResolver = (S, ctx) => {
       //   ),
       S.divider(),
 
-      placeholder(S, '404 Not Found', LuUnlink),
-      // singletonListItem(S, context, {
-      //   title: '404 Not Found',
-      //   schemaType: SINGLETON.CONFIG_404,
-      // }),
+      singletonListItem(S, context, {
+        title: '404 Not Found',
+        schemaType: SINGLETON.CONFIG_404,
+      }),
       placeholder(S, 'Announcement Bar', PiMegaphone),
 
       placeholder(S, 'Navigation Menus', GiHamburgerMenu),
