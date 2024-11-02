@@ -148,7 +148,22 @@ export const structure: StructureResolver = (S, ctx) => {
       //   title: '404 Not Found',
       //   schemaType: SINGLETON.CONFIG_404,
       // }),
-      placeholder(S, 'Announcement Bar', PiMegaphone),
+      S.listItem()
+        .title('Announcement Bar')
+        .icon(PiMegaphone)
+        .child(
+          S.list()
+            .title('Announcement Bar')
+            .items([
+              S.documentTypeListItem(DOCUMENT.ANNOUNCEMENT).title('Announcements'),
+              // S.divider(),
+              // singletonListItem(S, context, {
+              // title: 'Site Config: Active Theme',
+              // viewTitle: 'Active Theme',
+              // schemaType: SINGLETON.THEME,
+              // }),
+            ]),
+        ),
 
       placeholder(S, 'Navigation Menus', GiHamburgerMenu),
       // S.listItem()
