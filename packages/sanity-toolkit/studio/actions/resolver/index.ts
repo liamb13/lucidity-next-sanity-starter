@@ -1,4 +1,8 @@
-import type { DocumentActionComponent, DocumentActionsContext } from 'sanity';
+import type {
+  DocumentActionComponent,
+  DocumentActionsContext,
+  DocumentActionsResolver,
+} from 'sanity';
 
 export type ActionHandler = (
   action: DocumentActionComponent,
@@ -19,7 +23,7 @@ export function defineActionModifier(object: ActionModifierFunction) {
   return object;
 }
 
-export function modifyActionsFn(actionModifiers: ActionModifierList) {
+export function modifyActionsFn(actionModifiers: ActionModifierList): DocumentActionsResolver {
   return (previousActions: Array<DocumentActionComponent>, context: DocumentActionsContext) =>
     modifyActions(previousActions, context, actionModifiers);
 }
