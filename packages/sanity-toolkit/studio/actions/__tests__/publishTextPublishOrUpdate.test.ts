@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { changePublishText } from '../publishTextPublishOrUpdate';
+import { changePublishText } from '../changePublishText';
 import { type DocumentActionComponent } from 'sanity';
 import { renderHook, waitFor } from '@testing-library/react';
 

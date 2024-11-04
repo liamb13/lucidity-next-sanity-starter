@@ -9,6 +9,7 @@ import { appConfig } from './config/app';
 import { setupSingletons } from '@pkg/sanity-toolkit/studio/singletons';
 import { LOCKED_DOCUMENT_TYPES } from '@/config/schema';
 import { noteField } from 'sanity-plugin-note-field';
+import { documentActions } from '@/actions';
 
 export default defineConfig({
   name: 'default',
@@ -31,6 +32,10 @@ export default defineConfig({
     }),
     visionTool(),
   ],
+
+  document: {
+    actions: documentActions,
+  },
 
   schema: {
     types: schemaTypes,
