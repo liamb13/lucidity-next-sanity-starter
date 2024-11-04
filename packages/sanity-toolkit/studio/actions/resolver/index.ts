@@ -19,6 +19,11 @@ export function defineActionModifier(object: ActionModifierFunction) {
   return object;
 }
 
+export function modifyActionsFn(actionModifiers: ActionModifierList) {
+  return (previousActions: Array<DocumentActionComponent>, context: DocumentActionsContext) =>
+    modifyActions(previousActions, context, actionModifiers);
+}
+
 export const modifyActions = (
   previousActions: Array<DocumentActionComponent>,
   context: DocumentActionsContext,
