@@ -11,12 +11,12 @@ export interface ActionModifier {
   handler: ActionHandler;
 }
 
-export type ActionModifierFunction = () => ActionModifier | ActionHandler;
+export type ActionModifierFunction = ActionModifier | ActionHandler;
 
 export type ActionModifierList = Array<ActionModifier | ActionModifierFunction>;
 
-export function defineActionModifier(fn: ActionModifierFunction) {
-  return fn;
+export function defineActionModifier(object: ActionModifierFunction) {
+  return object;
 }
 
 export const modifyActions = (
@@ -24,11 +24,7 @@ export const modifyActions = (
   context: DocumentActionsContext,
   actionModifiers: ActionModifierList,
 ) => {
-  return actionModifiers.reduce((currentActions, getModifierConfig) => {
-    // Config can be defined as a flat object, or using the `defineActionModifier()` function, which provides typing
-    const config =
-      typeof getModifierConfig === 'function' ? getModifierConfig() : getModifierConfig;
-
+  return actionModifiers.reduce((currentActions, config) => {
     // If config is a function, just call it and return. We assume config's as a function will handle allowed actions and schema types themselves.
     if (typeof config === 'function') {
       return currentActions.map((action) => config(action, context));
