@@ -1,5 +1,7 @@
 <a id="readme-top"></a>
 
+> This repo is a work in progress. Star 🌟 and subscribe to Releases 🏷️ to keep up to date.
+
 <div align="center">
   <a href="https://github.com/hex-digital/lucidity-next-sanity-starter">
     <picture>
