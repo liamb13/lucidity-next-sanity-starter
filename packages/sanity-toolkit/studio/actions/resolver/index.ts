@@ -23,12 +23,25 @@ export function defineActionModifier(object: ActionModifierFunction) {
   return object;
 }
 
-export function modifyActionsFn(actionModifiers: ActionModifierList): DocumentActionsResolver {
-  return (previousActions: Array<DocumentActionComponent>, context: DocumentActionsContext) =>
-    modifyActions(previousActions, context, actionModifiers);
+export function modifyActions(
+  actionModifiers: ActionModifierList,
+  callback?: DocumentActionsResolver,
+): DocumentActionsResolver {
+  return (
+    previousActions: Array<DocumentActionComponent>,
+    context: DocumentActionsContext,
+  ) => {
+    const modifiedActions = modifyActionsFn(previousActions, context, actionModifiers);
+
+    if (callback) {
+      return callback(modifiedActions, context);
+    }
+
+    return modifiedActions;
+  };
 }
 
-export const modifyActions = (
+const modifyActionsFn = (
   previousActions: Array<DocumentActionComponent>,
   context: DocumentActionsContext,
   actionModifiers: ActionModifierList,
