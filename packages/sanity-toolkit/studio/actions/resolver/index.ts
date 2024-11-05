@@ -4,6 +4,7 @@ import type {
   DocumentActionsResolver,
 } from 'sanity';
 
+/** The actual Handler for the action modifier. If used without an Action Modifier, will call it as if it was modifying for all actions and schema types */
 export type ActionHandler = (
   action: DocumentActionComponent,
   context: DocumentActionsContext,
@@ -13,13 +14,26 @@ export interface ActionModifier {
   actions?: string | Array<string>;
   schemaTypes?: string | Array<string>;
   handler: ActionHandler;
+  new?: never;
 }
 
-export type ActionModifierFunction = ActionModifier | ActionHandler;
+export interface NewAction {
+  new: true;
+  schemaTypes?: string | Array<string>;
+  actionComponent: DocumentActionComponent;
+}
 
-export type ActionModifierList = Array<ActionModifier | ActionModifierFunction>;
+/** The array passed to our main modifyActions function—i.e. the types of things users are allowed to add to their config */
+export type ActionModifierList = Array<ActionModifier | ActionHandler | NewAction>;
 
-export function defineActionModifier(object: ActionModifierFunction) {
+export function defineNewAction(object: Omit<NewAction, 'new'> & { new?: true }) {
+  return {
+    new: true,
+    ...object,
+  } as const;
+}
+
+export function defineActionModifier(object: ActionModifier | ActionHandler) {
   return object;
 }
 
@@ -41,17 +55,29 @@ export function modifyActions(
   };
 }
 
-const modifyActionsFn = (
+export const modifyActionsFn = (
   previousActions: Array<DocumentActionComponent>,
   context: DocumentActionsContext,
   actionModifiers: ActionModifierList,
 ) => {
   return actionModifiers.reduce((currentActions, config) => {
-    // If config is a function, just call it and return. We assume config's as a function will handle allowed actions and schema types themselves.
     if (typeof config === 'function') {
       return currentActions.map((action) => config(action, context));
     }
 
+    if (config.new) {
+      const { schemaTypes, actionComponent } = config;
+
+      const schemaTypesArray = stringToArray(schemaTypes);
+
+      if (schemaTypesArray !== undefined && !schemaTypesArray.includes(context.schemaType)) {
+        return currentActions;
+      }
+
+      return [...currentActions, actionComponent];
+    }
+
+    // At this point, config must be ActionModifier
     const { actions: allowedActions, schemaTypes, handler } = config;
 
     // We support both a string and an array of strings for actions and schemaTypes
@@ -63,16 +89,20 @@ const modifyActionsFn = (
       return currentActions;
     }
 
-    return currentActions.map((action) => {
+    return currentActions.map((documentAction) => {
       // Skip if allowed actions is not undefined, and action type doesn't match list of allowed actions
       if (
         allowedActionsArray !== undefined &&
-        (action.action === undefined || !allowedActionsArray.includes(action.action))
+        (documentAction.action === undefined ||
+          !allowedActionsArray.includes(documentAction.action))
       ) {
-        return action;
+        return documentAction;
       }
 
-      return handler(action, context);
+      const modifiedAction = handler(documentAction, context);
+      modifiedAction.action = documentAction.action; // Needed to ensure the pipeline can alter the action multiple times by looking up action.action, e.g. 'publish'
+
+      return modifiedAction;
     });
   }, previousActions);
 };
