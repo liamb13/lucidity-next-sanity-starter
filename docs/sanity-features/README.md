@@ -40,6 +40,12 @@ TBC
 
 ## Clear Site Cache Widget
 
-## Useful Publish Actions
+## Document Actions
+
+### Document Actions API
+
+See: https://github.com/hex-digital/lucidity-next-sanity-starter/pull/91
+
+### Useful Document Actions
 
 ## Useful Validation, hidden and readOnly functions
