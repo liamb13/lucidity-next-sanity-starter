@@ -4,12 +4,7 @@ import type {
   DocumentActionProps,
   DocumentActionsContext,
 } from 'sanity';
-import {
-  modifyActions,
-  modifyActionsFn,
-  defineNewAction,
-  defineActionModifier,
-} from '../index';
+import { resolveActionsPipeline, actionsPipeline, newAction, modifyAction } from '../index';
 
 describe('Action Resolver', () => {
   // Setup common test variables and helpers
@@ -30,13 +25,13 @@ describe('Action Resolver', () => {
 
   function createModifierAndTest(modifierConfig: any) {
     const handler = vi.fn((action) => mockPublishActionModifier);
-    const modifier = defineActionModifier({
+    const modifier = modifyAction({
       actions: 'publish',
       handler,
       ...modifierConfig,
     });
 
-    const result = modifyActionsFn([mockPublishAction], mockContext, [modifier]);
+    const result = actionsPipeline([mockPublishAction], mockContext, [modifier]);
     const actionObject = result[0]?.({} as DocumentActionProps);
 
     return { result, actionObject, handler };
@@ -60,11 +55,11 @@ describe('Action Resolver', () => {
     });
 
     it('should add new action when using defineNewAction', () => {
-      const newAction = defineNewAction({
+      const newDocAction = newAction({
         actionComponent: mockNewAction,
       });
 
-      const result = modifyActionsFn([mockPublishAction], mockContext, [newAction]);
+      const result = actionsPipeline([mockPublishAction], mockContext, [newDocAction]);
       const actionObject = result[1]?.({} as DocumentActionProps);
 
       expect(result).toHaveLength(2);
@@ -72,19 +67,19 @@ describe('Action Resolver', () => {
     });
 
     it('should only add new action for specified schema types', () => {
-      const newAction = defineNewAction({
+      const newDocAction = newAction({
         schemaTypes: ['testType'],
         actionComponent: mockNewAction,
       });
 
-      const newActionDontAdd = defineNewAction({
+      const newDocActionDontAdd = newAction({
         schemaTypes: ['wrongType'],
         actionComponent: mockNewAction,
       });
 
-      const result = modifyActionsFn([mockPublishAction], mockContext, [
-        newAction,
-        newActionDontAdd,
+      const result = actionsPipeline([mockPublishAction], mockContext, [
+        newDocAction,
+        newDocActionDontAdd,
       ]);
 
       expect(result).toHaveLength(2);
@@ -94,10 +89,10 @@ describe('Action Resolver', () => {
       const handler = vi.fn((action) => mockPublishActionModifier);
       const handler2 = vi.fn((action) => mockSecondPublishActionModifier);
 
-      const modifier = defineActionModifier({ actions: 'publish', handler });
-      const modifier2 = defineActionModifier({ actions: 'publish', handler: handler2 });
+      const modifier = modifyAction({ actions: 'publish', handler });
+      const modifier2 = modifyAction({ actions: 'publish', handler: handler2 });
 
-      const result = modifyActionsFn([mockPublishAction], mockContext, [modifier, modifier2]);
+      const result = actionsPipeline([mockPublishAction], mockContext, [modifier, modifier2]);
       const actionObject = result[0]?.({} as DocumentActionProps);
 
       expect(result).toHaveLength(1);
@@ -149,13 +144,13 @@ describe('Action Resolver', () => {
 
   describe('modifyActions', () => {
     it('should return a resolver function', () => {
-      const resolver = modifyActions([]);
+      const resolver = resolveActionsPipeline([]);
       expect(typeof resolver).toBe('function');
     });
 
     it('should call callback if provided', () => {
       const callback = vi.fn(() => []);
-      const resolver = modifyActions([], callback);
+      const resolver = resolveActionsPipeline([], callback);
 
       resolver([mockPublishAction], mockContext);
 

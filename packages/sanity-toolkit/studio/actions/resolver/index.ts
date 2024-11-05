@@ -26,18 +26,18 @@ export interface NewAction {
 /** The array passed to our main modifyActions function—i.e. the types of things users are allowed to add to their config */
 export type ActionModifierList = Array<ActionModifier | ActionHandler | NewAction>;
 
-export function defineNewAction(object: Omit<NewAction, 'new'> & { new?: true }) {
+export function newAction(object: Omit<NewAction, 'new'> & { new?: true }) {
   return {
     new: true,
     ...object,
   } as const;
 }
 
-export function defineActionModifier(object: ActionModifier | ActionHandler) {
+export function modifyAction(object: ActionModifier | ActionHandler) {
   return object;
 }
 
-export function modifyActions(
+export function resolveActionsPipeline(
   actionModifiers: ActionModifierList,
   callback?: DocumentActionsResolver,
 ): DocumentActionsResolver {
@@ -45,7 +45,7 @@ export function modifyActions(
     previousActions: Array<DocumentActionComponent>,
     context: DocumentActionsContext,
   ) => {
-    const modifiedActions = modifyActionsFn(previousActions, context, actionModifiers);
+    const modifiedActions = actionsPipeline(previousActions, context, actionModifiers);
 
     if (callback) {
       return callback(modifiedActions, context);
@@ -55,7 +55,7 @@ export function modifyActions(
   };
 }
 
-export const modifyActionsFn = (
+export const actionsPipeline = (
   previousActions: Array<DocumentActionComponent>,
   context: DocumentActionsContext,
   actionModifiers: ActionModifierList,
