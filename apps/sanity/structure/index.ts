@@ -77,20 +77,19 @@ export const structure: StructureResolver = (S, ctx) => {
         ),
       S.divider(),
 
-      placeholder(S, 'Articles', GrArticle),
-      // S.listItem()
-      //   .title('Articles')
-      //   .icon(GrArticle)
-      //   .child(
-      //     S.list()
-      //       .title('Articles')
-      //       .items(
-      //         publishStatusListItems(S, context, {
-      //           schemaType: DOCUMENT.ARTICLE,
-      //           title: 'Articles',
-      //         }),
-      //       ),
-      //   ),
+      S.listItem()
+        .title('Articles')
+        .icon(GrArticle)
+        .child(
+          S.list()
+            .title('Articles')
+            .items(
+              publishStatusListItems(S, context, {
+                schemaType: DOCUMENT.ARTICLE,
+                title: 'Articles',
+              }),
+            ),
+        ),
       S.divider(),
 
       placeholder(S, 'Authors', FaUserPen),

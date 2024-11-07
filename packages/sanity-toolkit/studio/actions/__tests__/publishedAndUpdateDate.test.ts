@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { publishAndUpdateDate } from '../publishAndUpdateDate';
+import { setDateFieldToCurrent } from '../setDateFieldToCurrent';
 import { useDocumentOperation } from 'sanity';
 
 vi.mock('sanity', () => ({
@@ -38,7 +38,7 @@ describe('publishAndUpdateDate', () => {
       onHandle: vi.fn(),
     });
 
-    const PublishAndUpdateDate = publishAndUpdateDate(originalPublishAction);
+    const PublishAndUpdateDate = setDateFieldToCurrent(originalPublishAction);
 
     const result = PublishAndUpdateDate(mockProps);
     if (result?.onHandle) {
@@ -72,7 +72,7 @@ describe('publishAndUpdateDate', () => {
       onHandle: vi.fn(),
     });
 
-    const PublishAndUpdateDate = publishAndUpdateDate(originalPublishAction);
+    const PublishAndUpdateDate = setDateFieldToCurrent(originalPublishAction);
 
     const result = PublishAndUpdateDate(props);
     if (result?.onHandle) {
