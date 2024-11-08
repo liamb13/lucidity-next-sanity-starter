@@ -1,9 +1,13 @@
 import { defineField, type SchemaTypeDefinition } from 'sanity';
 import { FaRegImage } from 'react-icons/fa';
 import { IMAGE_FIT } from '../../constants/imageObjectField';
+import type { ComponentType, ReactNode } from 'react';
 
 export interface ImageFieldOptions {
+  title?: string;
   name?: string;
+  description?: string;
+  icon?: ComponentType | ReactNode;
   withHotspot?: boolean;
   withAiAssistAlt?: boolean;
   withFit?: boolean;
@@ -28,7 +32,10 @@ export interface ImageFieldOptions {
  * See: @pkg/sanity-toolkit/studio/schema/utilities/sliceInFields.ts
  */
 export function defineImageField({
+  title = 'Image',
   name = 'image',
+  description,
+  icon,
   withHotspot = true,
   withAiAssistAlt = true,
   withFit = true,
@@ -36,10 +43,11 @@ export function defineImageField({
   captionFieldType = 'text',
 }: ImageFieldOptions = {}) {
   return defineField({
-    title: 'Image',
+    title,
     name,
+    description,
     type: 'image',
-    icon: FaRegImage,
+    icon: icon ?? FaRegImage,
     options: {
       hotspot: withHotspot,
       ...(withAiAssistAlt
