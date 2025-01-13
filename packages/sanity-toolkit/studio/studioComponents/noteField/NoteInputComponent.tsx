@@ -32,7 +32,11 @@ export function NoteInputComponent({ schemaType, path }: Readonly<NoteFieldInput
       {description && (
         <Flex align="center">
           <Box style={{ flexShrink: 0, lineHeight: 0 }}>
-            {Icon && !displayTitle && <Icon style={{ fontSize: 24 }} />}
+            {Icon && !displayTitle && (
+              <span style={{ fontSize: 24 }}>
+                <Icon />
+              </span>
+            )}
           </Box>
           <Box marginLeft={displayTitle ? 0 : 3} marginTop={!Icon && displayTitle ? 1 : 0}>
             <Text size={[1, 1, 1]}>{description}</Text>

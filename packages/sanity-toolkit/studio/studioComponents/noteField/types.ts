@@ -1,5 +1,4 @@
 import type { StringDefinition, StringInputProps, StringSchemaType } from 'sanity';
-import type { SchemaValidationValue } from 'sanity';
 import type { CardProps } from '@sanity/ui';
 
 /**
