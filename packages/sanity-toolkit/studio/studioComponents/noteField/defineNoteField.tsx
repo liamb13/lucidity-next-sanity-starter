@@ -10,7 +10,7 @@ export function defineNoteField(schemaTypeDefinition: SchemaDefinition) {
   return defineType({
     title: 'Note',
     name: 'note',
-    ...(schemaTypeDefinition ?? {}),
+    ...schemaTypeDefinition,
     type: 'string',
     components: {
       input: NoteInputComponent,
