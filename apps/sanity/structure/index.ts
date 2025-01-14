@@ -16,7 +16,6 @@ import {
 } from '@pkg/sanity-toolkit/studio/structure';
 import { skeletonKey } from '@pkg/sanity-toolkit/studio/structure/skeletonKey';
 import { isDeveloperOrAdmin } from '@pkg/sanity-toolkit/studio/utilities/roles';
-import { LuUnlink } from 'react-icons/lu';
 import { FaUserPen } from 'react-icons/fa6';
 import { defaultViews } from '@/structure/defaultViews';
 
