@@ -3,7 +3,7 @@ import type {
   StructureResolver,
   StructureResolverContext,
 } from 'sanity/structure';
-import { CogIcon, ImagesIcon, InfoOutlineIcon } from '@sanity/icons';
+import { CogIcon /*, ImagesIcon*/, InfoOutlineIcon } from '@sanity/icons';
 import { GrArticle } from 'react-icons/gr';
 import { PiBookOpenText, PiMegaphone } from 'react-icons/pi';
 import { IoMdPricetags } from 'react-icons/io';

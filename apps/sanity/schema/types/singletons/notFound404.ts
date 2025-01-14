@@ -3,13 +3,7 @@ import { OBJECT, SINGLETON } from '@pkg/common/constants/schemaTypes';
 import { LuUnlink } from 'react-icons/lu';
 import { defineSeoFields, SEO_FIELDSET } from '@pkg/sanity-toolkit/seo';
 import { seoFieldset } from '@pkg/sanity-toolkit/seo';
-import { withFieldset, withGroup } from '@pkg/sanity-toolkit/studio/schema/utilities';
-import {
-  FIELD_GROUPS,
-  GROUP_CONTENT,
-  GROUP_META,
-  GROUP_SEO,
-} from '@pkg/sanity-toolkit/studio/constants/fieldGroups';
+import { withFieldset } from '@pkg/sanity-toolkit/studio/schema/utilities';
 
 export const notFound404 = defineType({
   name: SINGLETON.CONFIG_404,

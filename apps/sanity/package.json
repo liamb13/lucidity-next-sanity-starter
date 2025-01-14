@@ -21,8 +21,8 @@
     "build": "sanity build",
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy",
-    "lint": "pnpm prettier",
-    "lint:fix": "pnpm prettier:fix",
+    "lint": "pnpm eslint . && pnpm prettier",
+    "lint:fix": "pnpm eslint . --fix && pnpm prettier:fix",
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "typecheck": "tsc --project ./tsconfig.json --noEmit"

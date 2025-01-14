@@ -1,11 +1,9 @@
 import { defineField, defineType } from 'sanity';
-import { PiFilesLight } from 'react-icons/pi';
 import { DOCUMENT, OBJECT } from '@pkg/common/constants/schemaTypes';
 import {
   defineVisibilityField,
   visibilityPreview,
 } from '@pkg/sanity-toolkit/seo/schema/defineVisibilityField';
-import { defineInternalTitleField } from '@pkg/sanity-toolkit/studio/schema/fields/defineInternalTitleField';
 import { PAGE_VISIBILITY, SEO_FIELDSET } from '@pkg/sanity-toolkit/seo/constants';
 import { withFieldset, withGroup } from '@pkg/sanity-toolkit/studio/schema/utilities';
 import { seoFieldset } from '@pkg/sanity-toolkit/seo/schema/seoFieldset';

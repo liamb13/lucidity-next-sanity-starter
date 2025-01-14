@@ -55,7 +55,7 @@ export function useSiteConfigSeo({
     return () => {
       shouldUpdateSeo = false;
     };
-  }, [sanityClient, initialSiteConfigSeo]);
+  }, [sanityClient]);
 
   return [siteConfigSeo, loading];
 }
