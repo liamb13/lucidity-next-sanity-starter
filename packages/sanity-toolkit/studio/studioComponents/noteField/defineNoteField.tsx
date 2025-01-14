@@ -1,4 +1,4 @@
-import { defineType } from 'sanity';
+import { defineType, type StringFieldProps } from 'sanity';
 import { NoteInputComponent } from './NoteInputComponent';
 import type { NoteFieldSchemaDefinition } from './types';
 
@@ -14,7 +14,7 @@ export function defineNoteField(schemaTypeDefinition: SchemaDefinition) {
     type: 'string',
     components: {
       input: NoteInputComponent,
-      field: (props) => <>{props.children}</>,
+      field: (props: StringFieldProps) => <>{props.children}</>,
       ...(schemaTypeDefinition.components ?? {}),
     },
   });
