@@ -26,35 +26,30 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.0.1",
-    "@vitejs/plugin-react": "^4.3.3",
-    "@vitest/coverage-v8": "^2.1.4",
-    "@vitest/ui": "^2.1.4",
-    "happy-dom": "^15.11.0",
+    "@testing-library/react": "^16.1.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/coverage-v8": "^2.1.8",
+    "@vitest/ui": "^2.1.8",
+    "happy-dom": "^16.5.3",
+    "prettier": ">=3.4.2 <5.0.0",
     "typescript-plugin-css-modules": "^5.1.0",
-    "vitest": "^2.1.4"
+    "vitest": "^2.1.8"
   },
   "peerDependencies": {
     "@portabletext/toolkit": "^2.0.16",
-    "@sanity/icons": "^3.4.0",
-    "@sanity/image-url": "^1.0.2",
-    "@sanity/types": "^3.61.0",
-    "@sanity/ui": "^2.8.9",
-    "@types/react": "^18",
-    "groq": "^3.62.2",
-    "react": "^18",
-    "react-icons": "^5.3.0",
-    "sanity": "^3.60.0",
-    "sanity-plugin-note-field": "^2.0.2",
-    "styled-components": "^6.1.13"
+    "@sanity/icons": "^3.5.7",
+    "@sanity/image-url": "^1.1.0",
+    "@sanity/types": "^3.69.0",
+    "@sanity/ui": "^2.11.2",
+    "@types/react": "^19.0.7",
+    "groq": "^3.69.0",
+    "react": "^19.0.0",
+    "react-icons": "^5.4.0",
+    "sanity": "^3.69.0",
+    "styled-components": "^6.1.14"
   },
   "dependencies": {
-    "nanoid": "^5.0.9",
-    "prettier": "^3.3.3"
-  },
-  "peerDependenciesMeta": {
-    "sanity-plugin-note-field": {
-      "optional": true
-    }
+    "@sanity/incompatible-plugin": "^1.0.5",
+    "nanoid": "^5.0.9"
   }
 }

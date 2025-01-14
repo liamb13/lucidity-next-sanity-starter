@@ -12,7 +12,7 @@ export function defineOuterBlock(schemaTypeDefinition: BlockSchemaDefinition) {
     type: 'object',
     fieldsets: [...outerBlockFieldsets(), ...(schemaTypeDefinition.fieldsets ?? [])],
     components: {
-      ...schemaTypeDefinition.components,
+      ...(schemaTypeDefinition.components ?? {}),
       // item: schemaTypeDefinition.components?.item ?? OuterBlockItemComponent,
     },
   } satisfies BlockSchemaDefinition;
@@ -24,7 +24,7 @@ export function defineInnerBlock(schemaTypeDefinition: BlockSchemaDefinition) {
     type: 'object',
     fieldsets: [...innerBlockFieldsets(), ...(schemaTypeDefinition.fieldsets ?? [])],
     components: {
-      ...schemaTypeDefinition.components,
+      ...(schemaTypeDefinition.components ?? {}),
       // item: schemaTypeDefinition.components?.item ?? InnerBlockItemComponent,
     },
   } satisfies BlockSchemaDefinition;
