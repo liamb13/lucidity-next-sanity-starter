@@ -5,6 +5,9 @@
     "build": {
       "env": ["SANITY_STUDIO_*", "SENTRY_*"],
       "outputs": [".sanity/**"]
+    },
+    "generate:types": {
+      "outputs": ["sanity.types.ts", "schema.json", "types/sanity-queries.ts"]
     }
   }
 }
