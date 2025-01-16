@@ -43,7 +43,7 @@ export const DOCUMENT_NAVIGATION_HEADER = 'navigation.header';
 export const DOCUMENT_NAVIGATION_FOOTER = 'navigation.footer';
 export const DOCUMENT_MEDIA_TAG = 'media.tag'; // Added by the Sanity Media Plugin
 
-export const enum DOCUMENT {
+export enum DOCUMENT {
   PAGE = DOCUMENT_PAGE,
 
   ARTICLE = DOCUMENT_ARTICLE,
@@ -69,7 +69,7 @@ export const OBJECT_MODULAR_INNER_BLOCKS = 'modularContentBlocks.inner';
 export const OBJECT_MODULAR_OUTER_BLOCK_SECTION = 'modularContentBlocks.outer.section';
 export const OBJECT_MODULAR_INNER_BLOCK_RAW_HTML = 'modularContentBlocks.inner.rawHtml';
 
-export const enum OBJECT {
+export enum OBJECT {
   MODULAR_OUTER_BLOCKS = OBJECT_MODULAR_OUTER_BLOCKS,
   MODULAR_INNER_BLOCKS = OBJECT_MODULAR_INNER_BLOCKS,
 
@@ -83,7 +83,7 @@ export const SINGLETON_CONFIG_SEO = 'config.seo';
 export const SINGLETON_CONFIG_404 = 'config.404';
 export const SINGLETON_RECYCLING_BIN = 'recycling.bin';
 
-export const enum SINGLETON {
+export enum SINGLETON {
   THEME = SINGLETON_THEME,
   CONFIG_SEO = SINGLETON_CONFIG_SEO,
   CONFIG_404 = SINGLETON_CONFIG_404,
