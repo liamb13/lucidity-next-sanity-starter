@@ -42,6 +42,7 @@
     "@pkg/sanity-toolkit": "workspace:*",
     "@pkg/utilities": "workspace:*",
     "@portabletext/toolkit": "2.0.16",
+    "@sanity/client": "^6.24.4",
     "@sanity/code-input": "5.1.2",
     "@sanity/icons": "3.5.7",
     "@sanity/image-url": "1.1.0",
