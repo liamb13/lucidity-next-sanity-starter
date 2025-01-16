@@ -7,6 +7,7 @@
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "generate:types": {
+      "dependsOn": ["apps-sanity#extract-schema"],
       "outputs": ["src/sanity/types.ts"]
     }
   }

@@ -6,8 +6,13 @@
       "env": ["SANITY_STUDIO_*", "SENTRY_*"],
       "outputs": [".sanity/**"]
     },
+    "generate:blocks": {},
     "generate:types": {
-      "outputs": ["sanity.types.ts", "schema.json", "types/sanity-queries.ts"]
+      "dependsOn": ["extract-schema"],
+      "outputs": ["sanity.types.ts", "types/sanity-queries.ts"]
+    },
+    "extract-schema": {
+      "outputs": ["schema.json"]
     }
   }
 }

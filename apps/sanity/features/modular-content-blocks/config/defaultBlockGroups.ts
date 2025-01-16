@@ -6,7 +6,6 @@ import { TbGridPattern } from 'react-icons/tb';
 import { PiLego } from 'react-icons/pi';
 import { Image, SanityClient } from 'sanity';
 import {
-  DOCUMENT,
   DOCUMENT_CONFIG_CORE_SECTION,
   DOCUMENT_CONFIG_REUSABLE_BLOCK,
   OBJECT,

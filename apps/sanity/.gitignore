@@ -29,6 +29,5 @@
 *.local
 
 # Generated files
-sanity.types.ts
 schema.json
 types/sanity-queries.ts
