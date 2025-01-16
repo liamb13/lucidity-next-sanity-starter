@@ -27,6 +27,7 @@
     "g:build": "turbo run lint --color",
     "g:build-storybook": "turbo run build-storybook --color",
     "g:dev": "turbo run dev --color",
+    "g:generate:types": "turbo run generate:types",
     "g:lint-staged-files": "lint-staged --allow-empty",
     "g:lint": "TIMING=1 turbo run lint --color",
     "g:lint:fix": "turbo run lint:fix --color",

@@ -5,7 +5,11 @@ import type {
 import { TbGridPattern } from 'react-icons/tb';
 import { PiLego } from 'react-icons/pi';
 import { Image, SanityClient } from 'sanity';
-import { DOCUMENT, OBJECT } from '@pkg/common/constants/schemaTypes';
+import {
+  DOCUMENT_CONFIG_CORE_SECTION,
+  DOCUMENT_CONFIG_REUSABLE_BLOCK,
+  OBJECT,
+} from '@pkg/common/constants/schemaTypes';
 import { defineQuery } from 'groq';
 import { FaRecycle } from 'react-icons/fa';
 import imageUrlBuilder from '@sanity/image-url';
@@ -31,9 +35,9 @@ export interface ModularBlock {
   [key: string]: unknown;
 }
 
-const coreSectionPatternsQuery = defineQuery(`*[_type == "${DOCUMENT.CONFIG_CORE_SECTION}"]`);
+const coreSectionPatternsQuery = defineQuery(`*[_type == "${DOCUMENT_CONFIG_CORE_SECTION}"]`);
 
-const reusableBlocksQuery = defineQuery(`*[_type == "${DOCUMENT.CONFIG_REUSABLE_BLOCK}"]`);
+const reusableBlocksQuery = defineQuery(`*[_type == "${DOCUMENT_CONFIG_REUSABLE_BLOCK}"]`);
 
 async function reusableBlocksItems<
   ResponseType extends Array<ReusableBlockDocument> = Array<ReusableBlockDocument>,

@@ -18,10 +18,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "generate:types": "npx sanity typegen generate",
     "lint": "next lint && pnpm prettier",
     "lint:fix": "next lint --fix && pnpm prettier:fix",
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write .",
+    "postinstall": "pnpm turbo generate:types",
+    "prebuild": "pnpm turbo generate:types",
+    "predev": "pnpm turbo generate:types",
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "dependencies": {
