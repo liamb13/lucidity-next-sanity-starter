@@ -12,6 +12,7 @@
       "outputs": ["sanity.types.ts", "types/sanity-queries.ts"]
     },
     "extract-schema": {
+      "dependsOn": ["generate:blocks"],
       "outputs": ["schema.json"]
     }
   }
