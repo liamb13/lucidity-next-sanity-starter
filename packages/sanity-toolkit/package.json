@@ -39,7 +39,7 @@
     "@portabletext/toolkit": "^2.0.16",
     "@sanity/icons": "^3.5.7",
     "@sanity/image-url": "^1.1.0",
-    "@sanity/types": "^3.69.0",
+    "@sanity/types": "^3.70.0",
     "@sanity/ui": "^2.11.2",
     "@types/react": "^19.0.7",
     "groq": "^3.69.0",

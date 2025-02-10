@@ -63,7 +63,7 @@ importers:
         specifier: 2.0.16
         version: 2.0.16
       '@sanity/client':
-        specifier: ^6.24.4
+        specifier: 6.24.4
         version: 6.24.4(debug@4.4.0)
       '@sanity/code-input':
         specifier: 5.1.2
@@ -112,14 +112,14 @@ importers:
         specifier: 5.0.1
         version: 5.0.1(eslint@9.18.0(jiti@2.4.2))(typescript@5.7.3)
       '@sanity/types':
-        specifier: 3.69.0
-        version: 3.69.0(@types/react@19.0.7)(debug@4.4.0)
+        specifier: 3.70.0
+        version: 3.70.0(@types/react@19.0.7)
       '@types/react':
         specifier: 19.0.7
         version: 19.0.7
       '@vitest/coverage-v8':
         specifier: 2.1.8
-        version: 2.1.8(vitest@2.1.8)
+        version: 2.1.8(vitest@2.1.8(@types/node@22.10.6)(@vitest/ui@2.1.8)(happy-dom@16.5.3)(jsdom@23.2.0)(less@4.2.1)(sass@1.83.4)(stylus@0.62.0)(terser@5.37.0))
       '@vitest/ui':
         specifier: 2.1.8
         version: 2.1.8(vitest@2.1.8)
@@ -174,7 +174,7 @@ importers:
         version: 19.0.3(@types/react@19.0.7)
       '@vitest/coverage-v8':
         specifier: 2.1.8
-        version: 2.1.8(vitest@2.1.8)
+        version: 2.1.8(vitest@2.1.8(@types/node@22.10.6)(@vitest/ui@2.1.8)(happy-dom@16.5.3)(jsdom@26.0.0)(less@4.2.1)(sass@1.83.4)(stylus@0.62.0)(terser@5.37.0))
       '@vitest/ui':
         specifier: 2.1.8
         version: 2.1.8(vitest@2.1.8)
@@ -204,7 +204,7 @@ importers:
     devDependencies:
       '@vitest/coverage-v8':
         specifier: ^2.1.8
-        version: 2.1.8(vitest@2.1.8)
+        version: 2.1.8(vitest@2.1.8(@types/node@22.10.6)(@vitest/ui@2.1.8)(happy-dom@16.5.3)(jsdom@26.0.0)(less@4.2.1)(sass@1.83.4)(stylus@0.62.0)(terser@5.37.0))
       '@vitest/ui':
         specifier: ^2.1.8
         version: 2.1.8(vitest@2.1.8)
@@ -219,7 +219,7 @@ importers:
     devDependencies:
       '@vitest/coverage-v8':
         specifier: ^2.1.8
-        version: 2.1.8(vitest@2.1.8)
+        version: 2.1.8(vitest@2.1.8(@types/node@22.10.6)(@vitest/ui@2.1.8)(happy-dom@16.5.3)(jsdom@26.0.0)(less@4.2.1)(sass@1.83.4)(stylus@0.62.0)(terser@5.37.0))
       '@vitest/ui':
         specifier: ^2.1.8
         version: 2.1.8(vitest@2.1.8)
@@ -262,7 +262,7 @@ importers:
         version: 4.3.4(vite@5.4.11(@types/node@22.10.6)(less@4.2.1)(sass@1.83.4)(stylus@0.62.0)(terser@5.37.0))
       '@vitest/coverage-v8':
         specifier: ^2.1.8
-        version: 2.1.8(vitest@2.1.8)
+        version: 2.1.8(vitest@2.1.8(@types/node@22.10.6)(@vitest/ui@2.1.8)(happy-dom@16.5.3)(jsdom@26.0.0)(less@4.2.1)(sass@1.83.4)(stylus@0.62.0)(terser@5.37.0))
       '@vitest/ui':
         specifier: ^2.1.8
         version: 2.1.8(vitest@2.1.8)
@@ -288,8 +288,8 @@ importers:
         specifier: ^1.0.5
         version: 1.0.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@sanity/types':
-        specifier: ^3.69.0
-        version: 3.69.0(@types/react@19.0.7)(debug@4.4.0)
+        specifier: ^3.70.0
+        version: 3.70.0(@types/react@19.0.7)
       '@sanity/ui':
         specifier: ^2.11.2
         version: 2.11.2(@emotion/is-prop-valid@1.2.2)(react-dom@19.0.0(react@19.0.0))(react-is@18.3.1)(react@19.0.0)(styled-components@6.1.14(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
@@ -326,7 +326,7 @@ importers:
         version: 4.3.4(vite@5.4.11(@types/node@22.10.6)(less@4.2.1)(sass@1.83.4)(stylus@0.62.0)(terser@5.37.0))
       '@vitest/coverage-v8':
         specifier: ^2.1.8
-        version: 2.1.8(vitest@2.1.8)
+        version: 2.1.8(vitest@2.1.8(@types/node@22.10.6)(@vitest/ui@2.1.8)(happy-dom@16.5.3)(jsdom@26.0.0)(less@4.2.1)(sass@1.83.4)(stylus@0.62.0)(terser@5.37.0))
       '@vitest/ui':
         specifier: ^2.1.8
         version: 2.1.8(vitest@2.1.8)
@@ -357,7 +357,7 @@ importers:
         version: 13.0.6
       '@vitest/coverage-v8':
         specifier: ^2.1.8
-        version: 2.1.8(vitest@2.1.8)
+        version: 2.1.8(vitest@2.1.8(@types/node@22.10.6)(@vitest/ui@2.1.8)(happy-dom@16.5.3)(jsdom@26.0.0)(less@4.2.1)(sass@1.83.4)(stylus@0.62.0)(terser@5.37.0))
       '@vitest/ui':
         specifier: ^2.1.8
         version: 2.1.8(vitest@2.1.8)
@@ -2285,10 +2285,6 @@ packages:
     resolution: {integrity: sha512-2lntlilK8m8+dRBkEyS+SbTbx5uMhOZomH7FdlBi6+V1O/CrVjwdl1anEirzal2wKqM8sf8cgU2nTEjo3XMrGg==}
     engines: {node: '>=18'}
     hasBin: true
-
-  '@sanity/client@6.24.3':
-    resolution: {integrity: sha512-WfF6Gq2rCxv7n9IcWYRvtGpCYq4398MT303HJhwP/jf3jeU81OxWZ+ApGat37BOJ37tDZmhHxG3Pb1boDxA0EQ==}
-    engines: {node: '>=14.18'}
 
   '@sanity/client@6.24.4':
     resolution: {integrity: sha512-/ogWqgUswx3WS9R6MI0zmLf7CHCNxFrEekqbmREyDqNh0OwctnBGUPwWAMaW6mA2UQcGv3qBh8ezEQLsXmMpAw==}
@@ -9347,14 +9343,6 @@ snapshots:
       - supports-color
       - typescript
 
-  '@sanity/client@6.24.3':
-    dependencies:
-      '@sanity/eventsource': 5.0.2
-      get-it: 8.6.6(debug@4.4.0)
-      rxjs: 7.8.1
-    transitivePeerDependencies:
-      - debug
-
   '@sanity/client@6.24.4(debug@4.4.0)':
     dependencies:
       '@sanity/eventsource': 5.0.2
@@ -9780,7 +9768,7 @@ snapshots:
 
   '@sanity/types@3.70.0(@types/react@19.0.7)':
     dependencies:
-      '@sanity/client': 6.24.3
+      '@sanity/client': 6.24.4(debug@4.4.0)
       '@types/react': 19.0.7
     transitivePeerDependencies:
       - debug
@@ -10252,7 +10240,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/coverage-v8@2.1.8(vitest@2.1.8)':
+  '@vitest/coverage-v8@2.1.8(vitest@2.1.8(@types/node@22.10.6)(@vitest/ui@2.1.8)(happy-dom@16.5.3)(jsdom@23.2.0)(less@4.2.1)(sass@1.83.4)(stylus@0.62.0)(terser@5.37.0))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@bcoe/v8-coverage': 0.2.3
@@ -10267,6 +10255,24 @@ snapshots:
       test-exclude: 7.0.1
       tinyrainbow: 1.2.0
       vitest: 2.1.8(@types/node@22.10.6)(@vitest/ui@2.1.8)(happy-dom@16.5.3)(jsdom@23.2.0)(less@4.2.1)(sass@1.83.4)(stylus@0.62.0)(terser@5.37.0)
+    transitivePeerDependencies:
+      - supports-color
+
+  '@vitest/coverage-v8@2.1.8(vitest@2.1.8(@types/node@22.10.6)(@vitest/ui@2.1.8)(happy-dom@16.5.3)(jsdom@26.0.0)(less@4.2.1)(sass@1.83.4)(stylus@0.62.0)(terser@5.37.0))':
+    dependencies:
+      '@ampproject/remapping': 2.3.0
+      '@bcoe/v8-coverage': 0.2.3
+      debug: 4.4.0
+      istanbul-lib-coverage: 3.2.2
+      istanbul-lib-report: 3.0.1
+      istanbul-lib-source-maps: 5.0.6
+      istanbul-reports: 3.1.7
+      magic-string: 0.30.17
+      magicast: 0.3.5
+      std-env: 3.8.0
+      test-exclude: 7.0.1
+      tinyrainbow: 1.2.0
+      vitest: 2.1.8(@types/node@22.10.6)(@vitest/ui@2.1.8)(happy-dom@16.5.3)(jsdom@26.0.0)(less@4.2.1)(sass@1.83.4)(stylus@0.62.0)(terser@5.37.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -11476,7 +11482,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.20.0(eslint@9.18.0(jiti@2.4.2))(typescript@5.7.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.7.0)(eslint@9.18.0(jiti@2.4.2)):
+  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.20.0(eslint@9.18.0(jiti@2.4.2))(typescript@5.7.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.7.0(eslint-plugin-import@2.31.0)(eslint@9.18.0(jiti@2.4.2)))(eslint@9.18.0(jiti@2.4.2)):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
@@ -11498,7 +11504,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 9.18.0(jiti@2.4.2)
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.20.0(eslint@9.18.0(jiti@2.4.2))(typescript@5.7.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.7.0)(eslint@9.18.0(jiti@2.4.2))
+      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.20.0(eslint@9.18.0(jiti@2.4.2))(typescript@5.7.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.7.0(eslint-plugin-import@2.31.0)(eslint@9.18.0(jiti@2.4.2)))(eslint@9.18.0(jiti@2.4.2))
       hasown: 2.0.2
       is-core-module: 2.16.1
       is-glob: 4.0.3
