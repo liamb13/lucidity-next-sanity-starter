@@ -26,9 +26,12 @@ export function createValidationContext(
     document: createMockDocument(),
     path: [],
     type: { name: 'test', jsonType: 'string' },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getClient: () => ({}) as any,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     schema: {} as any,
     environment: 'studio',
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     i18n: {} as any,
     ...overrides,
   };
@@ -46,6 +49,7 @@ export function createMockReference(refId: string, refType: string = 'mock-type'
       type: refType,
       template: {
         id: refType,
+        params: {},
       },
     },
   };
@@ -81,6 +85,7 @@ export function createMockSlug(current: string): { _type: 'slug'; current: strin
 export function createMockBlockContent(text: string = 'Mock content'): Array<{
   _type: 'block';
   children: Array<{ _type: 'span'; text: string }>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   markDefs: any[];
   style: 'normal';
 }> {
