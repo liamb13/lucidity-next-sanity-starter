@@ -24,6 +24,7 @@
   - Avoid unnecessary curly braces in conditionals; use concise syntax for simple statements.
   - Use declarative JSX.
   - Use Prettier for consistent code formatting.
+  - Prefer using nullish coalescing operator ( ?? ) instead of a logical or ( || ), as it is a safer operator.
 
   UI and Styling
   - Use React Aria for base UI components.

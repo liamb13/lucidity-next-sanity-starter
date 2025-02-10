@@ -1,6 +1,6 @@
 import { defineField } from 'sanity';
 import { AiOutlineWarning } from 'react-icons/ai';
-import { REDIRECT_TYPE } from '../types';
+import { REDIRECT_TYPE } from '../constants';
 import { isDeveloperOrAdmin } from '../../studio/utilities/roles';
 import {
   linkMustBeRelativeOrAbsolute,
@@ -72,7 +72,7 @@ export function defineRedirectFields(internalLinkTypes: Array<string>) {
           hidden: ({ parent }: { parent?: { linkType?: REDIRECT_TYPE } }) =>
             parent?.linkType !== REDIRECT_TYPE.DIRECT_PAGE,
           validation: (rule) =>
-            rule.custom(requiredIfParentIs('linkType', REDIRECT_TYPE.DIRECT_PAGE)).error(),
+            rule.custom(requiredIfParentIs({ linkType: REDIRECT_TYPE.DIRECT_PAGE })).error(),
         }),
         defineField({
           title: 'Anchor tag',
@@ -96,7 +96,7 @@ export function defineRedirectFields(internalLinkTypes: Array<string>) {
             rule
               .custom((value) => !value || value.startsWith('/') || validUrl()(value))
               .error(),
-            rule.custom(requiredIfParentIs('linkType', REDIRECT_TYPE.LINK)).error(),
+            rule.custom(requiredIfParentIs({ linkType: REDIRECT_TYPE.LINK })).error(),
             rule.custom(linkMustBeRelativeOrAbsolute()).error(),
             rule.custom(shouldBeInternalLink()).warning(),
           ],

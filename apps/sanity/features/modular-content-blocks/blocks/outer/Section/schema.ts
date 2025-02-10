@@ -99,8 +99,7 @@ export const schema = defineOuterBlock({
         validation: (Rule) =>
           Rule.custom(
             requiredIfParentIs(
-              'mediaType',
-              [SECTION_MEDIA_TYPE.VIDEO, SECTION_MEDIA_TYPE.IMAGE],
+              { mediaType: [SECTION_MEDIA_TYPE.VIDEO, SECTION_MEDIA_TYPE.IMAGE] },
               'Media variant selected but no placement. Add a placement or choose No Image to remove this warning',
             ),
           ).warning(),
@@ -129,8 +128,7 @@ export const schema = defineOuterBlock({
         validation: (Rule) =>
           Rule.custom(
             requiredIfParentIs(
-              'mediaType',
-              [SECTION_MEDIA_TYPE.VIDEO],
+              { mediaType: [SECTION_MEDIA_TYPE.VIDEO] },
               'Video variant selected but no video url was given. Add a video url or choose No Image to remove this warning',
             ),
           ).warning(),
@@ -145,8 +143,7 @@ export const schema = defineOuterBlock({
           rule
             .custom(
               requiredIfParentIs(
-                'mediaType',
-                [SECTION_MEDIA_TYPE.IMAGE],
+                { mediaType: [SECTION_MEDIA_TYPE.IMAGE] },
                 'Image variant selected but no image provided. Add an image or choose No Image to remove this warning',
               ),
             )
