@@ -145,6 +145,7 @@ For more detailed instructions, see the [Getting Started](./docs/index.md) guide
 ## Sites powered by Lucidity
 
 - [https://www.toogoodtogo.com](https://www.toogoodtogo.com)
+- [https://datazone.birdlife.org](https://datazone.birdlife.org)
 
 Send in a PR with your own addition
 
