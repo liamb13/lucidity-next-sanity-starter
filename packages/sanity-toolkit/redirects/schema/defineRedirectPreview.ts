@@ -1,4 +1,4 @@
-import { REDIRECT_TYPE } from '../types';
+import { REDIRECT_TYPE } from '../constants';
 
 interface Prepare {
   linkType?: REDIRECT_TYPE;

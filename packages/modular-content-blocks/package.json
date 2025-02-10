@@ -20,7 +20,7 @@
     "lint:fix": "pnpm prettier:fix",
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write .",
-    "test": "test:unit",
+    "test": "pnpm test:unit",
     "test:unit": "echo \"No unit tests yet\"",
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
