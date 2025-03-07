@@ -17,40 +17,48 @@
  * Next's rust-based compiler does do handle globs).
  */
 
-const fs = require('fs');
-const path = require('path');
+import { writeFileSync } from 'fs';
+import { join } from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import {
+  fileComment,
+  getImportsAndExports,
+} from '@pkg/modular-content-blocks/scripts/generate-imports-and-exports';
 
-const generator = require('@pkg/modular-content-blocks/scripts/generate-imports-and-exports.cjs');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-const outerBlocksPath = path.join(__dirname, '..', 'blocks', 'outer');
-const innerBlocksPath = path.join(__dirname, '..', 'blocks', 'inner');
-const outputDirectory = path.join(__dirname, '..', 'lib');
-const outputPath = path.join(outputDirectory, 'blockSchemaGenerated.ts');
+const outerBlocksPath = join(__dirname, '..', 'blocks', 'outer');
+const innerBlocksPath = join(__dirname, '..', 'blocks', 'inner');
+const outputDirectory = join(__dirname, '..', 'lib');
+const outputPath = join(outputDirectory, 'blockSchemaGenerated.ts');
 
 /**
  * Generate import statements and export them.
  */
-function generateImportsAndExports() {
-  const comment = generator.fileComment(__filename);
+function generateImportsAndExports(): void {
+  const comment = fileComment(__filename);
 
-  const outers = generator.getImportsAndExports(
+  const outers = getImportsAndExports(
     outerBlocksPath,
     /schema\.ts$/,
     'schema',
     'outerSchema',
     'outerBlocksSchema',
-    path.join(__dirname, '..', 'lib'),
+    join(__dirname, '..', 'lib'),
   );
-  const inners = generator.getImportsAndExports(
+
+  const inners = getImportsAndExports(
     innerBlocksPath,
     /schema\.ts$/,
     'schema',
     'innerSchema',
     'innerBlocksSchema',
-    path.join(__dirname, '..', 'lib'),
+    join(__dirname, '..', 'lib'),
   );
 
-  fs.writeFileSync(
+  writeFileSync(
     outputPath,
     `${comment}\n\n${outers.imports}\n${inners.imports}\n${outers.exports}\n${inners.exports}`,
   );
