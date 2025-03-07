@@ -26,6 +26,7 @@
     "deps:format": "syncpack format",
     "g:build": "turbo run lint --color",
     "g:build-storybook": "turbo run build-storybook --color",
+    "g:ci-check": "pnpm install && pnpm g:typecheck && pnpm g:lint && pnpm g:test:unit && pnpm g:build",
     "g:dev": "turbo run dev --color",
     "g:generate:types": "turbo run generate:types",
     "g:lint-staged-files": "lint-staged --allow-empty",
