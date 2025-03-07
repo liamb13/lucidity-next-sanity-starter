@@ -1,7 +1,18 @@
-const fs = require('fs');
-const path = require('path');
+import { readdirSync } from 'fs';
+import { join, relative } from 'path';
 
-function fileComment(filename) {
+interface GeneratedCode {
+  imports: string;
+  exports: string;
+}
+
+interface FileEntry {
+  name: string;
+  isDirectory: () => boolean;
+  isFile: () => boolean;
+}
+
+export function fileComment(filename: string): string {
   return `/**
  * This file is generated. Do not modify this file.
  * It was generated at build time of the app, via pnpm dev or pnpm build.
@@ -13,19 +24,19 @@ function fileComment(filename) {
 /**
  * Generate import statements and export them.
  */
-function getImportsAndExports(
-  /** @type {string} */ path,
-  /** @type {string} */ filePattern,
-  /** @type {string} */ importId,
-  /** @type {string} */ importAliasId,
-  /** @type {string} */ exportConstName,
-  /** @type {string} */ outputDirectory,
-) {
-  const files = readDirs(path, filePattern);
+export function getImportsAndExports(
+  basePath: string,
+  filePattern: RegExp,
+  importId: string,
+  importAliasId: string,
+  exportConstName: string,
+  outputDirectory: string,
+): GeneratedCode {
+  const files = readDirs(basePath, filePattern);
 
   const imports = files
     .map(
-      (/** @type {string} */ file, index) =>
+      (file, index) =>
         `import { ${importId} as ${importAliasId}${index} } from '${getRelativeImportPath(file, outputDirectory)}';`,
     )
     .join('\n');
@@ -42,30 +53,23 @@ export const ${exportConstName} = [${files.map((_, index) => `\n  { ${importId}:
 
 /**
  * Generate relative import path from the output path
- * @param {string} fullPath
- * @param {string} outputPath
- * @returns {string}
  */
-function getRelativeImportPath(fullPath, outputPath) {
-  const relativePath = path.relative(outputPath, fullPath);
+function getRelativeImportPath(fullPath: string, outputPath: string): string {
+  const relativePath = relative(outputPath, fullPath);
   return './' + relativePath.replace(/\\/g, '/').replace(/\.ts$/, ''); // Normalize for Unix-like paths and remove .ts
 }
 
 /**
  * Function to recursively read directories based on a specified pattern.
- * @param {string} baseDir
- * @param {RegExp} pattern
- * @returns {*[]}
  */
-function readDirs(baseDir, pattern) {
-  /** @type {Array<string>} */
-  let results = [];
-  const entries = fs.readdirSync(baseDir, { withFileTypes: true });
+function readDirs(baseDir: string, pattern: RegExp): string[] {
+  const results: string[] = [];
+  const entries = readdirSync(baseDir, { withFileTypes: true });
 
-  entries.forEach((entry) => {
-    const fullPath = path.join(baseDir, entry.name);
+  entries.forEach((entry: FileEntry) => {
+    const fullPath = join(baseDir, entry.name);
     if (entry.isDirectory()) {
-      results = results.concat(readDirs(fullPath, pattern));
+      results.push(...readDirs(fullPath, pattern));
     } else if (entry.isFile() && entry.name.match(pattern)) {
       results.push(fullPath);
     }
@@ -73,8 +77,3 @@ function readDirs(baseDir, pattern) {
 
   return results;
 }
-
-module.exports = {
-  fileComment,
-  getImportsAndExports,
-};
