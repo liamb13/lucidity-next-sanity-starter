@@ -1,31 +1,27 @@
 {
-  "name": "@pkg/common",
+  "name": "@pkg/next-middleware",
   "version": "0.0.1",
   "private": true,
   "sideEffects": false,
   "type": "module",
-  "author": {
-    "name": "Jamie Warburton",
-    "url": "https://github.com/jamiewarb"
-  },
   "license": "MIT",
-  "homepage": "https://github.com/jamiewarb/lucidity-next-sanity-starter",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jamiewarb/lucidity-next-sanity-starter",
-    "directory": "packages/common"
-  },
   "scripts": {
     "lint": "pnpm prettier",
     "lint:fix": "pnpm prettier:fix",
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write .",
+    "test": "pnpm test:unit",
+    "test:unit": "echo 'No tests yet. When tests added, change script to `vitest run`'",
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
+  },
+  "peerDependencies": {
+    "next": "^15.2.3"
   },
   "devDependencies": {
     "@vitest/coverage-v8": "^3.0.9",
-    "@vitest/ui": "3.0.9",
+    "next": "^15.2.3",
     "prettier": "^3.5.3",
+    "typescript-plugin-css-modules": "^5.1.0",
     "vitest": "^3.0.9"
   }
 }
