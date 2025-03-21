@@ -31,6 +31,7 @@
   "dependencies": {
     "@next/third-parties": "15.2.1",
     "@pkg/common": "workspace:*",
+    "@pkg/next-middleware": "workspace:*",
     "@pkg/sanity-toolkit": "workspace:*",
     "@pkg/utilities": "workspace:*",
     "next": "15.2.1",
