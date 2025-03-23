@@ -3,13 +3,23 @@ import type { Redirect, RedirectMatchResult, RedirectsQueryPayload } from './typ
 import { skipFileExtensions } from './config';
 import { combinePathAndQuery, constructRedirectUrl, patternToRegex } from './utilities';
 
+interface Options {
+  skipFileExtensions?: Array<string>;
+  incrementRedirectRuleCount?: (rule: Redirect) => void;
+}
+
 export async function redirectResolver(
   path: string,
   query: URLSearchParams | undefined,
   cmsRedirectsResolver: () => RedirectsQueryPayload | Promise<RedirectsQueryPayload>,
-  incrementRedirectRuleCount?: (rule: Redirect) => void,
+  options: Options = {},
 ) {
-  if (skipFileExtensions.some((skipExtension) => path.endsWith(skipExtension))) {
+  const opts = {
+    skipFileExtensions,
+    ...options,
+  };
+
+  if (options.skipFileExtensions?.some((skipExtension) => path.endsWith(skipExtension))) {
     return;
   }
 
@@ -18,8 +28,8 @@ export async function redirectResolver(
   const { matches, matchedRule, redirectUrl } = matchPathWithRules(path, redirects);
 
   if (matches && matchedRule && redirectUrl) {
-    if (incrementRedirectRuleCount) {
-      incrementRedirectRuleCount(matchedRule); // We don't await this as we don't care if it happens or not, and don't want to delay page load
+    if (options.incrementRedirectRuleCount) {
+      options.incrementRedirectRuleCount(matchedRule); // We don't await this as we don't care if it happens or not, and don't want to delay page load
     }
 
     const finalPath = combinePathAndQuery(redirectUrl, query);

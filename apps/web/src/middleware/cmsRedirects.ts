@@ -3,11 +3,9 @@ import { NextResponse } from 'next/server';
 import { defineNextMiddleware, fetchJson } from '@pkg/next-middleware/utilities';
 import { redirectResolver } from '@pkg/sanity-toolkit/redirects';
 import { type RedirectsQueryPayload } from '@pkg/sanity-toolkit/redirects/types';
+import { redirectsConfig } from '@/config/redirects';
 
-/** Do not process the redirects middleware for all paths that start with any of these prefixes */
-const skipPathPrefixes = ['/api'];
-/** The path to the redirects API endpoint that retrieves the redirects from the CMS (as cannot cache this request in a Next middleware) */
-const redirectsApiPath = '/api/redirects/cms';
+const { skipPathPrefixes, skipFileExtensions, apiPath } = redirectsConfig;
 
 export const cmsRedirects = defineNextMiddleware(async (request, response) => {
   const path = request.nextUrl.pathname;
@@ -18,7 +16,9 @@ export const cmsRedirects = defineNextMiddleware(async (request, response) => {
   }
 
   try {
-    const redirect = await redirectResolver(path, query, getCmsRedirects(request));
+    const redirect = await redirectResolver(path, query, getCmsRedirects(request), {
+      skipFileExtensions,
+    });
 
     if (redirect) {
       return NextResponse.redirect(new URL(redirect.path, request.url), {
@@ -38,7 +38,7 @@ export const cmsRedirects = defineNextMiddleware(async (request, response) => {
 function getCmsRedirects(request: NextRequest) {
   return async function getCmsRedirectsFn() {
     const redirects = await fetchJson<RedirectsQueryPayload | null>(
-      new URL(redirectsApiPath, request.nextUrl.origin),
+      new URL(apiPath, request.nextUrl.origin),
     );
 
     return (
