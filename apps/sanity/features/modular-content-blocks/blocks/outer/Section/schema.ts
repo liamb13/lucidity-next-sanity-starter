@@ -7,13 +7,13 @@ import { requiredIfParentIs } from '@pkg/sanity-toolkit/studio/schema/validation
 import { defineAnchorIdField } from '@pkg/sanity-toolkit/studio/schema/fields/defineAnchorIdField';
 import { defineImageField } from '@pkg/sanity-toolkit/studio/schema/fields/defineImageField';
 import { BLOCK_FIELDSETS } from '@pkg/modular-content-blocks/constants';
-import { defineOuterBlock } from '@pkg/modular-content-blocks/sanity/schema/defineModularBlockField';
 import {
   SECTION_MEDIA_SIZE,
   SECTION_ALIGNMENT_OPTION,
   SECTION_IMAGE_PLACEMENT,
   SECTION_MEDIA_TYPE,
 } from '@pkg/common/constants/blocks/outer/section';
+import { defineOuterBlock } from '@/features/modular-content-blocks/schema/defineOuterBlockField';
 
 interface Prepare {
   image?: Image;
@@ -156,7 +156,7 @@ export const schema = defineOuterBlock({
       image: 'image',
       variant: 'variant',
     },
-    prepare() {
+    prepare(_prepare: Prepare) {
       return {
         title: 'Section',
         media: blockIcon,
