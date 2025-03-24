@@ -1,4 +1,4 @@
-import { defineField, type Rule } from 'sanity';
+import { defineField, validation, type Rule } from 'sanity';
 import { defineSuperStringField } from '../../studio/studioComponents/superFields/string/defineSuperStringField';
 import { defineSuperTextField } from '../../studio/studioComponents/superFields/text/defineSuperTextField';
 import { SEO_FIELD } from '../constants';
@@ -32,8 +32,20 @@ export function defineSeoFields(options: Options = {}) {
     defineSuperStringField({
       title: metaTitleTitle,
       name: SEO_FIELD.PAGE_TITLE,
-      description:
-        'Make it as enticing as possible to capture users in Google + social feeds. If it matches the Site Title, only one will be displayed to prevent duplication.',
+      description: (
+        <>
+          Make it as enticing as possible to capture users in Google + social feeds. If it
+          matches the Site Title, only one will be displayed to prevent duplication. For help
+          in writing quality meta titles,{' '}
+          <a
+            href="https://developers.google.com/search/docs/appearance/title-link#page-titles"
+            target="_blank"
+          >
+            see best practices
+          </a>
+          .
+        </>
+      ),
       options: {
         minLength: opts.titleMinLengthRecommend,
         maxLength: opts.titleMaxLengthRecommend,
@@ -46,8 +58,19 @@ export function defineSeoFields(options: Options = {}) {
     defineSuperTextField({
       title: metaDescriptionTitle,
       name: SEO_FIELD.META_DESCRIPTION,
-      description:
-        'Optional, highly encouraged to capture more visitors from Google and social.',
+      description: (
+        <>
+          Optional, highly encouraged to capture more visitors from Google and social. For help
+          in writing quality meta descriptions,{' '}
+          <a
+            href="https://developers.google.com/search/docs/appearance/snippet#meta-descriptions"
+            target="_blank"
+          >
+            see best practices
+          </a>
+          .
+        </>
+      ),
       rows: 2,
       options: {
         minLength: opts.descriptionMinLengthRecommend,

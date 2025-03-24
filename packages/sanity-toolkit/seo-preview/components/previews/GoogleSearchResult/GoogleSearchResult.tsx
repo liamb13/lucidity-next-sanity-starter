@@ -39,11 +39,11 @@ export function GoogleSearchResult({
           )}
         </div>
         <div>
-          <div className={google.googleSiteTitle}>{siteTitle}</div>
-          <div className={google.googleUrl}>{pageUrl}</div>
+          <div className={google.googleSiteTitle}>{siteTitle ?? ''}</div>
+          <div className={google.googleUrl}>{pageUrl ?? ''}</div>
         </div>
       </div>
-      <div className={google.googleTitle}>{pageTitle}</div>
+      <div className={google.googleTitle}>{pageTitle ?? ''}</div>
 
       {description && <div className={google.googleDesc}>{description}</div>}
     </div>

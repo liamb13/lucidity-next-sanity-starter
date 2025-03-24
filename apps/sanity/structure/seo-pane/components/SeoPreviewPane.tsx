@@ -41,13 +41,7 @@ export function SeoPreviewPaneFn({ apiVersion = '2024-10-24', configSeo }: Optio
 
     return (
       <>
-        <SeoPreviewCard
-          loading={loading}
-          canShowPreview={!!seo.pageTitle}
-          type={'Google search result'}
-          Icon={BsGoogle}
-          intent={configSeo}
-        >
+        <SeoPreviewCard loading={loading} type={'Google search result'} Icon={BsGoogle}>
           <GoogleSearchResult
             favicon={seo.favicon}
             siteTitle={seo.siteTitle ?? seo.siteUrl}
@@ -57,23 +51,11 @@ export function SeoPreviewPaneFn({ apiVersion = '2024-10-24', configSeo }: Optio
           />
         </SeoPreviewCard>
 
-        <SeoPreviewCard
-          loading={loading}
-          canShowPreview={!!seo.shareImage}
-          type={'Twitter / X post'}
-          Icon={RiTwitterXFill}
-          intent={configSeo}
-        >
+        <SeoPreviewCard loading={loading} type={'Twitter / X post'} Icon={RiTwitterXFill}>
           <TwitterCardPreview shareImage={seo.shareImage} siteUrl={seo.siteUrl} />
         </SeoPreviewCard>
 
-        <SeoPreviewCard
-          loading={loading}
-          canShowPreview={!!seo.pageTitle}
-          type={'Facebook share'}
-          Icon={BsFacebook}
-          intent={configSeo}
-        >
+        <SeoPreviewCard loading={loading} type={'Facebook share'} Icon={BsFacebook}>
           <FacebookSharePreview
             shareImage={seo.shareImage}
             siteUrl={seo.siteUrl}

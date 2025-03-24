@@ -27,13 +27,10 @@ export function FacebookSharePreview({
 
   const shareUrl = siteUrl ? siteUrl.split('://')[1] : '';
 
-  // const canShowPreview = !!pageTitle;
-
   return (
     <div className={facebook.facebookWrapper} style={{ width }}>
       <div className={facebook.facebookImageContainer}>
         {shareImage ? (
-          // eslint-disable-next-line @next/next/no-img-element
           <img
             alt="share on facebook"
             className={facebook.facebookCardImage}
@@ -47,7 +44,7 @@ export function FacebookSharePreview({
         <div className={facebook.facebookCardUrl}>{shareUrl}</div>
         <div className={facebook.facebookCardTitle}>
           <a href={pageUrl ?? '#'} target="_blank" rel="noreferrer">
-            {pageTitle}
+            {pageTitle ?? ''}
           </a>
         </div>
         {metaDescription && (
