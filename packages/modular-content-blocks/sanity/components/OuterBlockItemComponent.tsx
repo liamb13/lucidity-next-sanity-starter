@@ -86,9 +86,9 @@ export function makeOuterBlockItemComponentFn(
           {
             ...contentMember,
             field: {
-              ...(contentMember.field || {}),
+              ...contentMember.field,
               schemaType: {
-                ...(contentMember.field?.schemaType || {}),
+                ...contentMember.field?.schemaType,
                 title: ' ', // Empty string to hide original field title
               },
             },
