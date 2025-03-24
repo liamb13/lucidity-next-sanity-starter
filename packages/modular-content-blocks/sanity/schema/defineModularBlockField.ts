@@ -1,21 +1,28 @@
 // import { BlockSchemaDefinition } from '../../components/BlockWizard/types/blockSchema';
-// import { OuterBlockItemComponent } from '../../components/OuterBlockItemComponent';
+import { makeOuterBlockItemComponentFn } from '../components/OuterBlockItemComponent';
 // import { InnerBlockItemComponent } from '../../components/InnerBlockItemComponent';
 import { innerBlockFieldsets, outerBlockFieldsets } from './blockFieldsets';
 import type { BlockSchemaDefinition } from '../../types/BlockSchemaDefinition';
+import type { FieldToChildFieldsMap } from '../types';
 
-// @todo Add the components for the Item Components
+/**
+ * Define the
+ * @param fieldToChildFields
+ */
+export function defineOuterBlockFn(fieldToChildFields?: FieldToChildFieldsMap) {
+  const outerBlockItemComponent = makeOuterBlockItemComponentFn(fieldToChildFields);
 
-export function defineOuterBlock(schemaTypeDefinition: BlockSchemaDefinition) {
-  return {
-    ...schemaTypeDefinition,
-    type: 'object',
-    fieldsets: [...outerBlockFieldsets(), ...(schemaTypeDefinition.fieldsets ?? [])],
-    components: {
-      ...(schemaTypeDefinition.components ?? {}),
-      // item: schemaTypeDefinition.components?.item ?? OuterBlockItemComponent,
-    },
-  } satisfies BlockSchemaDefinition;
+  return function defineOuterBlock(schemaTypeDefinition: BlockSchemaDefinition) {
+    return {
+      ...schemaTypeDefinition,
+      type: 'object',
+      fieldsets: [...outerBlockFieldsets(), ...(schemaTypeDefinition.fieldsets ?? [])],
+      components: {
+        ...(schemaTypeDefinition.components ?? {}),
+        item: schemaTypeDefinition.components?.item ?? makeOuterBlockItemComponentFn(),
+      },
+    } satisfies BlockSchemaDefinition;
+  };
 }
 
 export function defineInnerBlock(schemaTypeDefinition: BlockSchemaDefinition) {
