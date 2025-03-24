@@ -20,8 +20,6 @@ export function TwitterCardPreview({ shareImage, siteUrl, width = 580 }: Props) 
   const imageBuilder = imageUrlBuilder(sanityClient);
   const urlFor = (source: Image) => imageBuilder.image(source);
 
-  // const canShowPreview = !!shareImage;
-
   return (
     <div className={twitter.tweetWrapper} style={{ width }}>
       <div className={twitter.tweetAuthor}>
