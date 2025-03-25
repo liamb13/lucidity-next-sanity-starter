@@ -1,0 +1,17 @@
+# https://humanstxt.org/
+
+/* TEAM */
+  Your Role: Your Name (Your Organisation)
+  Contact: your.email [at] domain.com
+  From: City, Country
+
+/* THANKS */
+  Developer: Jamie Warburton (Hex Digital)
+  Contact: jamie [at] hexdigital.com
+  Twitter: jamiewarb
+  From: London, England, United Kingdom
+
+  Agency: Hex Digital
+  Contact: hello [at] hexdigital.com
+  Twitter: hexdigital
+  From: London, England, United Kingdom
