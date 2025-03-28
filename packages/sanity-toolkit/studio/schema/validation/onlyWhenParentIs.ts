@@ -18,7 +18,7 @@ export function onlyWhenParentIs(
   validator?: <ValidatorRuleType>(
     value: ValidatorRuleType,
     context: ValidationContext,
-  ) => CustomValidatorResult | Promise<CustomValidatorResult>,
+  ) => CustomValidatorResult,
   not = false,
 ) {
   return async function onlyWhenParentIsValidator<RuleType>(
