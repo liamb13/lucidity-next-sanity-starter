@@ -77,7 +77,7 @@ describe('onlyWhenParentIs', () => {
     const validator = onlyWhenParentIs({ type: 'test' });
     const context = createValidationContext({ type: 'test' });
 
-    expect(async () => validator('someValue', context)).toThrow(
+    expect(() => validator('someValue', context)).toThrow(
       'Cannot validate in `onlyWhenParentIs` as no validator function passed',
     );
   });
