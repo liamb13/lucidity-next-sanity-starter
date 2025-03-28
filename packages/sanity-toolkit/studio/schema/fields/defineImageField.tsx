@@ -1,4 +1,4 @@
-import { defineField, type SchemaTypeDefinition } from 'sanity';
+import { defineField } from 'sanity';
 import { FaRegImage } from 'react-icons/fa';
 import { IMAGE_FIT } from '../../constants/imageObjectField';
 import type { ComponentType, ReactNode } from 'react';

@@ -1,6 +1,6 @@
 import { Card, Flex, Text } from '@sanity/ui';
-import { type ComponentType } from 'react';
-import { type StringInputProps } from 'sanity';
+import type { ComponentType } from 'react';
+import type { StringInputProps } from 'sanity';
 
 export const DeletedDocIdInputComponent: ComponentType<StringInputProps> = (props) => {
   return (

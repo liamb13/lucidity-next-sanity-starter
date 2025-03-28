@@ -1,4 +1,4 @@
-import { type SitemapEntry } from '../types';
+import type { SitemapEntry } from '../types';
 
 interface GenerateSitemapOptions {
   sitemapXslUrl?: string;

@@ -1,6 +1,10 @@
-import type { StringDefinition, StringInputProps, StringSchemaType } from 'sanity';
+import type {
+  StringDefinition,
+  StringInputProps,
+  StringSchemaType,
+  SchemaValidationValue,
+} from 'sanity';
 import type { CharCountOptions } from '../../characterCount/types';
-import type { SchemaValidationValue } from 'sanity';
 /**
  * The available options for a SuperString field.
  */

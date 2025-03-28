@@ -1,4 +1,4 @@
-import { type CurrentUser as SanityCurrentUser } from 'sanity';
+import type { CurrentUser as SanityCurrentUser } from 'sanity';
 import { ROLE } from '../../constants/roles';
 
 /** currentUser.role is deprecated - use currentUser.roles instead */

@@ -19,7 +19,7 @@ export async function redirectResolver(
     ...options,
   };
 
-  if (options.skipFileExtensions?.some((skipExtension) => path.endsWith(skipExtension))) {
+  if (opts.skipFileExtensions.some((skipExtension) => path.endsWith(skipExtension))) {
     return;
   }
 
@@ -28,8 +28,8 @@ export async function redirectResolver(
   const { matches, matchedRule, redirectUrl } = matchPathWithRules(path, redirects);
 
   if (matches && matchedRule && redirectUrl) {
-    if (options.incrementRedirectRuleCount) {
-      options.incrementRedirectRuleCount(matchedRule); // We don't await this as we don't care if it happens or not, and don't want to delay page load
+    if (opts.incrementRedirectRuleCount) {
+      opts.incrementRedirectRuleCount(matchedRule); // We don't await this as we don't care if it happens or not, and don't want to delay page load
     }
 
     const finalPath = combinePathAndQuery(redirectUrl, query);
@@ -50,7 +50,7 @@ function matchPathWithRules(path: string, redirects: Array<Redirect>): RedirectM
       const pattern = rule.from;
       const redirectUrl =
         rule.link?.linkType === REDIRECT_TYPE.DIRECT_PAGE
-          ? rule.link?.page?.pathname
+          ? rule.link.page?.pathname
           : rule.link?.external;
 
       if (!redirectUrl || !pattern) {
@@ -69,7 +69,7 @@ function matchPathWithRules(path: string, redirects: Array<Redirect>): RedirectM
       }
     } catch (error) {
       // Just continue if any errors, we will just ignore them as no need to hold up loading the page for this
-      console.log(error);
+      console.log(error); // eslint-disable-line no-console
       // @todo re-add when Sentry is added
       // @todo move this to a error handler that is passed in as config
       // withScope(function (scope) {

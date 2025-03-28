@@ -1,12 +1,7 @@
-import { Card, Text, Flex } from '@sanity/ui';
+import { Card } from '@sanity/ui';
 import styled from 'styled-components';
 import { useColorSchemeValue } from 'sanity';
-import type { Item } from '../../types';
 import type { PropsWithChildren } from 'react';
-
-interface Props {
-  item: Item;
-}
 
 const StyledItemGridCardWrapper = styled(Card)<{ $currentScheme?: 'light' | 'dark' }>`
   --hover-bg: ${(props) => (props.$currentScheme === 'light' ? '#F2F3F5' : '#2A2C30')};

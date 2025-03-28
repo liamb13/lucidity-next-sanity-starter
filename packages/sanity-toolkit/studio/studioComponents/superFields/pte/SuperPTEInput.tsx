@@ -1,4 +1,4 @@
-import { type CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 import { Stack, Text } from '@sanity/ui';
 import { toPlainText } from '@portabletext/toolkit';
 import './SuperPTEInput.css';
@@ -33,7 +33,7 @@ export function SuperPTEInput(props: Readonly<SuperPTEInputProps>) {
         })}
       </div>
 
-      {(showCount ?? maxLength ?? minLength) && (
+      {!!(showCount ?? maxLength ?? minLength) && (
         <Text muted align={'right'} size={1}>
           <CharacterCount charCount={charCount} options={schemaType.options} />
         </Text>

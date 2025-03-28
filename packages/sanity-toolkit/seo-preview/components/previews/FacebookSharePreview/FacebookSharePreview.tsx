@@ -1,7 +1,8 @@
 import imageUrlBuilder from '@sanity/image-url';
 import preview from '../Preview.module.css';
 import facebook from './FacebookSharePreview.module.css';
-import { type Image, useClient } from 'sanity';
+import { useClient } from 'sanity';
+import type { Image } from 'sanity';
 
 interface Props {
   shareImage?: null | Image;

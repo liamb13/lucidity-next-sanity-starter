@@ -40,7 +40,7 @@ export function filterItems(
   }
 
   return filteredItems.filter((item) => {
-    const title = tokenize(item.title?.toLowerCase() ?? '');
+    const title = tokenize(item.title.toLowerCase());
     const variantTitles = item.variants
       .map((variant) => tokenize(variant.variantTitle.toLowerCase()))
       .flat();

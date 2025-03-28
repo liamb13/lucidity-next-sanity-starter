@@ -1,4 +1,4 @@
-import { type ArrayOfObjectsInputProps } from 'sanity';
+import type { ArrayOfObjectsInputProps } from 'sanity';
 
 /**
  * This function is used to populate default field values for a block when programmatically
@@ -29,6 +29,7 @@ export function populateDefaultFieldValues(
 
       return {
         ...acc,
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         [blockField.name]: blockField.type.initialValue ?? fallbackValue,
       };
     }, {});

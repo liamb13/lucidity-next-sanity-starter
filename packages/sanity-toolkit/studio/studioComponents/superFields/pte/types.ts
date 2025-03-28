@@ -1,5 +1,5 @@
-import { type ArrayDefinition, type PortableTextInputProps } from 'sanity';
-import { type CharCountOptions } from '../../characterCount/types';
+import type { ArrayDefinition, PortableTextInputProps } from 'sanity';
+import type { CharCountOptions } from '../../characterCount/types';
 
 /**
  * The available options for a SuperPTE field.

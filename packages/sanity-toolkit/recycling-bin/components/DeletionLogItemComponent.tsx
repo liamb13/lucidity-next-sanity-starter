@@ -1,7 +1,8 @@
 import { RestoreIcon } from '@sanity/icons';
 import { Card, Flex, Stack, Text } from '@sanity/ui';
 import type { ComponentType } from 'react';
-import { IntentButton, type ObjectItemProps } from 'sanity';
+import { IntentButton } from 'sanity';
+import type { ObjectItemProps } from 'sanity';
 import type { PartialLogItem } from '../types';
 
 export const DeletionLogItemComponent: ComponentType<ObjectItemProps<PartialLogItem>> = (

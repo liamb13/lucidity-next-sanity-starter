@@ -1,6 +1,6 @@
 import imageUrlBuilder from '@sanity/image-url';
 import twitter from './TwitterCardPreview.module.css';
-import { type Image } from 'sanity';
+import type { Image } from 'sanity';
 import { useClient } from 'sanity';
 
 interface Props {
@@ -24,7 +24,7 @@ export function TwitterCardPreview({ shareImage, siteUrl, width = 580 }: Props) 
     <div className={twitter.tweetWrapper} style={{ width }}>
       <div className={twitter.tweetAuthor}>
         <img
-          alt={'tweet author ' + author.name}
+          alt={`tweet author ${author.name}`}
           className={twitter.tweetAuthorAvatar}
           src={
             typeof author.image === 'object'

@@ -1,4 +1,5 @@
-import { defineType, type StringFieldProps } from 'sanity';
+import { defineType } from 'sanity';
+import type { StringFieldProps } from 'sanity';
 import { NoteInputComponent } from './NoteInputComponent';
 import type { NoteFieldSchemaDefinition } from './types';
 

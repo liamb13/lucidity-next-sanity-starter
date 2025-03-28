@@ -1,4 +1,4 @@
-import { type DocumentActionComponent } from 'sanity';
+import type { DocumentActionComponent } from 'sanity';
 import { useMemo } from 'react';
 
 /**

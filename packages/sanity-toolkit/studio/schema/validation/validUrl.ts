@@ -5,9 +5,9 @@ export function validUrl(message?: string) {
   return function validUrlValidator<RuleType>(value: RuleType) {
     if (value && typeof value === 'string') {
       try {
-        new URL(value);
+        void new URL(value);
         return true;
-      } catch (err) {
+      } catch {
         return { message: message ?? 'Must be a valid URL' };
       }
     }

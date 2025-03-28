@@ -1,10 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { changePublishText } from '../changePublishText';
-import {
-  type DocumentActionComponent,
-  type DocumentActionProps,
-  type SanityDocument,
-} from 'sanity';
+import type { DocumentActionComponent, DocumentActionProps, SanityDocument } from 'sanity';
 import { renderHook, waitFor } from '@testing-library/react';
 
 describe('changePublishText', () => {

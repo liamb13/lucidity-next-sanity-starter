@@ -1,4 +1,4 @@
-import { ListItemBuilder } from 'sanity/structure';
+import type { ListItemBuilder } from 'sanity/structure';
 import { GiSkeletonKey } from 'react-icons/gi';
 import { defineStructure } from './utilities/defineStructure';
 

@@ -28,10 +28,13 @@ const Grid = styled.div`
   gap: 20px;
 `;
 
+const emptyItemGroup: ItemGroups = [];
+const emptySearchTags: Array<string> = [];
+
 export function ArrayItemPicker({
-  itemGroups = [],
+  itemGroups = emptyItemGroup,
   searchQuery = '',
-  searchTags = [],
+  searchTags = emptySearchTags,
   onItemAdd,
   gridView = true,
 }: Readonly<Props>) {

@@ -1,6 +1,6 @@
 import type { Item, ItemGroup, OnItemAdd } from './main';
-import type { ArrayOfObjectsInputProps, SanityClient } from 'sanity';
-import { WIZARD_ITEMS } from '../constants';
+import type { SanityClient } from 'sanity';
+import type { WIZARD_ITEMS } from '../constants';
 
 export type ConfigBaseItem = Pick<Item, 'title' | 'icon' | 'tags'>;
 

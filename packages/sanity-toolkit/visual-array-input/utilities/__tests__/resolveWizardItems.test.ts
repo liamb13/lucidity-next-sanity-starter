@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
 import { describe, it, expect } from 'vitest';
 import { resolveWizardItems } from '../resolveWizardItems';
 import { WIZARD_ITEMS } from '../../constants';
@@ -156,7 +158,7 @@ describe('resolveWizardItems', () => {
 
     const result = resolveWizardItems(configItemGroups, props);
 
-    expect((result[0]?.items as Array<ConfigItem>)?.[0]?.title).toBe('Unnamed block');
+    expect((result[0]?.items as Array<ConfigItem>)[0]?.title).toBe('Unnamed block');
   });
 
   it('should respect group assignments in block options', () => {
@@ -202,8 +204,8 @@ describe('resolveWizardItems', () => {
     const result = resolveWizardItems(configItemGroups, props);
 
     expect(result[0]?.items).toHaveLength(1); // media group
-    expect((result[0]?.items as Array<ConfigItem>)?.[0]?.title).toBe('Image Block');
+    expect((result[0]?.items as Array<ConfigItem>)[0]?.title).toBe('Image Block');
     expect(result[1]?.items).toHaveLength(1); // content group
-    expect((result[1]?.items as Array<ConfigItem>)?.[0]?.title).toBe('Text Block');
+    expect((result[1]?.items as Array<ConfigItem>)[0]?.title).toBe('Text Block');
   });
 });

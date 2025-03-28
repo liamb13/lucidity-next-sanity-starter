@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { populateDefaultFieldValues } from '../populateDefaultFieldValues';
-import { type ArrayOfObjectsInputProps } from 'sanity';
+import type { ArrayOfObjectsInputProps } from 'sanity';
 
 describe('populateDefaultFieldValues', () => {
   it('should populate default field values for a given schema', () => {

@@ -1,4 +1,4 @@
-import { type ArrayOfObjectsInputProps } from 'sanity';
+import type { ArrayOfObjectsInputProps } from 'sanity';
 import { useCallback } from 'react';
 import { VisualArrayInputProvider } from '../providers/VisualArrayInputProvider';
 import type { ConfigItemGroups, OnItemAddFn } from '../types';

@@ -1,5 +1,5 @@
 import type { Image } from 'sanity';
-import { SEO_FIELD } from '../constants';
+import type { SEO_FIELD } from '../constants';
 
 /**
  * The SEO fields defined for all pages, and for the global SEO fallback.

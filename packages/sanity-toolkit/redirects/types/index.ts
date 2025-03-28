@@ -1,5 +1,5 @@
-import { REDIRECT_TYPE } from '../constants';
-import { PAGE_VISIBILITY } from '../../seo';
+import type { REDIRECT_TYPE } from '../constants';
+import type { PAGE_VISIBILITY } from '../../seo';
 
 export interface RedirectsQueryPayload {
   redirects: Array<Redirect>;
