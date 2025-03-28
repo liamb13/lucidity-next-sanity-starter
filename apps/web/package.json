@@ -52,6 +52,7 @@
     "@vitest/ui": "3.0.9",
     "eslint": "9.23.0",
     "eslint-config-next": "15.2.3",
+    "eslint-plugin-react-compiler": "19.0.0-beta-aeaed83-20250323",
     "postcss": "8.5.3",
     "prettier": "3.5.3",
     "sanity": "3.80.1",

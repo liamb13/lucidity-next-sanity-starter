@@ -63,8 +63,7 @@ function formatDocumentsForSitemap(documents: SitemapPayload): Array<SitemapEntr
   return documents
     .filter((document) => document.pathname)
     .map((document) => ({
-      // We use non-null-assertion (!) because Typescript doesn't work with .filter() yet, so doesn't know document.pathname is non-null
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      // We use non-null-assertion (!) because Typescript doesn't 100% work with .filter() yet, so doesn't know document.pathname is non-null
       url: urlFromSanityPathname(document.pathname!, document._type),
       lastModified: document.lastModified,
     }));
