@@ -1,0 +1,54 @@
+{
+  "name": "@pkg/eslint-plugin",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "My ESLint config",
+  "license": "MIT",
+  "main": "./index.js",
+  "peerDependencies": {
+    "@eslint-react/eslint-plugin": "catalog:dev",
+    "eslint": "catalog:dev",
+    "eslint-plugin-format": "catalog:dev",
+    "eslint-plugin-import-x": "catalog:dev",
+    "eslint-plugin-react-compiler": "catalog:dev",
+    "eslint-plugin-react-hooks": "catalog:dev",
+    "eslint-plugin-react-refresh": "catalog:dev",
+    "eslint-plugin-unused-imports": "catalog:dev"
+  },
+  "peerDependenciesMeta": {
+    "@eslint-react/eslint-plugin": {
+      "optional": true
+    },
+    "eslint-plugin-format": {
+      "optional": true
+    },
+    "eslint-plugin-react-hooks": {
+      "optional": true
+    },
+    "eslint-plugin-react-refresh": {
+      "optional": true
+    },
+    "eslint-plugin-react-compiler": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "catalog:prod",
+    "@typescript-eslint/parser": "catalog:prod",
+    "eslint-flat-config-utils": "catalog:prod",
+    "globals": "catalog:prod",
+    "local-pkg": "catalog:prod"
+  },
+  "devDependencies": {
+    "@eslint-react/eslint-plugin": "catalog:dev",
+    "@types/node": "catalog:dev",
+    "eslint": "catalog:dev",
+    "eslint-plugin-format": "catalog:dev",
+    "eslint-plugin-import-x": "catalog:dev",
+    "eslint-plugin-react-compiler": "catalog:dev",
+    "eslint-plugin-react-hooks": "catalog:dev",
+    "eslint-plugin-react-refresh": "catalog:dev",
+    "eslint-plugin-unused-imports": "catalog:dev",
+    "lint-staged": "catalog:dev"
+  }
+}
