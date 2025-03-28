@@ -1,6 +1,14 @@
 import { FlatConfigComposer } from 'eslint-flat-config-utils';
 import { isPackageExists } from 'local-pkg';
-import { javascript, imports, ignores, react, typescript, jsx } from './configs/index.js';
+import {
+  javascript,
+  imports,
+  ignores,
+  react,
+  typescript,
+  jsx,
+  prettier,
+} from './configs/index.js';
 import { isInEditorEnv } from './utils.js';
 
 /**
@@ -33,6 +41,7 @@ export function eslintPlugin(options = {}, ...userConfigs) {
     gitignore: enableGitignore = true,
     react: enableReact = false,
     typescript: enableTypeScript = isPackageExists('typescript'),
+    prettier: usingPrettier = isPackageExists('prettier'),
   } = options;
 
   let isInEditor = options.isInEditor;
@@ -83,6 +92,10 @@ export function eslintPlugin(options = {}, ...userConfigs) {
         tsconfigPath,
       }),
     );
+  }
+
+  if (usingPrettier) {
+    configs.push(prettier());
   }
 
   if ('files' in options) {

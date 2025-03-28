@@ -30,6 +30,7 @@ export async function typescript(options = {}) {
   const typeAwareRules = {
     'dot-notation': 'off',
     'no-implied-eval': 'off',
+    '@typescript-eslint/no-unnecessary-condition': 'error',
     '@typescript-eslint/await-thenable': 'error',
     '@typescript-eslint/dot-notation': ['error', { allowKeywords: true }],
     '@typescript-eslint/no-floating-promises': 'error',
@@ -46,10 +47,6 @@ export async function typescript(options = {}) {
     '@typescript-eslint/restrict-plus-operands': 'error',
     '@typescript-eslint/restrict-template-expressions': 'error',
     '@typescript-eslint/return-await': ['error', 'in-try-catch'],
-    '@typescript-eslint/strict-boolean-expressions': [
-      'error',
-      { allowNullableBoolean: true, allowNullableObject: true },
-    ],
     '@typescript-eslint/switch-exhaustiveness-check': 'error',
     '@typescript-eslint/unbound-method': 'error',
   };

@@ -43,6 +43,7 @@
     "@eslint-react/eslint-plugin": "catalog:dev",
     "@types/node": "catalog:dev",
     "eslint": "catalog:dev",
+    "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-format": "catalog:dev",
     "eslint-plugin-import-x": "catalog:dev",
     "eslint-plugin-react-compiler": "catalog:dev",
