@@ -9,7 +9,7 @@ describe('onlyWhenParentIs', () => {
     const validator = onlyWhenParentIs({ type: 'test' }, mockValidator);
     const context = createValidationContext({ type: 'test' });
 
-    await validator('someValue', context);
+    validator('someValue', context);
 
     expect(mockValidator).toHaveBeenCalledWith('someValue', context);
   });
@@ -18,7 +18,7 @@ describe('onlyWhenParentIs', () => {
     const validator = onlyWhenParentIs({ type: ['test', 'other'] }, mockValidator);
     const context = createValidationContext({ type: 'test' });
 
-    await validator('someValue', context);
+    validator('someValue', context);
 
     expect(mockValidator).toHaveBeenCalledWith('someValue', context);
   });
@@ -27,7 +27,7 @@ describe('onlyWhenParentIs', () => {
     const validator = onlyWhenParentIs({ type: 'test', status: 'published' }, mockValidator);
     const context = createValidationContext({ type: 'test', status: 'published' });
 
-    await validator('someValue', context);
+    validator('someValue', context);
 
     expect(mockValidator).toHaveBeenCalledWith('someValue', context);
   });
@@ -39,7 +39,7 @@ describe('onlyWhenParentIs', () => {
     );
     const context = createValidationContext({ type: 'test', status: 'review' });
 
-    await validator('someValue', context);
+    validator('someValue', context);
 
     expect(mockValidator).toHaveBeenCalledWith('someValue', context);
   });
@@ -48,7 +48,7 @@ describe('onlyWhenParentIs', () => {
     const validator = onlyWhenParentIs({ type: 'test' }, mockValidator);
     const context = createValidationContext({ type: 'other' });
 
-    const result = await validator('someValue', context);
+    const result = validator('someValue', context);
 
     expect(mockValidator).not.toHaveBeenCalled();
     expect(result).toBe(true);
@@ -58,7 +58,7 @@ describe('onlyWhenParentIs', () => {
     const validator = onlyWhenParentIs({ type: 'test', status: 'published' }, mockValidator);
     const context = createValidationContext({ type: 'test', status: 'draft' });
 
-    const result = await validator('someValue', context);
+    const result = validator('someValue', context);
 
     expect(mockValidator).not.toHaveBeenCalled();
     expect(result).toBe(true);
@@ -68,7 +68,7 @@ describe('onlyWhenParentIs', () => {
     const validator = onlyWhenParentIs({ type: 'test' }, mockValidator, true);
     const context = createValidationContext({ type: 'other' });
 
-    await validator('someValue', context);
+    validator('someValue', context);
 
     expect(mockValidator).toHaveBeenCalledWith('someValue', context);
   });
