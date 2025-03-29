@@ -128,6 +128,10 @@ A turn-key application for Next.js 15 and Sanity CMS. The project is designed to
   - Sanity Toolkit: utility functions, validation rules, hidden/readOnly functions, schema components
   - Monorepo with maintainable structure and clean code, inspired by Bulletproof React
 
+Requires:
+
+- Node > 20.11.0
+
 ## How to Use
 
 Either fork this repo or use the GitHub Template:
