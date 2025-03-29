@@ -156,7 +156,7 @@ export const schema = defineOuterBlock({
       image: 'image',
       variant: 'variant',
     },
-    prepare(_prepare: Prepare) {
+    prepare() {
       return {
         title: 'Section',
         media: blockIcon,

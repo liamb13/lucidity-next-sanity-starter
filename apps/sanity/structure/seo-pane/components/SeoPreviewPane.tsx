@@ -29,7 +29,10 @@ interface ConfigSeo {
   type: string;
 }
 
-export function SeoPreviewPaneFn({ apiVersion = '2024-10-24', configSeo }: Options) {
+export function SeoPreviewPaneFn({
+  apiVersion = '2024-10-24',
+  configSeo: _configSeo,
+}: Options) {
   return function SeoPreviewPane({ document }: Props) {
     const [siteConfigSeo, loading] = useSiteConfigSeo({ apiVersion });
 
