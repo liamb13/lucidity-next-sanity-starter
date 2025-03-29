@@ -12,7 +12,6 @@ import { SeoFields } from '@/types';
 
 interface Options {
   apiVersion?: string;
-  configSeo?: ConfigSeo;
 }
 
 interface Props {
@@ -24,12 +23,7 @@ interface Props {
   };
 }
 
-interface ConfigSeo {
-  id: string;
-  type: string;
-}
-
-export function SeoPreviewPaneFn({ apiVersion = '2024-10-24', configSeo }: Options) {
+export function SeoPreviewPaneFn({ apiVersion = '2024-10-24' }: Options) {
   return function SeoPreviewPane({ document }: Props) {
     const [siteConfigSeo, loading] = useSiteConfigSeo({ apiVersion });
 
