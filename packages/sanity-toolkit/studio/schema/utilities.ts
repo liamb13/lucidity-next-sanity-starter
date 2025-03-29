@@ -1,4 +1,4 @@
-import { defineField } from 'sanity';
+import type { defineField } from 'sanity';
 
 type Schema = ReturnType<typeof defineField>;
 

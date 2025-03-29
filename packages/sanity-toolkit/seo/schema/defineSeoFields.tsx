@@ -1,4 +1,5 @@
-import { defineField, validation, type Rule } from 'sanity';
+import { defineField } from 'sanity';
+import type { Rule } from 'sanity';
 import { defineSuperStringField } from '../../studio/studioComponents/superFields/string/defineSuperStringField';
 import { defineSuperTextField } from '../../studio/studioComponents/superFields/text/defineSuperTextField';
 import { SEO_FIELD } from '../constants';
@@ -40,6 +41,7 @@ export function defineSeoFields(options: Options = {}) {
           <a
             href="https://developers.google.com/search/docs/appearance/title-link#page-titles"
             target="_blank"
+            rel="noreferrer noopener"
           >
             see best practices
           </a>
@@ -65,6 +67,7 @@ export function defineSeoFields(options: Options = {}) {
           <a
             href="https://developers.google.com/search/docs/appearance/snippet#meta-descriptions"
             target="_blank"
+            rel="noreferrer noopener"
           >
             see best practices
           </a>

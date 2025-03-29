@@ -49,5 +49,5 @@ export function formatConfigItemGroups(
 function hasVariants(
   item: ConfigItemWithoutVariants | ConfigItemWithVariants,
 ): item is ConfigItemWithVariants {
-  return (item as ConfigItemWithVariants).variants !== undefined;
+  return 'variants' in item;
 }

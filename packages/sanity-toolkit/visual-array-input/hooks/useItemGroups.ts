@@ -1,4 +1,5 @@
-import { type ArrayOfObjectsInputProps, type SanityClient, useClient } from 'sanity';
+import { useClient } from 'sanity';
+import type { ArrayOfObjectsInputProps, SanityClient } from 'sanity';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { PERSPECTIVE } from '../../studio/constants/perspectives';
 import { formatConfigItemGroups } from '../utilities/formatConfigItemGroups';
@@ -17,8 +18,8 @@ export function useItemGroups(
 ) {
   const [workingItemGroups, setWorkingItemGroups] = useState(() => configItemGroups);
 
-  const [error, setError] = useState<string>();
-  const [loading, setLoading] = useState(false);
+  const [_error, _setError] = useState<string>();
+  const [_loading, setLoading] = useState(false);
 
   const clientWithoutConfig = useClient({ apiVersion });
 
@@ -43,7 +44,7 @@ export function useItemGroups(
         setLoading(false);
       }
     },
-    [configItemGroups, client],
+    [client],
   );
 
   useEffect(() => {
@@ -52,7 +53,7 @@ export function useItemGroups(
 
   const itemGroups = useMemo(() => {
     return formatConfigItemGroups(resolveWizardItems(workingItemGroups, props));
-  }, [workingItemGroups]);
+  }, [workingItemGroups, props]);
 
   return {
     itemGroups,
@@ -104,7 +105,7 @@ export async function resolveCallableItemGroups(
     }
 
     // Problem resolving function or promise, so return an empty array
-    if (!resolvedGroup?.result) {
+    if (!resolvedGroup.result) {
       return {
         ...itemGroup,
         items: [],

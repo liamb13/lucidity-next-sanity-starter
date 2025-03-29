@@ -1,10 +1,12 @@
 import { describe, it, expect, vi } from 'vitest';
 import type {
   DocumentActionComponent,
+  DocumentActionDescription,
   DocumentActionProps,
   DocumentActionsContext,
 } from 'sanity';
 import { resolveActionsPipeline, actionsPipeline, newAction, modifyAction } from '../index';
+import type { ActionModifier, ActionHandler } from '../index';
 
 describe('Action Resolver', () => {
   // Setup common test variables and helpers
@@ -23,7 +25,7 @@ describe('Action Resolver', () => {
 
   const mockNewAction: DocumentActionComponent = () => ({ label: 'New Action' });
 
-  function createModifierAndTest(modifierConfig: any) {
+  function createModifierAndTest(modifierConfig: Partial<ActionModifier | ActionHandler>) {
     const handler = vi.fn(() => mockPublishActionModifier);
     const modifier = modifyAction({
       actions: 'publish',
@@ -39,7 +41,7 @@ describe('Action Resolver', () => {
 
   function assertBasicModifierBehavior(
     result: any[],
-    actionObject: any,
+    actionObject: DocumentActionDescription | null | undefined,
     handler: any,
     expectedLength = 1,
   ) {

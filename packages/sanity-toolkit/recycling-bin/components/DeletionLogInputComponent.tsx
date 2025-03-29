@@ -1,7 +1,9 @@
 import { RemoveCircleIcon } from '@sanity/icons';
 import { Button, Stack } from '@sanity/ui';
-import { type ComponentType, useMemo } from 'react';
-import { type ArrayOfObjectsInputProps, useFormValue } from 'sanity';
+import { useMemo } from 'react';
+import type { ComponentType } from 'react';
+import { useFormValue } from 'sanity';
+import type { ArrayOfObjectsInputProps } from 'sanity';
 import type { PartialLogItem } from '../types';
 import { useRecyclingBin } from '../hooks';
 
@@ -32,7 +34,7 @@ export function DeletionLogInputComponentFn({ apiVersion = '2024-10-24' }: Optio
         <Button
           text="Remove restored Document from Logs"
           icon={RemoveCircleIcon}
-          onClick={() => cleanUp(documentId, recycledDocumentIDs)}
+          onClick={() => void cleanUp(documentId, recycledDocumentIDs)}
           mode="ghost"
         />
 

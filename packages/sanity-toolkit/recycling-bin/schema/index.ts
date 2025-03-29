@@ -1,5 +1,6 @@
 import { TrashIcon } from '@sanity/icons';
 import { defineArrayMember, defineField, defineType } from 'sanity';
+import type { ArrayOfPrimitivesInputProps } from 'sanity';
 import { DeletedDocIdInputComponent } from '../components/DeletedDocIdInputComponent';
 import { DeletionLogItemComponent } from '../components/DeletionLogItemComponent';
 import { DeletionLogInputComponentFn } from '../components/DeletionLogInputComponent';
@@ -18,7 +19,7 @@ export function recyclingBinDocument(
     title: 'Recycling Bin: Deleted Document Log',
     type: 'document',
     icon: TrashIcon,
-    liveEdit: liveEdit, // whether to skip a draft version of this document
+    liveEdit, // whether to skip a draft version of this document
     // Fieldset to "hide away" the deletedDocIds array from view unless we need them
     fieldsets: [
       {
@@ -92,7 +93,7 @@ export function recyclingBinDocument(
           sortable: false,
         },
         components: {
-          input: (props: { renderDefault: (arg0: any) => any }) =>
+          input: (props: ArrayOfPrimitivesInputProps) =>
             // Remove the `Add Item` button below the Array input
             props.renderDefault({ ...props, arrayFunctions: () => null }),
         },

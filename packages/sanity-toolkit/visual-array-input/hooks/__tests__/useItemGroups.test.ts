@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
 import { describe, it, expect, vi } from 'vitest';
 import type { ConfigItem, ConfigItemGroups } from '../../types';
 import { resolveCallableItemGroups } from '../useItemGroups';
@@ -27,7 +29,7 @@ describe('resolveCallableItemGroups', () => {
       {
         name: 'callable-group',
         title: 'Callable Group',
-        items: async ({ client }) => {
+        items: async ({ client: _client }) => {
           return callableItems;
         },
       },
@@ -94,7 +96,7 @@ describe('resolveCallableItemGroups', () => {
       {
         name: 'sync-callable-group',
         title: 'Sync Callable Group',
-        items: ({ client }) => callableItems,
+        items: ({ client: _client }) => callableItems,
       },
     ];
 
@@ -105,7 +107,7 @@ describe('resolveCallableItemGroups', () => {
   });
 
   it('should resolve multiple callable groups in parallel', async () => {
-    const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+    const delay = async (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
     const itemGroups: ConfigItemGroups = [
       {

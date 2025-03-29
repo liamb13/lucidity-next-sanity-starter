@@ -37,24 +37,6 @@ export function modifyAction(object: ActionModifier | ActionHandler) {
   return object;
 }
 
-export function resolveActionsPipeline(
-  actionModifiers: ActionModifierList,
-  callback?: DocumentActionsResolver,
-): DocumentActionsResolver {
-  return (
-    previousActions: Array<DocumentActionComponent>,
-    context: DocumentActionsContext,
-  ) => {
-    const modifiedActions = actionsPipeline(previousActions, context, actionModifiers);
-
-    if (callback) {
-      return callback(modifiedActions, context);
-    }
-
-    return modifiedActions;
-  };
-}
-
 export const actionsPipeline = (
   previousActions: Array<DocumentActionComponent>,
   context: DocumentActionsContext,
@@ -106,6 +88,24 @@ export const actionsPipeline = (
     });
   }, previousActions);
 };
+
+export function resolveActionsPipeline(
+  actionModifiers: ActionModifierList,
+  callback?: DocumentActionsResolver,
+): DocumentActionsResolver {
+  return (
+    previousActions: Array<DocumentActionComponent>,
+    context: DocumentActionsContext,
+  ) => {
+    const modifiedActions = actionsPipeline(previousActions, context, actionModifiers);
+
+    if (callback) {
+      return callback(modifiedActions, context);
+    }
+
+    return modifiedActions;
+  };
+}
 
 function stringToArray(stringOrArray: undefined | string | Array<string>) {
   return typeof stringOrArray === 'string' ? [stringOrArray] : stringOrArray;

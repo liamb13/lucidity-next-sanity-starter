@@ -21,7 +21,7 @@ export default function CharacterCount({
 
   const { minLength, maxLength, showCount } = options;
 
-  let output: string | undefined = undefined;
+  let output: string | undefined;
 
   if (showCount ?? minLength ?? maxLength) {
     output = `${charCount}`;

@@ -1,5 +1,6 @@
 import React from 'react';
-import { type Image, useClient } from 'sanity';
+import { useClient } from 'sanity';
+import type { Image } from 'sanity';
 import imageUrlBuilder from '@sanity/image-url';
 import google from './GoogleSearchResult.module.css';
 

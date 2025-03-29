@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import type { ArrayOfObjectsInputProps, Path } from 'sanity';
+import type { ArrayOfObjectsInputProps } from 'sanity';
 import { populateDefaultFieldValues } from '../../studio/utilities/populateDefaultFieldValues';
 import { generateItemKey } from '../../studio/utilities/strings';
 import type { AddItemCallbackFn, OnItemAddFn } from '../types';

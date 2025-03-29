@@ -6,7 +6,6 @@ export interface VisualArrayInputContextProps {
 }
 
 export const VisualArrayInputContext = createContext<VisualArrayInputContextProps>({
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   openVisualArrayInput: () => {
     console.warn(
       'openVisualArrayInput not implemented in this context—must be defined when initialised',

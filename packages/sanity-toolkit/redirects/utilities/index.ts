@@ -11,12 +11,12 @@ export function combinePathAndQuery(path: string, query?: URLSearchParams) {
 }
 
 export function patternToRegex(pattern: string): RegExp {
-  const regexStr =
+  const regexStr = `${
     pattern
       .replace(/\//g, '\\/') // Escape slashes
       .replace(/\*/g, '.*') // Convert * to .*
-      .replace(/:(\w+)/g, '(?<$1>[^\\/]+)') + // Convert :slug to named capture group
-    '/?'; // Optionally allow trailing slashes
+      .replace(/:(\w+)/g, '(?<$1>[^\\/]+)') // Convert :slug to named capture group
+  }/?`; // Optionally allow trailing slashes
 
   return new RegExp(`^${regexStr}$`);
 }

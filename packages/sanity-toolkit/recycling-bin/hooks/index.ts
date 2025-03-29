@@ -1,4 +1,4 @@
-import { useClient, type SanityClient } from 'sanity';
+import { useClient } from 'sanity';
 import groq from 'groq';
 import { PERSPECTIVE } from '../../studio/constants/perspectives';
 

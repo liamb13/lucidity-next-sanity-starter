@@ -1,6 +1,5 @@
 import type { ElementType } from 'react';
 import type { ArrayOfObjectsInputProps } from 'sanity';
-import { WIZARD_ITEMS } from '../constants';
 
 interface ItemToAdd {
   initialValue?: Record<string, unknown>;

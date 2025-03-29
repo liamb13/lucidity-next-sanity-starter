@@ -1,4 +1,5 @@
-import { type DocumentActionComponent, useDocumentOperation } from 'sanity';
+import { useDocumentOperation } from 'sanity';
+import type { DocumentActionComponent } from 'sanity';
 
 /**
  * Set a field with the current date when a document is published.
@@ -29,7 +30,7 @@ export function setDateFieldToCurrent(
           patch.execute([{ set: { [fieldName]: new Date().toISOString() } }]);
         }
 
-        if (originalResult?.onHandle) {
+        if (originalResult.onHandle) {
           originalResult.onHandle();
         }
       },

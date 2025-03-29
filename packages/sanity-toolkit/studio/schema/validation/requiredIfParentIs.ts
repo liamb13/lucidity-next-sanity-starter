@@ -1,4 +1,3 @@
-import type { CustomValidatorResult, ValidationContext } from 'sanity';
 import { onlyWhenParentIs } from './onlyWhenParentIs';
 
 /**

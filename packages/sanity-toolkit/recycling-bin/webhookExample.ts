@@ -6,7 +6,7 @@
  */
 import groq from 'groq';
 
-const webhookExample = {
+const _webhookExample = {
   name: 'Deleted Document Webhook',
   description: 'Webhook for storing deleted documents in the trash can for retrieval',
   url: 'https://{YOUR_PROJECT_ID}.api.sanity.io/v2024-10-31/data/mutate/production',

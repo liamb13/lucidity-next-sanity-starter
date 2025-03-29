@@ -1,6 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+
 import { describe, it, expect, vi } from 'vitest';
 import { setDateFieldToCurrent } from '../setDateFieldToCurrent';
-import { useDocumentOperation, type DocumentActionProps, type SanityDocument } from 'sanity';
+import { useDocumentOperation } from 'sanity';
+import type { DocumentActionProps, SanityDocument } from 'sanity';
 
 vi.mock('sanity', () => ({
   useDocumentOperation: vi.fn(),

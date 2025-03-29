@@ -1,8 +1,5 @@
-import {
-  type DocumentActionComponent,
-  type SanityDocument,
-  useDocumentOperation,
-} from 'sanity';
+import { useDocumentOperation } from 'sanity';
+import type { DocumentActionComponent, SanityDocument } from 'sanity';
 import { readingTime } from '../utilities/readingTime';
 
 /**
@@ -41,7 +38,7 @@ export function setReadingTime(
           ]);
         }
 
-        if (originalResult?.onHandle) {
+        if (originalResult.onHandle) {
           originalResult.onHandle();
         }
       },

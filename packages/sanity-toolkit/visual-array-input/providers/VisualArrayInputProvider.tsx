@@ -1,8 +1,7 @@
-import { type ReactNode, useMemo } from 'react';
-import {
-  VisualArrayInputContext,
-  type VisualArrayInputContextProps,
-} from '../context/VisualArrayInputContext';
+import { useMemo } from 'react';
+import type { ReactNode } from 'react';
+import { VisualArrayInputContext } from '../context/VisualArrayInputContext';
+import type { VisualArrayInputContextProps } from '../context/VisualArrayInputContext';
 
 interface Props extends VisualArrayInputContextProps {
   children: ReactNode;
@@ -16,9 +15,5 @@ export const VisualArrayInputProvider = (props: Props) => {
     [openVisualArrayInput],
   );
 
-  return (
-    <VisualArrayInputContext.Provider value={contextValue}>
-      {children}
-    </VisualArrayInputContext.Provider>
-  );
+  return <VisualArrayInputContext value={contextValue}>{children}</VisualArrayInputContext>;
 };

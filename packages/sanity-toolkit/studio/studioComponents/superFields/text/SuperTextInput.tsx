@@ -1,4 +1,5 @@
-import { type ChangeEvent, useCallback } from 'react';
+import { useCallback } from 'react';
+import type { ChangeEvent } from 'react';
 import { Stack, Text, TextArea } from '@sanity/ui';
 import { set, unset } from 'sanity';
 import CharacterCount from '../../characterCount/CharacterCount';
