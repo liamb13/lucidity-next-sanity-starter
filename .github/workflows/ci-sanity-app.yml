@@ -75,7 +75,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           server-token: ${{ env.TURBO_TOKEN }}
 
-      - name: Setup Next application 🥾
+      - name: Setup Sanity application 🥾
         run: cp .github/apps.sanity.env apps/sanity/.env
 
       - name: Restore Sanity App related caches ♻️
