@@ -15,11 +15,11 @@
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "peerDependencies": {
-    "next": "^15.2.3"
+    "next": "^15.2.4"
   },
   "devDependencies": {
     "@vitest/coverage-v8": "^3.0.9",
-    "next": "^15.2.3",
+    "next": "15.2.4",
     "prettier": "^3.5.3",
     "typescript-plugin-css-modules": "^5.1.0",
     "vitest": "^3.0.9"
