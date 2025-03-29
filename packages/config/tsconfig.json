@@ -20,6 +20,8 @@
     "**/*.cjs",
     "**/*.mjs",
     "**/*.jsx",
-    "**/*.json"
+    "**/*.json",
+    "../eslint-plugin/src/globs.ts",
+    "../eslint-plugin/src/utils.ts"
   ]
 }
