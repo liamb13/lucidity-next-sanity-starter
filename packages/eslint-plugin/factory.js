@@ -38,7 +38,6 @@ export function eslintPlugin(options = {}, ...userConfigs) {
   const {
     componentExts = [],
     jsx: enableJsx = true,
-    gitignore: enableGitignore = true,
     react: enableReact = false,
     typescript: enableTypeScript = isPackageExists('typescript'),
     prettier: usingPrettier = isPackageExists('prettier'),
