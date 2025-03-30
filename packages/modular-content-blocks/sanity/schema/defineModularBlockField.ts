@@ -1,6 +1,5 @@
-// import { BlockSchemaDefinition } from '../../components/BlockWizard/types/blockSchema';
 import { makeOuterBlockItemComponentFn } from '../components/OuterBlockItemComponent';
-// import { InnerBlockItemComponent } from '../../components/InnerBlockItemComponent';
+import { InnerBlockItemComponent } from '../components/InnerBlockItemComponent';
 import { innerBlockFieldsets, outerBlockFieldsets } from './blockFieldsets';
 import type { BlockSchemaDefinition } from '../../types/BlockSchemaDefinition';
 import type { FieldToChildFieldsMap } from '../types';
@@ -32,7 +31,7 @@ export function defineInnerBlock(schemaTypeDefinition: BlockSchemaDefinition) {
     fieldsets: [...innerBlockFieldsets(), ...(schemaTypeDefinition.fieldsets ?? [])],
     components: {
       ...schemaTypeDefinition.components,
-      // item: schemaTypeDefinition.components?.item ?? InnerBlockItemComponent,
+      item: schemaTypeDefinition.components?.item ?? InnerBlockItemComponent,
     },
   } satisfies BlockSchemaDefinition;
 }
