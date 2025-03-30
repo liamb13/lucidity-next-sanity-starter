@@ -186,7 +186,7 @@ importers:
         version: 5.8.2
       vitest:
         specifier: 3.0.9
-        version: 3.0.9(@types/node@22.13.14)(@vitest/ui@3.0.9)(happy-dom@16.8.1)(jiti@2.4.2)(jsdom@23.2.0)(less@4.2.2)(sass@1.86.0)(stylus@0.62.0)(tsx@4.19.3)(yaml@2.7.0)
+        version: 3.0.9(@types/node@22.13.14)(@vitest/ui@3.0.9)(happy-dom@16.8.1)(jiti@2.4.2)(jsdom@26.0.0)(less@4.2.2)(sass@1.86.0)(stylus@0.62.0)(tsx@4.19.3)(yaml@2.7.0)
     dependenciesMeta:
       '@pkg/common':
         injected: true
@@ -233,6 +233,9 @@ importers:
       '@eslint/eslintrc':
         specifier: 3.3.1
         version: 3.3.1
+      '@pkg/eslint-plugin':
+        specifier: workspace:*
+        version: link:../../packages/eslint-plugin
       '@sanity/react-loader':
         specifier: 1.11.0
         version: 1.11.0(@sanity/types@3.81.0(@types/react@19.0.12))(react@19.1.0)
@@ -283,7 +286,7 @@ importers:
         version: 5.8.2
       vitest:
         specifier: 3.0.9
-        version: 3.0.9(@types/node@22.13.14)(@vitest/ui@3.0.9)(happy-dom@16.8.1)(jiti@2.4.2)(jsdom@26.0.0)(less@4.2.2)(sass@1.86.0)(stylus@0.62.0)(tsx@4.19.3)(yaml@2.7.0)
+        version: 3.0.9(@types/node@22.13.14)(@vitest/ui@3.0.9)(happy-dom@16.8.1)(jiti@2.4.2)(jsdom@23.2.0)(less@4.2.2)(sass@1.86.0)(stylus@0.62.0)(tsx@4.19.3)(yaml@2.7.0)
 
   packages/common:
     devDependencies:

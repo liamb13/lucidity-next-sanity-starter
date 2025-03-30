@@ -7,8 +7,8 @@ import { GLOB_EXCLUDE } from '../globs.js';
 export async function ignores(userIgnores = []) {
   return [
     {
-      ignores: [...GLOB_EXCLUDE, ...userIgnores],
       name: 'eslint-plugin/ignores',
+      ignores: [...GLOB_EXCLUDE, ...userIgnores],
     },
   ];
 }
