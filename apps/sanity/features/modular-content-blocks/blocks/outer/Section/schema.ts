@@ -1,4 +1,4 @@
-import { defineField, Image, TitledListValue } from 'sanity';
+import { defineField, TitledListValue } from 'sanity';
 import { TbSection } from 'react-icons/tb';
 // import blockImage from './section-center.png';
 import { OBJECT } from '@pkg/common/constants/schemaTypes';
