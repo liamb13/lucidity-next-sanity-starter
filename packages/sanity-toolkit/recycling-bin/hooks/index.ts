@@ -8,7 +8,7 @@ interface Options {
 
 export function useRecyclingBin({ apiVersion = '2024-10-24' }: Options) {
   const client = useClient({ apiVersion }).withConfig({
-    perspective: PERSPECTIVE.PREVIEW_DRAFTS,
+    perspective: PERSPECTIVE.DRAFTS,
   });
 
   /** Fetches unique deleted documents from the recycling bin. */

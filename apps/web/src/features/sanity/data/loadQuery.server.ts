@@ -32,7 +32,7 @@ function getCacheConfig(
 ) {
   // If revalidate is 0, 'force-cache' has no effect (it won't cache the query)
   const cache =
-    options.cache ?? (perspective === PERSPECTIVE.PREVIEW_DRAFTS ? 'no-cache' : 'force-cache');
+    options.cache ?? (perspective === PERSPECTIVE.DRAFTS ? 'no-cache' : 'force-cache');
 
   const revalidate = getRevalidate(usingCdn, options.next?.tags);
 
@@ -68,7 +68,7 @@ export const loadQuery = (async (query, params = {}, options = {}) => {
 
   const {
     stega, // optional override of stega to turn it off explicitly
-    perspective = isDraftMode ? PERSPECTIVE.PREVIEW_DRAFTS : PERSPECTIVE.PUBLISHED,
+    perspective = isDraftMode ? PERSPECTIVE.DRAFTS : PERSPECTIVE.PUBLISHED,
   } = options;
 
   const { cache, revalidate, tags } = getCacheConfig(perspective, options, usingCdn);
