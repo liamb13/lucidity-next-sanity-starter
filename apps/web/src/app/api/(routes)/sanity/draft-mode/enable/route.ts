@@ -1,8 +1,12 @@
-import { draftMode } from 'next/headers';
-import { NextRequest, NextResponse } from 'next/server';
+/**
+ * This file is used to allow Presentation to set the app in Draft Mode, which will load Visual Editing
+ * and query draft content and preview the content as it will appear once everything is published
+ */
 
-export async function GET(request: NextRequest) {
-  (await draftMode()).disable();
+import { defineEnableDraftMode } from 'next-sanity/draft-mode';
+import { client } from '@/features/sanity/data/client';
+import { appConfig } from '@/config/app';
 
-  return NextResponse.redirect(new URL('/', request.url));
-}
+export const { GET } = defineEnableDraftMode({
+  client: client.withConfig({ token: appConfig.sanity.readToken }),
+});
