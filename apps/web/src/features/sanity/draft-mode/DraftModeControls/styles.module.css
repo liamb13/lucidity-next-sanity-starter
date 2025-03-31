@@ -1,0 +1,48 @@
+.draft-mode-controls {
+  --heartbeat-size: 0.5rem;
+  align-items: center;
+  background-color: black;
+  border-radius: 8px;
+  bottom: 4px;
+  color: white;
+  display: flex;
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 0.6px;
+  padding: 5px 8px;
+  position: fixed;
+  right: 4px;
+  text-transform: uppercase;
+  z-index: 9999;
+}
+
+.draft-mode-controls__heartbeat {
+  margin-right: 6px;
+  margin-bottom: 1px;
+}
+
+.heartbeat {
+  position: relative;
+  background: linear-gradient(135deg, #0fcc45, #18ed54 48%, #0bbf3e);
+  border-radius: 40px;
+  width: var(--heartbeat-size, 0.85rem);
+  height: var(--heartbeat-size, 0.85rem);
+}
+
+.heartbeat__radial {
+  position: absolute;
+  background-color: #0fcc45;
+  border-radius: 40px;
+  width: var(--heartbeat-size, 0.85rem);
+  height: var(--heartbeat-size, 0.85rem);
+  opacity: 0.85;
+  animation: heartbeatPing 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes heartbeatPing {
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
