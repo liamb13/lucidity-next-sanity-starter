@@ -16,6 +16,7 @@ export function makeSuperSlugInput({ apiVersion }: { apiVersion: string }) {
     const { path, readOnly, value, schemaType } = props;
     const {
       source: sourceField,
+      hideGenerate = false,
       prefix,
       folder,
       slugify: _slugify,
@@ -53,7 +54,7 @@ export function makeSuperSlugInput({ apiVersion }: { apiVersion: string }) {
             )}
           </Box>
 
-          {sourceField && (
+          {!hideGenerate && sourceField && (
             <SuperSlug.GenerateButton
               isGenerating={isGenerating}
               readOnly={!!readOnly}

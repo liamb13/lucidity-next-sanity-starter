@@ -40,6 +40,7 @@ export type SuperSlugSchemaOptions = SlugOptions & {
     localizeSlug?: LocalizeSlugFn;
   };
   autoNavigate?: boolean;
+  hideGenerate?: boolean;
 };
 
 /**

@@ -21,6 +21,29 @@ export type AsyncState<T> = AsyncPendingState | AsyncCompleteState<T> | AsyncErr
  * Takes an async function and returns a [AsyncState<value>, callback] pair.
  * Whenever the callback is invoked, a new AsyncState is returned.
  * If the returned callback is called again before the previous callback has settled, the resolution of the previous one will be ignored, thus preventing race conditions.
+ *
+ * @example
+ * ```tsx
+ * function UserProfile() {
+ *   const [fetchState, fetchUser] = useAsync(async (userId: string) => {
+ *     const response = await fetch(`/api/users/${userId}`);
+ *     if (!response.ok) throw new Error('Failed to fetch user');
+ *     return response.json();
+ *   });
+ *
+ *   return (
+ *     <div>
+ *       <button onClick={() => fetchUser('123')}>Fetch User</button>
+ *       {fetchState?.status === 'pending' && <div>Loading...</div>}
+ *       {fetchState?.status === 'error' && <div>Error: {fetchState.error.message}</div>}
+ *       {fetchState?.status === 'complete' && (
+ *         <div>User name: {fetchState.result.name}</div>
+ *       )}
+ *     </div>
+ *   );
+ * }
+ * ```
+ *
  * @param fn - an async function that returns a value
  */
 export function useAsync<T, U = void>(
