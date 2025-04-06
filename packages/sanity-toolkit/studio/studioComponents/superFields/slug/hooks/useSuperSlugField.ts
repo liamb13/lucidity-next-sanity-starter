@@ -1,22 +1,36 @@
-import type { SuperSlugInputProps } from '../types';
+import type { SlugContext, SuperSlugInputProps } from '../types';
 import { useCallback } from 'react';
-import { PatchEvent, set, setIfMissing, unset } from 'sanity';
-import { stringToSlug } from '../utilities';
+import { PatchEvent, set, setIfMissing, unset, useGetFormValue } from 'sanity';
+import type { SanityDocument } from 'sanity';
+import { stringToSlug, getSlugSourceContext } from '../utilities';
+import { useSlugContext } from './useSlugContext';
+
+export type UpdateSlugFn = (nextSlug?: string) => void | Promise<void>;
 
 export function useSuperSlugField(props: SuperSlugInputProps & { apiVersion: string }) {
   const { schemaType, onChange } = props;
 
-  // const options = schemaType.options;
+  const slugContext = useSlugContext({ apiVersion: props.apiVersion });
+  const getFormValue = useGetFormValue();
 
-  const slugifyFn = stringToSlug; // @todo support user-defined 'slugify' function
+  /**
+   * Updates the slug field in the Sanity document.
+   * Takes the proposed next slug string, processes it using the configured slugify function (or a default),
+   * and patches the document via the `onChange` prop.
+   * Handles empty slugs by unsetting the field.
+   *
+   * @param nextSlug The proposed new slug string.
+   */
+  const updateSlug: UpdateSlugFn = useCallback(
+    async (nextSlug?: string) => {
+      const document =
+        (getFormValue([]) as SanityDocument | undefined) ||
+        ({ _type: schemaType.name } as SanityDocument);
 
-  const updateSlug = useCallback(
-    (nextSlug: string) => {
-      // We use stringToPathname to ensure that the value is a valid pathname.
-      // We also allow trailing slashes to make it possible to create folders
-      const finalNextSlug = nextSlug
-        ? slugifyFn(nextSlug, { allowTrailingSlash: true })
-        : undefined;
+      const slugifyFn = createSlugifyFn(props, document, slugContext);
+
+      // Allow trailing slashes to make it possible to create folders
+      const finalNextSlug = nextSlug ? await slugifyFn(nextSlug) : undefined;
 
       const patch = finalNextSlug
         ? [setIfMissing({ _type: schemaType.name }), set(finalNextSlug, ['current'])]
@@ -26,10 +40,27 @@ export function useSuperSlugField(props: SuperSlugInputProps & { apiVersion: str
 
       // @todo add auto-navigate if on Presentation screen
     },
-    [onChange, schemaType.name, slugifyFn],
+    [onChange, schemaType, props, slugContext, getFormValue],
   );
 
   return {
     updateSlug,
   };
+}
+
+function createSlugifyFn(
+  props: SuperSlugInputProps,
+  document: SanityDocument,
+  slugContext: SlugContext,
+) {
+  const { path } = props;
+  const { slugify } = props.schemaType.options ?? {};
+
+  return slugify
+    ? async (slug: string) => {
+        const sourceContext = getSlugSourceContext(path, document, slugContext);
+
+        return slugify(slug, props.schemaType, sourceContext);
+      }
+    : (slug: string) => stringToSlug(slug, { allowTrailingSlash: true });
 }

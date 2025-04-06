@@ -10,7 +10,10 @@ import type {
 // See: https://github.com/sanity-io/sanity/blob/next/packages/sanity/src/core/form/inputs/Slug/utils/useSlugContext.ts
 export type SlugContext = Omit<SlugSourceContext, 'parent' | 'parentPath'>;
 
-// @todo support type ((doc: SanityDocument, context: SlugContext) => Promise<string> | string)
+/**
+ * The prefix for a slug. Can be a static string or a function (sync/async)
+ * that resolves to a string based on the document and context.
+ */
 export type SlugPrefix =
   | string
   | ((doc: SanityDocument, context: SlugContext) => Promise<string> | string);
