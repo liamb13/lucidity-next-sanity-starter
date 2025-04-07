@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import type {
   SanityDocument,
   SlugSourceContext,
@@ -6,6 +7,7 @@ import type {
   SlugSchemaType,
   SlugInputProps,
 } from 'sanity';
+import type { UseSuperSlugField } from './hooks/useSuperSlugField';
 
 // See: https://github.com/sanity-io/sanity/blob/next/packages/sanity/src/core/form/inputs/Slug/utils/useSlugContext.ts
 export type SlugContext = Omit<SlugSourceContext, 'parent' | 'parentPath'>;
@@ -31,6 +33,11 @@ export type LocalizeSlugFn = (opts: {
   fallbackLocaleId?: string;
 }) => string;
 
+export type SuperSlugActionsFn = (
+  props: SuperSlugInputProps,
+  field: UseSuperSlugField,
+) => JSX.Element | null;
+
 /**
  * The available options for a SuperString field.
  */
@@ -46,6 +53,7 @@ export type SuperSlugSchemaOptions = SlugOptions & {
     document: SanityDocument,
     slugContext: SlugContext,
   ) => void;
+  actions?: Array<SuperSlugActionsFn>;
 };
 
 /**

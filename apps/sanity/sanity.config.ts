@@ -11,6 +11,7 @@ import { PreventClickAwayItemComponent } from '@pkg/modular-content-blocks/sanit
 import { structure } from '@/structure';
 import { documentActions } from '@/actions';
 import { appConfig } from './config/app';
+import { presentationTool } from 'sanity/presentation';
 
 export default defineConfig({
   name: 'default',

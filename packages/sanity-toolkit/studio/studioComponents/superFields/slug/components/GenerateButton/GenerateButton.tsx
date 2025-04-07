@@ -1,5 +1,7 @@
-import { Button } from '@sanity/ui';
+import { Button, Spinner } from '@sanity/ui';
 import { useTranslation } from 'sanity';
+import { RefreshIcon } from '@sanity/icons';
+import React from 'react';
 
 export interface GenerateButtonProps {
   isGenerating: boolean;
@@ -16,7 +18,11 @@ export function GenerateButton({ isGenerating, readOnly, onClick }: GenerateButt
       type="button"
       disabled={readOnly || isGenerating}
       onClick={onClick}
-      text={
+      icon={isGenerating ? Spinner : RefreshIcon}
+      title={
+        isGenerating ? t('inputs.slug.action.generating') : t('inputs.slug.action.generate')
+      }
+      aria-label={
         isGenerating ? t('inputs.slug.action.generating') : t('inputs.slug.action.generate')
       }
     />

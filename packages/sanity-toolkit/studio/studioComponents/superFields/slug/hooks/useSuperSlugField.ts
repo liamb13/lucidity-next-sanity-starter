@@ -1,22 +1,37 @@
 import type { SlugContext, SuperSlugInputProps } from '../types';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { PatchEvent, set, setIfMissing, unset, useGetFormValue } from 'sanity';
 import type { SanityDocument } from 'sanity';
 import { stringToSlug, getSlugSourceContext } from '../utilities';
 import { useSlugContext } from './useSlugContext';
+import { useSlugPrefix } from './useSlugPrefix';
+import { useSlugGenerator } from './useSlugGenerator';
 
 export type UpdateSlugFn = (nextSlug?: string) => void | Promise<void>;
 
+export type UseSuperSlugField = ReturnType<typeof useSuperSlugField>;
+
 export function useSuperSlugField(props: SuperSlugInputProps & { apiVersion: string }) {
-  const { value, schemaType, onChange } = props;
+  const { value, schemaType, onChange, apiVersion, path } = props;
   const { afterUpdate } = schemaType.options ?? {};
 
   const slugContext = useSlugContext({ apiVersion: props.apiVersion });
   const getFormValue = useGetFormValue();
 
+  const { prefix } = useSlugPrefix({ ...props });
+
+  const fullPathname = `${prefix}${value?.current ?? ''}`;
+
   const segments = value?.current?.split('/').slice(0);
   const folderSlug = segments?.slice(0, -1).join('/');
   const slug = segments?.slice(-1)[0] ?? '';
+
+  const document = useMemo(
+    () =>
+      (getFormValue([]) as SanityDocument | undefined) ||
+      ({ _type: schemaType.name } as SanityDocument),
+    [getFormValue, schemaType.name],
+  );
 
   /**
    * Updates the slug field in the Sanity document.
@@ -28,10 +43,6 @@ export function useSuperSlugField(props: SuperSlugInputProps & { apiVersion: str
    */
   const updateSlug: UpdateSlugFn = useCallback(
     async (nextSlug?: string) => {
-      const document =
-        (getFormValue([]) as SanityDocument | undefined) ||
-        ({ _type: schemaType.name } as SanityDocument);
-
       const slugifyFn = createSlugifyFn(props, document, slugContext);
 
       const maybePromiseFinalSlug = nextSlug ? slugifyFn(nextSlug) : undefined;
@@ -51,14 +62,28 @@ export function useSuperSlugField(props: SuperSlugInputProps & { apiVersion: str
         afterUpdate(props, document, slugContext);
       }
     },
-    [getFormValue, schemaType.name, props, slugContext, onChange, afterUpdate],
+    [props, document, slugContext, schemaType.name, onChange, afterUpdate],
   );
 
+  const { generateSlugState, handleGenerateSlug, isGenerating } = useSlugGenerator({
+    apiVersion,
+    sourceField: schemaType.options?.source,
+    schemaType,
+    path,
+    folderSlug,
+    updateSlug,
+  });
+
   return {
+    document,
+    fullPathname,
     segments,
     folderSlug,
     slug,
     updateSlug,
+    generateSlugState,
+    handleGenerateSlug,
+    isGenerating,
   };
 }
 

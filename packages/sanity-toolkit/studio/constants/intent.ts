@@ -6,3 +6,8 @@ export enum INTENT {
   CREATE = 'create',
   EDIT = 'edit',
 }
+
+export enum INTENT_MODE {
+  PRESENTATION = 'presentation',
+  STRUCTURE = 'structure',
+}
