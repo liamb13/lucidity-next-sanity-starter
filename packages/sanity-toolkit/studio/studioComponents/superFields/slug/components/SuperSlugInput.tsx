@@ -15,12 +15,7 @@ import { useSlugPrefix } from '../hooks/useSlugPrefix';
 export function makeSuperSlugInput({ apiVersion }: { apiVersion: string }) {
   const SuperSlugInput: ComponentType<SuperSlugInputProps> = (props) => {
     const { path, readOnly, value, schemaType } = props;
-    const {
-      source: sourceField,
-      hideGenerate = false,
-      folder,
-      slugify: _slugify,
-    } = schemaType.options ?? {}; // @todo support function-defined, context-aware prefixes. Can then support document locale in prefix
+    const { source: sourceField, hideGenerate = false, folder } = schemaType.options ?? {};
 
     const { prefix } = useSlugPrefix({ ...props, apiVersion });
 
@@ -46,7 +41,7 @@ export function makeSuperSlugInput({ apiVersion }: { apiVersion: string }) {
               {...props}
               apiVersion={apiVersion}
               disabled={isGenerating}
-              onChange={(e) => superSlugField.updateSlug(e.currentTarget.value)}
+              onChange={(e) => void superSlugField.updateSlug(e.currentTarget.value)}
             />
 
             {generateSlugState?.status === 'error' && (
