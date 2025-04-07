@@ -34,11 +34,16 @@ export function useSuperSlugField(props: SuperSlugInputProps & { apiVersion: str
       const slugifyFn = createSlugifyFn(props, document, slugContext);
 
       // Allow trailing slashes to make it possible to create folders
-      const finalNextSlug = nextSlug ? await slugifyFn(nextSlug) : undefined;
+      const maybePromiseFinalSlug = nextSlug ? slugifyFn(nextSlug) : undefined;
+      const finalSlug =
+        typeof maybePromiseFinalSlug === 'string'
+          ? maybePromiseFinalSlug
+          : await maybePromiseFinalSlug;
 
-      const patch = finalNextSlug
-        ? [setIfMissing({ _type: schemaType.name }), set(finalNextSlug, ['current'])]
-        : unset([]);
+      const patch =
+        finalSlug !== 'string'
+          ? [setIfMissing({ _type: schemaType.name }), set(finalSlug, ['current'])]
+          : unset([]);
 
       onChange(PatchEvent.from(patch));
 
@@ -63,11 +68,14 @@ function createSlugifyFn(
   const { path } = props;
   const { slugify } = props.schemaType.options ?? {};
 
-  return slugify
-    ? async (slug: string) => {
-        const sourceContext = getSlugSourceContext(path, document, slugContext);
+  if (!slugify) {
+    return (slug: string) => stringToSlug(slug, { allowTrailingSlash: true });
+  }
 
-        return slugify(slug, props.schemaType, sourceContext);
-      }
-    : (slug: string) => stringToSlug(slug, { allowTrailingSlash: true });
+  // eslint-disable-next-line @typescript-eslint/promise-function-async -- Disable because if the return isn't a Promise then we don't wait to await it (if we do await, it jumps caret to end of slug when editing—frustrating!)
+  return (slug: string) => {
+    const sourceContext = getSlugSourceContext(path, document, slugContext);
+
+    return slugify(slug, props.schemaType, sourceContext);
+  };
 }

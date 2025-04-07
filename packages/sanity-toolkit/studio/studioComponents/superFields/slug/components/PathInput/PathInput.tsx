@@ -93,7 +93,6 @@ export function PathInput(
 function joinSlugSegments(segments: Array<string | undefined>) {
   return segments.filter((part) => typeof part === 'string').join('/');
 }
-
 function removeTrailingSlash(string: string | undefined): string | undefined {
   if (!string) {
     return string;
