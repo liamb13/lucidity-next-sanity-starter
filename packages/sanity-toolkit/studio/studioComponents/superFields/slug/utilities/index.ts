@@ -79,3 +79,7 @@ export async function getNewFromSource(
     ? source(document, context)
     : PathUtils.get(document, source);
 }
+
+export function joinSlugSegments(segments: Array<string | undefined>) {
+  return segments.filter((part) => typeof part === 'string').join('/');
+}

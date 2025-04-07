@@ -2,11 +2,12 @@
 // Customised specifically at time of this commit: https://github.com/sanity-io/sanity/blob/d157fca17d146886413f86577258fb24ee35e3d2/packages/sanity/src/core/form/inputs/Slug/SlugInput.tsx
 
 import { Box, Flex, TextInput } from '@sanity/ui';
+import type { FormEventHandler, MouseEventHandler, ReactElement } from 'react';
 import React, { useCallback, useMemo, useRef, useState } from 'react';
-import type { MouseEventHandler, FormEventHandler, ReactElement } from 'react';
 import type { SuperSlugInputProps } from '../../types';
 import { FolderInput } from '../FolderInput';
 import type { UpdateSlugFn } from '../../hooks/useSuperSlugField';
+import { joinSlugSegments } from '../../utilities';
 
 const folderOptionDefaults = { canUnlock: true };
 
@@ -90,9 +91,6 @@ export function PathInput(
   );
 }
 
-function joinSlugSegments(segments: Array<string | undefined>) {
-  return segments.filter((part) => typeof part === 'string').join('/');
-}
 function removeTrailingSlash(string: string | undefined): string | undefined {
   if (!string) {
     return string;
