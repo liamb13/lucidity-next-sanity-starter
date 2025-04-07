@@ -65,7 +65,7 @@ async function getNewFromSource(
  * Manage slug generation based on a source field.
  * Provides state for loading/error status and a function to trigger generation.
  *
- * @param {UseSlugGeneratorProps} props Configuration for the slug generator.
+ * @param {Props} props Configuration for the slug generator.
  *
  * @returns An object containing generation state, the generation trigger function, and a boolean indicating if generation is in progress.
  */

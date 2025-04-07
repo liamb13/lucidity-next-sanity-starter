@@ -8,6 +8,7 @@ import { SuperSlug } from './index';
 import { Box, Card, Flex, Stack } from '@sanity/ui';
 import { useSuperSlugField } from '../hooks/useSuperSlugField';
 import { useSlugGenerator } from '../hooks/useSlugGenerator';
+import { useSlugPrefix } from '../hooks/useSlugPrefix';
 
 /** @todo support users adding further jsx to component, such as more buttons, etc., and other customisations */
 
@@ -17,10 +18,11 @@ export function makeSuperSlugInput({ apiVersion }: { apiVersion: string }) {
     const {
       source: sourceField,
       hideGenerate = false,
-      prefix,
       folder,
       slugify: _slugify,
     } = schemaType.options ?? {}; // @todo support function-defined, context-aware prefixes. Can then support document locale in prefix
+
+    const { prefix } = useSlugPrefix({ ...props, apiVersion });
 
     const _folderOptions = folder ?? { canUnlock: true };
 

@@ -11,7 +11,9 @@ import type {
 export type SlugContext = Omit<SlugSourceContext, 'parent' | 'parentPath'>;
 
 // @todo support type ((doc: SanityDocument, context: SlugContext) => Promise<string> | string)
-export type SlugPrefix = string;
+export type SlugPrefix =
+  | string
+  | ((doc: SanityDocument, context: SlugContext) => Promise<string> | string);
 
 export type SlugSourceFn = (
   document: SanityDocument,
