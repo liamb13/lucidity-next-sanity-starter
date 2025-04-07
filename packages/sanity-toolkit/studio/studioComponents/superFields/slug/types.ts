@@ -41,6 +41,11 @@ export type SuperSlugSchemaOptions = SlugOptions & {
   };
   autoNavigate?: boolean;
   hideGenerate?: boolean;
+  afterUpdate?: (
+    props: SuperSlugInputProps,
+    document: SanityDocument,
+    slugContext: SlugContext,
+  ) => void;
 };
 
 /**

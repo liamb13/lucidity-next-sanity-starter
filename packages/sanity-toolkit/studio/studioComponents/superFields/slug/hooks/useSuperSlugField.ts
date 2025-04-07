@@ -9,6 +9,7 @@ export type UpdateSlugFn = (nextSlug?: string) => void | Promise<void>;
 
 export function useSuperSlugField(props: SuperSlugInputProps & { apiVersion: string }) {
   const { value, schemaType, onChange } = props;
+  const { afterUpdate } = schemaType.options ?? {};
 
   const slugContext = useSlugContext({ apiVersion: props.apiVersion });
   const getFormValue = useGetFormValue();
@@ -33,7 +34,6 @@ export function useSuperSlugField(props: SuperSlugInputProps & { apiVersion: str
 
       const slugifyFn = createSlugifyFn(props, document, slugContext);
 
-      // Allow trailing slashes to make it possible to create folders
       const maybePromiseFinalSlug = nextSlug ? slugifyFn(nextSlug) : undefined;
       const finalSlug =
         typeof maybePromiseFinalSlug === 'string'
@@ -47,9 +47,11 @@ export function useSuperSlugField(props: SuperSlugInputProps & { apiVersion: str
 
       onChange(PatchEvent.from(patch));
 
-      // @todo add auto-navigate if on Presentation screen
+      if (afterUpdate) {
+        afterUpdate(props, document, slugContext);
+      }
     },
-    [onChange, schemaType, props, slugContext, getFormValue],
+    [getFormValue, schemaType.name, props, slugContext, onChange, afterUpdate],
   );
 
   return {
@@ -69,6 +71,7 @@ function createSlugifyFn(
   const { slugify } = props.schemaType.options ?? {};
 
   if (!slugify) {
+    // Allow trailing slashes to make it possible to create folders, e.g. if user types `/recipes/`, trailing slash is not stripped at this point.
     return (slug: string) => stringToSlug(slug, { allowTrailingSlash: true });
   }
 
