@@ -5,13 +5,6 @@ import { useSlugContext } from './useSlugContext';
 import type { SuperSlugInputProps } from '../types';
 
 /**
- * Props for the `useSlugPrefix` hook.
- */
-interface UseSlugPrefixProps extends SuperSlugInputProps {
-  apiVersion: string;
-}
-
-/**
  * Hook to determine the appropriate prefix for the slug field based on `options.prefix`.
  * Handles static string prefixes, function-based prefixes (sync/async), and falls back to the window origin.
  * Updates the prefix when the document changes.
@@ -19,11 +12,11 @@ interface UseSlugPrefixProps extends SuperSlugInputProps {
  * @param props The component props including schemaType and apiVersion.
  * @returns An object containing the resolved `prefix` string.
  */
-export function useSlugPrefix(props: UseSlugPrefixProps) {
-  const sourceContext = useSlugContext({ apiVersion: props.apiVersion });
+export function useSlugPrefix(props: SuperSlugInputProps) {
+  const sourceContext = useSlugContext({ apiVersion: props.schemaType.options.apiVersion });
   const document = useFormValue([]) as SanityDocument | undefined;
 
-  const optionsPrefix = props.schemaType.options?.prefix;
+  const optionsPrefix = props.schemaType.options.prefix;
 
   const [urlPrefix, setUrlPrefix] = useState<string | undefined>();
 

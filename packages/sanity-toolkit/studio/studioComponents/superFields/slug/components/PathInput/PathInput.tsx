@@ -13,7 +13,6 @@ const folderOptionDefaults = { canUnlock: true };
 
 export function PathInput(
   props: Omit<SuperSlugInputProps, 'onChange'> & {
-    apiVersion: string;
     disabled?: boolean;
     onChange: UpdateSlugFn;
     folderSlug?: string;
@@ -30,7 +29,7 @@ export function PathInput(
     elementProps,
     onChange,
   } = props;
-  const { folder: folderOptions = folderOptionDefaults } = schemaType.options ?? {};
+  const { folder: folderOptions = folderOptionDefaults } = schemaType.options;
 
   const [folderLocked, setFolderLocked] = useState(!!folderSlug);
   const folderCanUnlock = !readOnly && folderOptions.canUnlock;
