@@ -3,7 +3,7 @@ import { useGetFormValue, useTranslation } from 'sanity';
 import type { Path, SanityDocument } from 'sanity';
 import type { SlugSourceFn, SuperSlugInputProps } from '../types';
 import { useSlugContext } from './useSlugContext';
-import { getNewFromSource, getSlugSourceContext } from '../utilities';
+import { getNewFromSource, getSlugSourceContext, joinSlugSegments } from '../utilities';
 import type { UpdateSlugFn } from './useSuperSlugField';
 import { useAsync } from '../../../../../hooks/useAsync';
 
@@ -16,6 +16,8 @@ interface Props {
   schemaType: SuperSlugInputProps['schemaType'];
   /** The path to the slug field. */
   path: Path;
+  /** The folder path, if defined */
+  folderSlug?: string;
   /** The callback to update the slug value. */
   updateSlug: UpdateSlugFn;
 }
@@ -33,6 +35,7 @@ export function useSlugGenerator({
   sourceField,
   schemaType,
   path,
+  folderSlug,
   updateSlug,
 }: Props) {
   const getFormValue = useGetFormValue();
@@ -54,8 +57,17 @@ export function useSlugGenerator({
 
     const newFromSource = await getNewFromSource(sourceField, document, sourceContext);
 
-    void updateSlug(newFromSource);
-  }, [sourceField, getFormValue, schemaType, path, slugContext, updateSlug, t]);
+    void updateSlug(joinSlugSegments([folderSlug, newFromSource]));
+  }, [
+    sourceField,
+    getFormValue,
+    schemaType.name,
+    path,
+    slugContext,
+    updateSlug,
+    folderSlug,
+    t,
+  ]);
 
   const [generateSlugState, handleGenerateSlug] = useAsync(handleAsyncGenerateSlug);
 
