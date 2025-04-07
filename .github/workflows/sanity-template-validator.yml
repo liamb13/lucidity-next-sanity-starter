@@ -7,18 +7,6 @@ on:
 
   pull_request:
     types: [opened, synchronize, reopened]
-    # Only consider those paths to trigger the action
-    paths:
-      - 'packages/**'
-      - 'package.json'
-      - '*.lock'
-      - 'pnpm-lock.yaml'
-      - 'pnpm-workspace.yaml'
-      - '.npmrc'
-      - 'tsconfig.base.json'
-      - '.prettier*'
-      - '.github/**'
-      - 'turbo.json'
 
   # Allows triggering this workflow from GitHub UI
   workflow_dispatch:
