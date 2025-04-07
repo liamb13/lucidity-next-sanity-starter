@@ -28,6 +28,7 @@ export function makeSuperSlugInput({ apiVersion }: { apiVersion: string }) {
       sourceField,
       schemaType,
       path,
+      folderSlug: superSlugField.folderSlug,
       updateSlug: superSlugField.updateSlug,
     });
 
