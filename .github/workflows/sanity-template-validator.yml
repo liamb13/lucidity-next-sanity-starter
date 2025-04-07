@@ -5,6 +5,12 @@ on:
   push:
     branches: [main]
 
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+  # Allows triggering this workflow from GitHub UI
+  workflow_dispatch:
+
 permissions:
   contents: read
   pull-requests: write
@@ -14,5 +20,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Validate Sanity Template
-        uses: sanity-io/template-validator@e09f3d809a44c9ac771cb35b83d3e63aa22624b7
+        run: npx --yes @sanity/template-validator
