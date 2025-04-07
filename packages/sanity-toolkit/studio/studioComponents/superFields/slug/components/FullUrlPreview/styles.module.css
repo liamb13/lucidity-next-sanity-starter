@@ -6,3 +6,7 @@
   text-decoration: underline;
   text-decoration-color: currentColor;
 }
+
+.pathnameFlex {
+  word-break: break-all;
+}

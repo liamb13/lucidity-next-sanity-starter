@@ -6,7 +6,7 @@ export function FullUrlPreview({ fullPathname }: { fullPathname: string }) {
   return (
     <a href={fullPathname} target="_blank" rel="noopener noreferrer" className={styles.link}>
       <Text muted as="span">
-        <Flex as="span" align="center" gap={2}>
+        <Flex as="span" align="center" gap={2} className={styles.pathnameFlex}>
           {fullPathname}
           <FaExternalLinkAlt size={10} />
         </Flex>

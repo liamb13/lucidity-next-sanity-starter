@@ -8,10 +8,14 @@ import { useSlugContext } from './useSlugContext';
 export type UpdateSlugFn = (nextSlug?: string) => void | Promise<void>;
 
 export function useSuperSlugField(props: SuperSlugInputProps & { apiVersion: string }) {
-  const { schemaType, onChange } = props;
+  const { value, schemaType, onChange } = props;
 
   const slugContext = useSlugContext({ apiVersion: props.apiVersion });
   const getFormValue = useGetFormValue();
+
+  const segments = value?.current?.split('/').slice(0);
+  const folderSlug = segments?.slice(0, -1).join('/');
+  const slug = segments?.slice(-1)[0] ?? '';
 
   /**
    * Updates the slug field in the Sanity document.
@@ -44,6 +48,9 @@ export function useSuperSlugField(props: SuperSlugInputProps & { apiVersion: str
   );
 
   return {
+    segments,
+    folderSlug,
+    slug,
     updateSlug,
   };
 }
