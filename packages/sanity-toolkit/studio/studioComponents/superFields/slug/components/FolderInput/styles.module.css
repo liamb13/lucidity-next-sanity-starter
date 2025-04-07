@@ -1,0 +1,22 @@
+.folderText {
+  /* Apply to the span within the Sanity/UI Text component */
+  span {
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.unlockButton {
+  position: static !important;
+  cursor: pointer;
+
+  /* Make the clickable area span the full height and width of the Folder Input */
+  > span:nth-of-type(2) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+  }
+}

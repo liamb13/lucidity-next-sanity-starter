@@ -15,11 +15,9 @@ import { useSlugPrefix } from '../hooks/useSlugPrefix';
 export function makeSuperSlugInput({ apiVersion }: { apiVersion: string }) {
   const SuperSlugInput: ComponentType<SuperSlugInputProps> = (props) => {
     const { path, readOnly, value, schemaType } = props;
-    const { source: sourceField, hideGenerate = false, folder } = schemaType.options ?? {};
+    const { source: sourceField, hideGenerate = false } = schemaType.options ?? {};
 
     const { prefix } = useSlugPrefix({ ...props, apiVersion });
-
-    const _folderOptions = folder ?? { canUnlock: true };
 
     const fullPathname = `${prefix}${value?.current ?? ''}`;
 
@@ -41,7 +39,9 @@ export function makeSuperSlugInput({ apiVersion }: { apiVersion: string }) {
               {...props}
               apiVersion={apiVersion}
               disabled={isGenerating}
-              onChange={(e) => void superSlugField.updateSlug(e.currentTarget.value)}
+              folderSlug={superSlugField.folderSlug}
+              slug={superSlugField.slug}
+              onChange={superSlugField.updateSlug}
             />
 
             {generateSlugState?.status === 'error' && (

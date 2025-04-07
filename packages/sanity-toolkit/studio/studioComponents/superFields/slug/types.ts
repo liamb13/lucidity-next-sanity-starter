@@ -39,11 +39,6 @@ export type SuperSlugSchemaOptions = SlugOptions & {
   folder?: {
     canUnlock?: boolean;
   };
-  i18n?: {
-    enabled?: boolean;
-    defaultLocaleId?: string;
-    localizeSlug?: LocalizeSlugFn;
-  };
   autoNavigate?: boolean;
   hideGenerate?: boolean;
 };
