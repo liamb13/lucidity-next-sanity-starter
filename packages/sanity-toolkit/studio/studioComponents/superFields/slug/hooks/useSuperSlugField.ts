@@ -6,6 +6,8 @@ import { stringToSlug, getSlugSourceContext } from '../utilities';
 import { useSlugContext } from './useSlugContext';
 import { useSlugPrefix } from './useSlugPrefix';
 import { useSlugGenerator } from './useSlugGenerator';
+import { useSafePresentation } from './useSafePresentation';
+import { useSafeNavigate } from './useSafeNavigate';
 
 export type UpdateSlugFn = (nextSlug?: string) => void | Promise<void>;
 
@@ -33,6 +35,9 @@ export function useSuperSlugField(props: SuperSlugInputProps) {
     [getFormValue, schemaType.name],
   );
 
+  const presentation = useSafePresentation() ?? {};
+  const navigate = useSafeNavigate();
+
   /**
    * Updates the slug field in the Sanity document.
    * Takes the proposed next slug string, processes it using the configured slugify function (or a default),
@@ -43,6 +48,7 @@ export function useSuperSlugField(props: SuperSlugInputProps) {
    */
   const updateSlug: UpdateSlugFn = useCallback(
     async (nextSlug?: string) => {
+      const previousValue = value?.current ?? '';
       const slugifyFn = createSlugifyFn(props, document, slugContext);
 
       const maybePromiseFinalSlug = nextSlug ? slugifyFn(nextSlug) : undefined;
@@ -59,10 +65,35 @@ export function useSuperSlugField(props: SuperSlugInputProps) {
       onChange(PatchEvent.from(patch));
 
       if (afterUpdate) {
-        afterUpdate(props, document, slugContext);
+        afterUpdate({
+          props,
+          document,
+          slugContext,
+          presentation,
+          navigate,
+          previousValue,
+          nextValue: nextSlug ?? '',
+          fullPathname,
+          segments,
+          folderSlug,
+          slug,
+        });
       }
     },
-    [props, document, slugContext, schemaType.name, onChange, afterUpdate],
+    [
+      props,
+      document,
+      slugContext,
+      schemaType.name,
+      onChange,
+      afterUpdate,
+      presentation,
+      navigate,
+      fullPathname,
+      segments,
+      folderSlug,
+      slug,
+    ],
   );
 
   const { generateSlugState, handleGenerateSlug, isGenerating } = useSlugGenerator({

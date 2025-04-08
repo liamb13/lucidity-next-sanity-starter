@@ -2,7 +2,7 @@ import { Button } from '@sanity/ui';
 import { EyeOpenIcon } from '@sanity/icons';
 import { useCallback } from 'react';
 import type { SuperSlugActionsFn } from '../../types';
-import { useSafePreview } from '../../hooks/useSafePreview';
+import { useSafePresentation } from '../../hooks/useSafePresentation';
 import { useSafeNavigate } from '../../hooks/useSafeNavigate';
 import { useIntentLink } from 'sanity/router';
 import { INTENT, INTENT_MODE } from '../../../../../constants/intent';
@@ -12,7 +12,7 @@ export const LivePreviewButton: SuperSlugActionsFn = (props, field) => {
   const { fullPathname } = field;
 
   const navigate = useSafeNavigate();
-  const preview = useSafePreview();
+  const { preview } = useSafePresentation() ?? {};
 
   const intent = useIntentLink({
     intent: INTENT.EDIT,

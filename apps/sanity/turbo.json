@@ -10,13 +10,13 @@
       "cache": false,
       "outputs": ["features/modular-content-blocks/lib/blockSchemaGenerated.ts"]
     },
-    "generate:types": {
-      "dependsOn": ["extract-schema"],
-      "outputs": ["sanity.types.ts", "types/sanity-queries.ts"]
-    },
     "extract-schema": {
       "dependsOn": ["generate:blocks"],
       "outputs": ["schema.json"]
+    },
+    "generate:types": {
+      "dependsOn": ["extract-schema"],
+      "outputs": ["sanity.types.ts", "types/sanity-queries.ts"]
     }
   }
 }
