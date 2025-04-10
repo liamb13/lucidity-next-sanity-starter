@@ -11,11 +11,11 @@ export type UpdateSlugFn = (nextSlug?: string) => void | Promise<void>;
 
 export type UseSuperSlugField = ReturnType<typeof useSuperSlugField>;
 
-export function useSuperSlugField(props: SuperSlugInputProps & { apiVersion: string }) {
-  const { value, schemaType, onChange, apiVersion, path } = props;
-  const { afterUpdate } = schemaType.options ?? {};
+export function useSuperSlugField(props: SuperSlugInputProps) {
+  const { value, schemaType, onChange, path } = props;
+  const { apiVersion, afterUpdate } = schemaType.options;
 
-  const slugContext = useSlugContext({ apiVersion: props.apiVersion });
+  const slugContext = useSlugContext({ apiVersion });
   const getFormValue = useGetFormValue();
 
   const { prefix } = useSlugPrefix({ ...props });
@@ -67,7 +67,7 @@ export function useSuperSlugField(props: SuperSlugInputProps & { apiVersion: str
 
   const { generateSlugState, handleGenerateSlug, isGenerating } = useSlugGenerator({
     apiVersion,
-    sourceField: schemaType.options?.source,
+    sourceField: schemaType.options.source,
     schemaType,
     path,
     folderSlug,
@@ -93,7 +93,7 @@ function createSlugifyFn(
   slugContext: SlugContext,
 ) {
   const { path } = props;
-  const { slugify } = props.schemaType.options ?? {};
+  const { slugify } = props.schemaType.options;
 
   if (!slugify) {
     // Allow trailing slashes to make it possible to create folders, e.g. if user types `/recipes/`, trailing slash is not stripped at this point.

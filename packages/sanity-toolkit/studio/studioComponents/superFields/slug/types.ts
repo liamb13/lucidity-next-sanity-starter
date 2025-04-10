@@ -43,6 +43,7 @@ export type SuperSlugActionsFn = (
  */
 export type SuperSlugSchemaOptions = SlugOptions & {
   prefix?: SlugPrefix;
+  apiVersion: string;
   folder?: {
     canUnlock?: boolean;
   };
@@ -62,13 +63,18 @@ export type SuperSlugSchemaOptions = SlugOptions & {
  */
 export interface SuperSlugSchemaDefinition extends SlugDefinition {
   options?: SlugSchemaType['options'] & SuperSlugSchemaOptions;
-  // @todo May not need this—was ported from another component. If all types working then this is likely fine.
-  // validation?: SchemaValidationValue /** This fixes error "ValidationBuilder<StringRule, string> | undefined is not assignable to type SchemaValidationValue" */;
 }
 
 /** Props passed to this component */
-export interface SuperSlugInputProps extends SlugInputProps {
+export interface SuperSlugInputOriginalProps extends SlugInputProps {
   schemaType: SlugInputProps['schemaType'] & {
     options?: SlugInputProps['schemaType']['options'] & SuperSlugSchemaOptions;
+  };
+}
+
+/** Props passed from root component to all other components. Always initialised with an 'options' object */
+export interface SuperSlugInputProps extends SlugInputProps {
+  schemaType: SlugInputProps['schemaType'] & {
+    options: SlugInputProps['schemaType']['options'] & SuperSlugSchemaOptions;
   };
 }

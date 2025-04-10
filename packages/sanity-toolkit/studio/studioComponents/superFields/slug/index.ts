@@ -1,2 +1,2 @@
-export { makeSuperSlugInput } from './components/SuperSlugInput';
+export { SuperSlugInput } from './components/SuperSlugInput';
 export { defineSuperSlugField } from './defineSuperSlugField';
