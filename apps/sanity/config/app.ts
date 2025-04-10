@@ -41,7 +41,8 @@ export const appConfig = {
      * Often a serverless function that enables `draftMode`.
      * See: https://github.com/sanity-io/visual-editing/tree/main/packages/preview-url-secret#sanitypreview-url-secret
      */
-    draftModeRoute: '/api/sanity/draft',
+    draftModeRouteEnable: '/api/sanity/draft-mode/enable',
+    draftModeRouteDisable: '/api/sanity/draft-mode/disable',
 
     /**
      * This is the document id used for the preview secret that's stored in your dataset. It must have a dot ('.') in it to make it private.
