@@ -49,6 +49,10 @@ export function PathInput(
     [setFolderLocked, pathInputRef],
   );
 
+  const handleBlur: React.FocusEventHandler<HTMLInputElement> = useCallback(() => {
+    setFolderLocked(!!folderSlug);
+  }, [folderSlug, setFolderLocked]);
+
   const handleChange: FormEventHandler<HTMLInputElement> = useCallback(
     (event) => {
       event.preventDefault();
@@ -83,6 +87,7 @@ export function PathInput(
           disabled={disabled}
           value={value ?? ''}
           readOnly={readOnly}
+          onBlur={handleBlur}
           onChange={handleChange}
         />
       </Box>

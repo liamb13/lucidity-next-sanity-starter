@@ -26,9 +26,9 @@
     "generate:types": "npx sanity typegen generate",
     "lint": "pnpm eslint . && pnpm prettier",
     "lint:fix": "pnpm eslint . --fix && pnpm prettier:fix",
-    "postinstall": "pnpm turbo extract-schema generate:blocks generate:types",
-    "prebuild": "pnpm turbo extract-schema generate:blocks generate:types",
-    "predev": "pnpm turbo generate:blocks generate:types",
+    "postinstall": "pnpm turbo generate:types",
+    "prebuild": "pnpm turbo generate:types",
+    "predev": "pnpm turbo generate:types",
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "typecheck": "tsc --project ./tsconfig.json --noEmit"

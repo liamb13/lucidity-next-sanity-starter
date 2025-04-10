@@ -8,6 +8,10 @@ import type {
   SlugInputProps,
 } from 'sanity';
 import type { UseSuperSlugField } from './hooks/useSuperSlugField';
+import type {
+  PresentationNavigateContextValue,
+  PresentationParams,
+} from 'sanity/presentation';
 
 // See: https://github.com/sanity-io/sanity/blob/next/packages/sanity/src/core/form/inputs/Slug/utils/useSlugContext.ts
 export type SlugContext = Omit<SlugSourceContext, 'parent' | 'parentPath'>;
@@ -38,10 +42,24 @@ export type SuperSlugActionsFn = (
   field: UseSuperSlugField,
 ) => JSX.Element | null;
 
+export type SuperSlugAfterUpdateFn = (context: {
+  props: SuperSlugInputProps;
+  document: SanityDocument;
+  slugContext: SlugContext;
+  presentation?: PresentationParams | null;
+  navigate?: PresentationNavigateContextValue | null;
+  previousValue: string;
+  nextValue: string;
+  fullPathname: string;
+  segments: Array<string> | undefined;
+  folderSlug: string | undefined;
+  slug: string;
+}) => void;
+
 /**
- * The available options for a SuperString field.
+ * The available options for a SuperSlug field, as passed to the component props.
  */
-export type SuperSlugSchemaOptions = SlugOptions & {
+export type SuperSlugPropsOptions = SlugOptions & {
   prefix?: SlugPrefix;
   apiVersion: string;
   folder?: {
@@ -49,32 +67,34 @@ export type SuperSlugSchemaOptions = SlugOptions & {
   };
   autoNavigate?: boolean;
   hideGenerate?: boolean;
-  afterUpdate?: (
-    props: SuperSlugInputProps,
-    document: SanityDocument,
-    slugContext: SlugContext,
-  ) => void;
+  afterUpdate?: SuperSlugAfterUpdateFn;
   actions?: Array<SuperSlugActionsFn>;
 };
-
-/**
- * The schema definition for the SuperString field, i.e. within the `defineField({})` call.
- * You can also pass any of the properties of Sanity object types described here: https://www.sanity.io/docs/string-type
- */
-export interface SuperSlugSchemaDefinition extends SlugDefinition {
-  options?: SlugSchemaType['options'] & SuperSlugSchemaOptions;
-}
 
 /** Props passed to this component */
 export interface SuperSlugInputOriginalProps extends SlugInputProps {
   schemaType: SlugInputProps['schemaType'] & {
-    options?: SlugInputProps['schemaType']['options'] & SuperSlugSchemaOptions;
+    options?: SlugInputProps['schemaType']['options'] & SuperSlugPropsOptions;
   };
 }
 
 /** Props passed from root component to all other components. Always initialised with an 'options' object */
 export interface SuperSlugInputProps extends SlugInputProps {
   schemaType: SlugInputProps['schemaType'] & {
-    options: SlugInputProps['schemaType']['options'] & SuperSlugSchemaOptions;
+    options: SlugInputProps['schemaType']['options'] & SuperSlugPropsOptions;
   };
+}
+
+/** The available options for a SuperSlug field, as defined by the user in their schema when using it */
+export type SuperSlugSchemaOptions = Omit<SuperSlugPropsOptions, 'apiVersion'> & {
+  // apiVersion is given a default value if not defined here
+  apiVersion?: SuperSlugPropsOptions['apiVersion'];
+};
+
+/**
+ * The schema definition for the SuperSlug field, i.e. within the `defineField({})` call.
+ * You can also pass any of the properties of Sanity object types described here: https://www.sanity.io/docs/string-type
+ */
+export interface SuperSlugSchemaDefinition extends SlugDefinition {
+  options?: SlugSchemaType['options'] & SuperSlugSchemaOptions;
 }
