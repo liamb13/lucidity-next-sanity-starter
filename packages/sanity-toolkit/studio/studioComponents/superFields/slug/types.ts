@@ -11,7 +11,7 @@ import type { UseSuperSlugField } from './hooks/useSuperSlugField';
 import type {
   PresentationNavigateContextValue,
   PresentationParams,
-} from 'sanity/lib/presentation';
+} from 'sanity/presentation';
 
 // See: https://github.com/sanity-io/sanity/blob/next/packages/sanity/src/core/form/inputs/Slug/utils/useSlugContext.ts
 export type SlugContext = Omit<SlugSourceContext, 'parent' | 'parentPath'>;
