@@ -31,6 +31,15 @@ export default defineConfig({
       defaultDocumentNode,
     }),
     visionTool(),
+    presentationTool({
+      previewUrl: {
+        origin: appConfig.preview.domain,
+        previewMode: {
+          enable: appConfig.preview.draftModeRouteEnable,
+          disable: appConfig.preview.draftModeRouteDisable,
+        },
+      },
+    }),
   ],
 
   document: {
