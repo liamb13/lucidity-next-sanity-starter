@@ -43,7 +43,7 @@ async function main() {
       }
 
       if (text.includes('Select dataset to use') && !text.includes('(Use arrow keys)')) {
-        let cleanedText = text.replace(
+        const cleanedText = text.replace(
           '\x1B[32m?\x1B[39m \x1B[1mSelect dataset to use\x1B[22m\x1B[0m \x1B[0m\n',
           '',
         );
