@@ -119,10 +119,6 @@ async function main() {
       .replace(
         /SANITY_STUDIO_SANITY_DATASET=.*\n?/,
         `SANITY_STUDIO_SANITY_DATASET=${dataset}\n`,
-      )
-      .replace(
-        /SANITY_STUDIO_SANITY_API_VERSION=.*\n?/,
-        'SANITY_STUDIO_SANITY_API_VERSION=2024-03-19\n',
       );
 
     writeFileSync(sanityEnvLocalPath, sanityEnvLocalContent.trim() + '\n');
@@ -136,11 +132,7 @@ async function main() {
         /NEXT_PUBLIC_SANITY_PROJECT_ID=.*\n?/,
         `NEXT_PUBLIC_SANITY_PROJECT_ID=${projectId}\n`,
       )
-      .replace(/NEXT_PUBLIC_SANITY_DATASET=.*\n?/, `NEXT_PUBLIC_SANITY_DATASET=${dataset}\n`)
-      .replace(
-        /NEXT_PUBLIC_SANITY_API_VERSION=.*\n?/,
-        'NEXT_PUBLIC_SANITY_API_VERSION=2024-03-19\n',
-      );
+      .replace(/NEXT_PUBLIC_SANITY_DATASET=.*\n?/, `NEXT_PUBLIC_SANITY_DATASET=${dataset}\n`);
 
     writeFileSync(webEnvLocalPath, webEnvLocalContent.trim() + '\n');
 
@@ -151,8 +143,32 @@ async function main() {
     if (existsSync(sampleDataPath)) {
       console.log('\n📦 Found sample data! Would you like to import it?');
       console.log('This will populate your Sanity dataset with sample content.');
-      console.log('To import the sample data, run:');
-      console.log(`npx sanity dataset import sample-data.tar.gz ${dataset}`);
+
+      // Prompt user for import
+      const { execSync } = await import('child_process');
+      const readline = await import('readline');
+      const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout,
+      });
+
+      const answer = await new Promise<string>((resolve) => {
+        rl.question('Import sample data? (y/N): ', resolve);
+      });
+      rl.close();
+
+      if (answer.toLowerCase() === 'y') {
+        console.log('\n📥 Importing sample data...');
+        try {
+          execSync(`npx sanity dataset import sample-data.tar.gz ${dataset}`, {
+            stdio: 'inherit',
+            cwd: rootDir,
+          });
+          console.log('✅ Sample data imported successfully!');
+        } catch (error) {
+          console.error('❌ Error importing sample data:', error);
+        }
+      }
     }
 
     console.log('\n🎉 Sanity project initialized successfully!');
