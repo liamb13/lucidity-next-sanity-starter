@@ -34,7 +34,7 @@ async function main() {
 
       // Remove the first line of the project selection prompt
       if (text.includes('Create new project') && !text.includes('(Use arrow keys)')) {
-        let cleanedText = text.replace(
+        const cleanedText = text.replace(
           '\x1B[32m?\x1B[39m \x1B[1mCreate a new project or select an existing one\x1B[22m\x1B[0m \x1B[0m\n',
           '',
         );
